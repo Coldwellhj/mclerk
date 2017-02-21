@@ -26,7 +26,7 @@ public class GGroupAdapter extends GBaseAdapter
 			holder = new viewHolder();
 			arg1 = inflater.inflate(R.layout.act_group_item, null);
 			holder.m_imgHeader = (GRoundImageView) arg1.findViewById(R.id.imgHeader);
-			holder.m_txtCaption= (TextView) arg1.findViewById(R.id.txtCaption);		
+			holder.m_txtCaption= (TextView) arg1.findViewById(R.id.txtCaption);
 			holder.m_txtSerialNo= (TextView) arg1.findViewById(R.id.txtSerialNo);
 			holder.m_txtBriefing= (TextView) arg1.findViewById(R.id.txtBriefing);
 			arg1.setTag(holder);			
@@ -51,7 +51,7 @@ public class GGroupAdapter extends GBaseAdapter
 
 	private class viewHolder
 	{
-		private GRoundImageView 	m_imgHeader;
+		private GRoundImageView 			m_imgHeader;
 		private TextView 					m_txtCaption;		
 		private TextView 					m_txtSerialNo;
 		private TextView 					m_txtBriefing;
