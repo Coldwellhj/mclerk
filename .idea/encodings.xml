@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/adapter/GCardKindAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/adapter/GHttpDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/adapter/GSpinnerAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/fragment/GFragmentFive.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/fragment/GFragmentFour.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/fragment/GFragmentOne.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/fragment/GFragmentThree.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/fragment/GFragmentTwo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/fragment/NoCompleteIndent.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardCreate.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardCreateOrder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardGoodsChange.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardKindDetail.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardKindList.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActGroupList.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActUserChangePass.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActUserInfo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActUserLogin.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActWebView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GCashierMain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GSalseMain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GSalseMgr.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/MainActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/userinfo/GOperaterInfo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/AsynImageLoader.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GSvrChannel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUINavigationAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilAsyncHttp.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilBase64.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilDateTimePickDialog.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilDialogTool.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilFile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilImage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilListViewForScrollView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GUtilSDCard.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/GVerticalScrollTextView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/XHttpClientUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/util/XImageDownLoader.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/view/GCouponsView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/view/GProgressWebView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/view/GRoundImageView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/view/RoundImageView.java" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

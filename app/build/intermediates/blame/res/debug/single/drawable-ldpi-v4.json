@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\background_view_rounded_single.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\background_view_rounded_single.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\background_view_rounded_top.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\background_view_rounded_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\background_view_rounded_middle.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\background_view_rounded_middle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\list_corner_round_bottom.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\list_corner_round_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\list_corner_round.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\list_corner_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\list_corner_round_top.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\list_corner_round_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\background_view_rounded_bottom.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\background_view_rounded_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\list_corner_round_center.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-ldpi\\list_corner_round_center.xml"
+    }
+]

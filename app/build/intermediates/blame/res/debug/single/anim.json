@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\left.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\anim\\left.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\backright.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\anim\\backright.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\backleft.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\anim\\backleft.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\right.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\anim\\right.xml"
+    }
+]

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 矢量图形绘制的方式实现简单，适合对于按钮形状和图案要求不高的场合。步骤如下：
+(a) 使用xml定义一个圆角矩形，外围轮廓线实线、内填充渐变色 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+   <item>
+   	  <shape android:shape="rectangle"> 
+         <solid android:color="#FFEC7600" />
+         <corners
+			android:topLeftRadius="5dip"
+	        android:topRightRadius="5dip"
+	        android:bottomLeftRadius="5dip"
+	        android:bottomRightRadius="5dip" />
+      </shape>
+   </item>
+   <item android:top="1px" android:bottom="1px" android:left="1px" android:right="1px">
+     <shape>
+        <gradient 
+        	android:startColor="#FFEC7600" android:endColor="#FFFED69E" 
+        	android:type="linear" android:angle="90"
+			android:centerX="0.5" android:centerY="0.5" />
+		<corners
+			android:topLeftRadius="5dip"
+	        android:topRightRadius="5dip"
+	        android:bottomLeftRadius="5dip"
+	        android:bottomRightRadius="5dip" />
+      </shape>
+   </item>  
+</layer-list>

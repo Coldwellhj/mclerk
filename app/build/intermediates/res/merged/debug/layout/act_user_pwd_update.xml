@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#000000" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="修改密码"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edt_old_pw"
+        android:layout_width="match_parent"
+        android:background="@drawable/login_edit_normal"
+        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:hint="请输入旧密码"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:password="true" />
+
+    <EditText
+        android:id="@+id/edt_new_pw"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_edit_normal"
+        android:hint="请输入新密码"
+         android:singleLine="true"
+        android:textSize="14sp"
+        android:password="true" />
+
+    <EditText
+        android:id="@+id/edt_again_new_pw"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_edit_normal"
+        android:hint="请再次输入新密码"
+         android:singleLine="true"
+        android:textSize="14sp"
+        android:password="true" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login"
+        android:textSize="14sp"
+        android:text="确定" />
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical" >
+
+    <RelativeLayout android:id="@+id/GReportTop"
+    	android:layout_width="fill_parent"
+    	android:layout_height="35dp"
+    	android:layout_alignParentTop="true"
+    	android:paddingLeft="5dp"
+    	android:paddingRight="5dp"
+    	android:background="@color/black"
+    	>
+    	<Button android:id="@+id/btnCreateCardKind"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:gravity="center"
+        	android:layout_centerVertical="true"
+        	android:layout_alignParentRight="true"
+        	android:textSize="12sp"
+        	android:textStyle="bold"
+        	android:background="@drawable/login"      
+        	android:text="新增"/>    	
+        	
+        <Button android:id="@+id/btnSearch"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:gravity="center"
+        	android:layout_centerVertical="true"        	
+        	android:textSize="12sp"
+        	android:textStyle="bold"
+        	android:background="@drawable/login"
+        	android:layout_toLeftOf="@id/btnCreateCardKind"
+        	android:text="搜索"/>
+        
+        <RelativeLayout android:id="@+id/rlSearchFrameDelete"
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+        	android:layout_centerVertical="true"
+			android:gravity="center_vertical"
+            android:layout_toLeftOf="@id/btnSearch">
+            
+		    	<EditText android:id="@+id/etSearch"
+		        	android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+					android:singleLine="true"
+		        	android:background="@drawable/greport_search_frame"
+		        	android:layout_marginRight="10dp"
+		        	android:paddingLeft="30dp"
+		        	android:textSize="16sp"
+		        	android:hint="请输入套餐名称或编号..."/>
+		    	
+		    	<ImageView android:id="@+id/ivDeleteText"
+		    	    android:layout_width="wrap_content"
+		    	    android:layout_height="wrap_content"
+		    	    android:layout_alignParentRight="true"
+		    	    android:src="@drawable/greport_delete"
+		    	    android:layout_centerInParent="true"
+		    	    android:paddingRight="20dp"
+		    	    android:visibility="gone"/>
+            
+        </RelativeLayout>
+</RelativeLayout>
+    <ListView
+        android:id="@+id/lv_card_kind_list"
+        android:divider="@drawable/line_bk_split"
+        android:background="#000000"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+    
+</LinearLayout>
