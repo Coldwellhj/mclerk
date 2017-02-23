@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -72,7 +73,18 @@ public class GActUserInfo extends  Activity
 		ActivityCollector.addActivity(this);			
 		onInitUserInfo();		
     }
-	
+	@Override
+	protected void onResume() {
+		/**
+		 * …Ë÷√Œ™∫·∆¡
+		 */
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE) {
+			if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			}
+		}
+		super.onResume();
+	}
   @Override
 	protected void onDestroy() 
     {

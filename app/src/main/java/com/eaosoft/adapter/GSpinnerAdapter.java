@@ -51,7 +51,7 @@ public class GSpinnerAdapter extends ArrayAdapter<String>
     public View getView(int position, View convertView, ViewGroup parent) 
     {  
         if (convertView == null) 
-        {  
+        {
             LayoutInflater inflater = LayoutInflater.from(context);  
             convertView = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);  
         }  

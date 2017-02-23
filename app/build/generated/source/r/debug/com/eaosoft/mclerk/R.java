@@ -155,20 +155,22 @@ containing a value of this type.
         public static final int gui_navigation_bg=0x7f090008;
         public static final int gui_navigation_line=0x7f090009;
         public static final int gui_navigation_text_color=0x7f09000a;
-        public static final int orange=0x7f09000b;
-        public static final int orange2=0x7f09000c;
-        public static final int possible_result_points=0x7f09000d;
-        public static final int result_minor_text=0x7f09000e;
-        public static final int result_points=0x7f09000f;
-        public static final int result_text=0x7f090010;
-        public static final int result_view=0x7f090011;
-        public static final int rounded_container_border=0x7f090012;
-        public static final int status_text=0x7f090013;
-        public static final int text_color_default=0x7f090014;
-        public static final int text_color_pressed=0x7f090015;
-        public static final int transparent=0x7f090016;
-        public static final int viewfinder_laser=0x7f090017;
-        public static final int viewfinder_mask=0x7f090018;
+        public static final int lightgray=0x7f09000b;
+        public static final int orange=0x7f09000c;
+        public static final int orange2=0x7f09000d;
+        public static final int possible_result_points=0x7f09000e;
+        public static final int printbutton=0x7f09000f;
+        public static final int result_minor_text=0x7f090010;
+        public static final int result_points=0x7f090011;
+        public static final int result_text=0x7f090012;
+        public static final int result_view=0x7f090013;
+        public static final int rounded_container_border=0x7f090014;
+        public static final int status_text=0x7f090015;
+        public static final int text_color_default=0x7f090016;
+        public static final int text_color_pressed=0x7f090017;
+        public static final int transparent=0x7f090018;
+        public static final int viewfinder_laser=0x7f090019;
+        public static final int viewfinder_mask=0x7f09001a;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f070000;
@@ -574,15 +576,7 @@ containing a value of this type.
         public static final int wifi_type_label=0x7f0b008a;
     }
     public static final class style {
-        /** 
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-         */
         public static final int AppBaseTheme=0x7f0c0000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f0c0001;
         public static final int content_page_large_text=0x7f0c0002;
         public static final int content_page_small_text=0x7f0c0003;

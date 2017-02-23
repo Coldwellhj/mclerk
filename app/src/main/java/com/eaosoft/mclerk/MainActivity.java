@@ -16,6 +16,7 @@ import com.eaosoft.util.GUtilSDCard;
 import com.google.zxing.client.android.CaptureActivity;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -90,7 +91,7 @@ public class MainActivity extends FragmentActivity
 	public static final int			UI_OP_ROLE_SUPPER	=0x20;//超级管理员
 
 	//==============================================
-	public static int					m_nOperaterUI=UI_OP_ROLE_SALSE;//
+	public static int					m_nOperaterUI=UI_OP_ROLE_STORE;//
 	public static int					m_oHeadColor=Color.rgb(65,195,168);
 	//==============================================
 	public static boolean 			    m_bUserConfirmBarcode			= true;//是否需要用户确认扫描码
@@ -103,7 +104,9 @@ public class MainActivity extends FragmentActivity
 	//==============================================
 	public static String						m_strDebugCardNo="6921734953018";
 	public static boolean					m_bDebugCardNo=true;
-    @Override
+	public static int mSreenWidth;
+
+	@Override
     protected void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
@@ -124,7 +127,23 @@ public class MainActivity extends FragmentActivity
 			initView();
 			getFragment(1);		
 		}
+		//获取屏幕宽度
+		DisplayMetrics metric = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metric);
+		mSreenWidth = metric.widthPixels;     // 屏幕宽度（像素）
     }
+	@Override
+	protected void onResume() {
+		/**
+		 * 设置为横屏
+		 */
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE) {
+			if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			}
+		}
+		super.onResume();
+	}
     public static void onInitApp(Activity oActivity)
     {
     	
@@ -287,24 +306,43 @@ public class MainActivity extends FragmentActivity
  		
  		//===============================================
  		//本期系统中只有２个Frament
- 		if(m_oMainActivity != null)
- 		{
- 			m_oLayTwo.setVisibility(View.GONE);
- 			m_oLayThree.setVisibility(View.GONE);
- 			m_oLayFour.setVisibility(View.GONE);
- 			
- 			m_oImageTwo.setVisibility(View.GONE);
- 			m_oImageThree.setVisibility(View.GONE);
- 			m_oImageFour.setVisibility(View.GONE);
- 			
- 			m_oTextTwo.setVisibility(View.GONE);
- 			m_oTextThree.setVisibility(View.GONE);
- 			m_oTextFour.setVisibility(View.GONE); 	
- 			
- 			m_oTextFive.setText("管理");
- 			m_oLayOne.setBackgroundColor(m_oHeadColor);
- 			m_oLayFive.setBackgroundColor(m_oHeadColor);
- 		}
+ 		if(m_oMainActivity != null) {
+			if (MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_STORE) {
+				m_oLayOne.setVisibility(View.GONE);
+				m_oLayTwo.setVisibility(View.GONE);
+				m_oLayThree.setVisibility(View.GONE);
+				m_oLayFour.setVisibility(View.GONE);
+				m_oLayFive.setVisibility(View.GONE);
+
+				m_oImageOne.setVisibility(View.GONE);
+				m_oImageTwo.setVisibility(View.GONE);
+				m_oImageThree.setVisibility(View.GONE);
+				m_oImageFour.setVisibility(View.GONE);
+				m_oImageFive.setVisibility(View.GONE);
+
+				m_oTextOne.setVisibility(View.GONE);
+				m_oTextTwo.setVisibility(View.GONE);
+				m_oTextThree.setVisibility(View.GONE);
+				m_oTextFour.setVisibility(View.GONE);
+				m_oTextFive.setVisibility(View.GONE);
+			} else {
+				m_oLayTwo.setVisibility(View.GONE);
+				m_oLayThree.setVisibility(View.GONE);
+				m_oLayFour.setVisibility(View.GONE);
+
+				m_oImageTwo.setVisibility(View.GONE);
+				m_oImageThree.setVisibility(View.GONE);
+				m_oImageFour.setVisibility(View.GONE);
+
+				m_oTextTwo.setVisibility(View.GONE);
+				m_oTextThree.setVisibility(View.GONE);
+				m_oTextFour.setVisibility(View.GONE);
+
+				m_oTextFive.setText("管理");
+				m_oLayOne.setBackgroundColor(m_oHeadColor);
+				m_oLayFive.setBackgroundColor(m_oHeadColor);
+			}
+		}
  	}
 
  	OnClickListener lay_listener = new OnClickListener() 
@@ -475,4 +513,5 @@ public class MainActivity extends FragmentActivity
          }
          return super.onKeyDown(keyCode, event);
      }
+
 }

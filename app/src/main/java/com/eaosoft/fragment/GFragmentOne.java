@@ -110,4 +110,6 @@ public class GFragmentOne extends Fragment
 		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE && m_oWareHouseMain!=null)//这个是仓管员
 			m_oWareHouseMain.onScannerResult(strCardNo, requestCode);
 	}
+	public void printLogin(String strCardNo,int requestCode){
+	}
 }

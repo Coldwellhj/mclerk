@@ -19,6 +19,7 @@ import com.eaosoft.util.GUtilHttp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,18 @@ public class GActGroupList extends  Activity
 		ActivityCollector.addActivity(this);		
 		setResult(RESULT_OK, null);
     }
+	@Override
+	protected void onResume() {
+		/**
+		 * …Ë÷√Œ™∫·∆¡
+		 */
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE) {
+			if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+			}
+		}
+		super.onResume();
+	}
   @Override
 	protected void onDestroy() 
     {

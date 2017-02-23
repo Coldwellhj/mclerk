@@ -54,9 +54,11 @@
     <color name="gui_navigation_bg">#ffe8ecef</color>
     <color name="gui_navigation_line">#ffd3dde6</color>
     <color name="gui_navigation_text_color">#ff333333</color>
+    <color name="lightgray">#DDDDDD</color>
     <color name="orange">#FF5809</color>
     <color name="orange2">#e0620d</color>
     <color name="possible_result_points">#c0ffbd21</color>
+    <color name="printbutton">#1196EE</color>
     <color name="result_minor_text">#ffc0c0c0</color>
     <color name="result_points">#c099cc00</color>
     <color name="result_text">#ffffffff</color>
@@ -228,14 +230,10 @@
     <string name="wifi_ssid_label">Network Name</string>
     <string name="wifi_type_label">Type</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
     <style name="content_page_large_text">
 		<item name="android:duplicateParentState">true</item>
