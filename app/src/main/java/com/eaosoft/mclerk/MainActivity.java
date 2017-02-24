@@ -2,44 +2,41 @@ package com.eaosoft.mclerk;
 
 
 
-import java.io.IOException;
-
-import com.eaosoft.fragment.GFragmentFive;
-import com.eaosoft.fragment.GFragmentFour;
-import com.eaosoft.fragment.GFragmentOne;
-import com.eaosoft.fragment.GFragmentThree;
-import com.eaosoft.fragment.GFragmentTwo;
-
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GUtilSDCard;
-import com.google.zxing.client.android.CaptureActivity;
-
-
-import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.os.Handler;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.eaosoft.fragment.GFragmentFive;
+import com.eaosoft.fragment.GFragmentFour;
+import com.eaosoft.fragment.GFragmentOne;
+import com.eaosoft.fragment.GFragmentThree;
+import com.eaosoft.fragment.GFragmentTwo;
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GUtilSDCard;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends FragmentActivity 
 {
@@ -93,6 +90,7 @@ public class MainActivity extends FragmentActivity
 	//==============================================
 	public static int					m_nOperaterUI=UI_OP_ROLE_STORE;//
 	public static int					m_oHeadColor=Color.rgb(65,195,168);
+	public static int					m_oHeadStoreColor=Color.rgb(235,235,235);
 	//==============================================
 	public static boolean 			    m_bUserConfirmBarcode			= true;//是否需要用户确认扫描码
 	public static final int 			USER_NETWORK_LOGIN  			= 0x00;//用户登录
@@ -513,5 +511,16 @@ public class MainActivity extends FragmentActivity
          }
          return super.onKeyDown(keyCode, event);
      }
+	/**
+	 * 获取现在时间
+	 *
+	 * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
+	 */
+	public static String getStringDate() {
+		Date currentTime = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateString = formatter.format(currentTime);
+		return dateString;
+	}
 
 }

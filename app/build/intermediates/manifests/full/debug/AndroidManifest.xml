@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="17" />
 
     <uses-feature
@@ -42,6 +42,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -152,8 +155,7 @@
         <activity
             android:name="com.google.zxing.client.android.PreferencesActivity"
             android:label="@string/preferences_name"
-            android:stateNotNeeded="true" >
-        </activity>
+            android:stateNotNeeded="true" />
         <activity
             android:name="com.google.zxing.client.android.encode.EncodeActivity"
             android:stateNotNeeded="true" >
@@ -240,6 +242,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.eaosoft.mclerk.GWareHouseFillPrint"
+            android:label="@string/title_activity_gware_house_fill_print" />
+        <activity
+            android:name="com.eaosoft.mclerk.GWareHouseOrderDetail"
+            android:label="@string/title_activity_order_detail" />
+        <activity
+            android:name="com.eaosoft.mclerk.GWareHouseStatistics"
+            android:label="@string/title_activity_gware_house_statistics" />
+        <activity
+            android:name="com.eaosoft.mclerk.GWareHouseStatisticsDetail"
+            android:label="@string/title_activity_gware_house_statistics_detail" />
     </application>
 
 </manifest>

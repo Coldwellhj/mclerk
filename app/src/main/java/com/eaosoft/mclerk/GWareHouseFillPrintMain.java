@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -20,36 +19,36 @@ import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
 
-public class GWareHouseMain
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class GWareHouseFillPrintMain
 {
 	private ScrollView				m_oUserView=null;
 	private Context					m_oContext=null;
 	public GFragmentOne			m_oFragmentOne=null;
 	//=====================================================
 	public RoundImageView		m_oImgHead=null;
-	public LinearLayout				m_oRounddot=null;
-	public ViewPager					m_oImgBanner=null;
-	private TextView				m_txtCardNo=null;
 	public TextView 					m_oShopCaption=null;
 	public TextView 					m_otxtCardNo=null;
-    public TextView 					orderNumber=null;
-    public TextView 					m_ocardNumber=null;
-    public TextView 					m_oorderTime=null;
-    public TextView 					m_osalseman=null;
+	public TextView 					orderNumber=null;
+	public TextView 					m_ocardNumber=null;
+	public TextView 					m_oorderTime=null;
+	public TextView 					m_osalseman=null;
+
     public TextView                m_oCurrentTime=null;
-
-
-
+    public TextView                m_ooddnumbers=null;
+	public TextView                m_odateTime=null;
     //=====================================================
-	public GWareHouseMain(Context oContext)
+	public GWareHouseFillPrintMain(Context oContext)
 	{
 		m_oContext = oContext;
 	}
 	public View OnCreateView()
 	{
 		m_oUserView = new ScrollView(m_oContext);
-        m_oUserView.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );
-        m_oUserView.setFillViewport(true);
+		m_oUserView.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );
+		m_oUserView.setFillViewport(true);
 
         //============================================================================
 		//主背景
@@ -62,9 +61,10 @@ public class GWareHouseMain
         //页面头--
         oMainWin.addView(onCreatePageHead(m_oContext));
         //==========================================================================
-	    //操作区
+	    //中间按钮和操作区
        oMainWin.addView(onCreatePageBody(m_oContext));
 		//==========================================================================
+        //快捷按钮区
 
 		return m_oUserView;
 	}
@@ -73,121 +73,129 @@ public class GWareHouseMain
 		//======================================================================================
 		//主背景
 		LinearLayout oMainWin = new LinearLayout(oContext);  //线性布局方式
-		oMainWin.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为水平排列
-        oMainWin.setLayoutParams( new LayoutParams( LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        //左半边操作按钮
-        LinearLayout oMainWin_left = new LinearLayout(oContext);  //线性布局方式
-        oMainWin_left.setOrientation( LinearLayout.VERTICAL ); //控件对其方式为竖直排列
-        oMainWin_left.setLayoutParams( new LayoutParams(MainActivity.mSreenWidth/4, LayoutParams.MATCH_PARENT));
-        oMainWin_left.setBackgroundResource(R.color.lightgray);
+		oMainWin.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为竖直排列
+		oMainWin.setLayoutParams( new LayoutParams( LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		//左半边操作按钮
+		LinearLayout oMainWin_left = new LinearLayout(oContext);  //线性布局方式
+		oMainWin_left.setOrientation( LinearLayout.VERTICAL ); //控件对其方式为竖直排列
+		oMainWin_left.setLayoutParams( new LayoutParams(MainActivity.mSreenWidth/4, LayoutParams.MATCH_PARENT));
+		oMainWin_left.setBackgroundResource(R.color.lightgray);
 		//======================================================================================
+        RelativeLayout.LayoutParams m_txtCardNo = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) ;
+        m_txtCardNo.setMargins(40,40,10,10);
+        m_otxtCardNo=new TextView(oContext);
+        m_otxtCardNo.setLayoutParams(m_txtCardNo);
+        m_otxtCardNo.setTextSize(16);
+        m_otxtCardNo.setText("房号");
+        m_otxtCardNo.setTextColor(Color.BLACK);
+		oMainWin_left.addView(m_otxtCardNo);
 
+        RelativeLayout.LayoutParams m_oddnumbers = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) ;
+        m_oddnumbers.setMargins(40,40,10,10);
+        m_ooddnumbers=new TextView(oContext);
+        m_ooddnumbers.setLayoutParams(m_oddnumbers);
+        m_ooddnumbers.setTextSize(16);
+        m_ooddnumbers.setText("单号");
+        m_ooddnumbers.setTextColor(Color.BLACK);
+		oMainWin_left.addView(m_ooddnumbers);
+
+		RelativeLayout.LayoutParams m_dateTime = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) ;
+		m_dateTime.setMargins(40,40,10,10);
+		m_odateTime=new TextView(oContext);
+		m_odateTime.setLayoutParams(m_dateTime);
+		m_odateTime.setTextSize(16);
+		m_odateTime.setText("日期");
+		m_odateTime.setTextColor(Color.BLACK);
+		oMainWin_left.addView(m_odateTime);
 
         RelativeLayout.LayoutParams m_oBtnPrintOrder= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
         m_oBtnPrintOrder.setMargins(40,40,40,10);
 		Button	oBtnPrintOrder = new Button(m_oContext);
         oBtnPrintOrder.setLayoutParams(m_oBtnPrintOrder);
-
 		oBtnPrintOrder.setBackgroundResource(R.color.printbutton);
-		oBtnPrintOrder.setText("历史补打");
+		oBtnPrintOrder.setText("查询订单");
 		oBtnPrintOrder.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
         oBtnPrintOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.m_oMainActivity, GWareHouseFillPrint.class);
-                intent.putExtra("UserMgr", "UserMgr");
-                MainActivity.m_oMainActivity.startActivity(intent);
-            }});
-        oMainWin_left.addView(oBtnPrintOrder);
 
-        RelativeLayout.LayoutParams m_oBtnFillPrint= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
-        m_oBtnFillPrint.setMargins(40,40,40,10);
-        Button	oBtnFillPrint = new Button(m_oContext);
-        oBtnFillPrint.setLayoutParams(m_oBtnFillPrint);
-        oBtnFillPrint.setBackgroundResource(R.color.printbutton);
-        oBtnFillPrint.setText("暂停打印");
-        oBtnFillPrint.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
-        oBtnFillPrint.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.m_oMainActivity, GWareHouseStatistics.class);
-                intent.putExtra("UserMgr", "UserMgr");
-                MainActivity.m_oMainActivity.startActivity(intent);
             }});
-        oMainWin_left.addView(oBtnFillPrint);
+		oMainWin_left.addView(oBtnPrintOrder);
 
-        RelativeLayout.LayoutParams m_oBtnViewReport= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
-        m_oBtnViewReport.setMargins(40,40,40,10);
+
+
+        RelativeLayout.LayoutParams m_oBtnPrintConform= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
+		m_oBtnPrintConform.setMargins(40,40,40,10);
         Button	oBtnViewReport = new Button(m_oContext);
-        oBtnViewReport.setLayoutParams(m_oBtnViewReport);
+        oBtnViewReport.setLayoutParams(m_oBtnPrintConform);
         oBtnViewReport.setBackgroundResource(R.color.printbutton);
-        oBtnViewReport.setText("出品汇总");
+        oBtnViewReport.setText("确认补打");
         oBtnViewReport.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
         oBtnViewReport.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
             }});
-        oMainWin_left.addView(oBtnViewReport);
+		oMainWin_left.addView(oBtnViewReport);
 			//======================================================================================
-        //右半边打印详细
-        LinearLayout oMainWin_right = new LinearLayout(oContext);  //线性布局方式
-        oMainWin_right.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为竖直排列
-        oMainWin_right.setLayoutParams( new LayoutParams(MainActivity.mSreenWidth*3/4, LayoutParams.MATCH_PARENT));
-        RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
+		//右半边打印详细
+		LinearLayout oMainWin_right = new LinearLayout(oContext);  //线性布局方式
+		oMainWin_right.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为竖直排列
+		oMainWin_right.setLayoutParams( new LayoutParams(MainActivity.mSreenWidth*3/4, LayoutParams.MATCH_PARENT));
+		RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_orderNumber.setMargins(10,40,10,10);
-        orderNumber=new TextView(oContext);
-        orderNumber.setLayoutParams(m_orderNumber);
-        orderNumber.setTextSize(16);
-        orderNumber.setGravity(Gravity.CENTER);
-        orderNumber.setText("单号");
-        orderNumber.setBackgroundResource(R.color.printbutton);
-        orderNumber.setTextColor(Color.WHITE);
-        oMainWin_right.addView(orderNumber);
+		orderNumber=new TextView(oContext);
+		orderNumber.setLayoutParams(m_orderNumber);
+		orderNumber.setTextSize(16);
+		orderNumber.setGravity(Gravity.CENTER);
+		orderNumber.setText("单号");
+		orderNumber.setBackgroundResource(R.color.printbutton);
+		orderNumber.setTextColor(Color.WHITE);
+		oMainWin_right.addView(orderNumber);
 
-        RelativeLayout.LayoutParams m_txtCardNo= new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5,100) ;
+		RelativeLayout.LayoutParams m_txtCardNum= new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5,100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
-        m_otxtCardNo=new TextView(oContext);
-        m_otxtCardNo.setLayoutParams(m_txtCardNo);
-        m_otxtCardNo.setTextSize(16);
-        m_otxtCardNo.setGravity(Gravity.CENTER);
-        m_otxtCardNo.setText("房号");
-        m_otxtCardNo.setBackgroundResource(R.color.printbutton);
-        m_otxtCardNo.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_otxtCardNo);
-        RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
+		m_otxtCardNo=new TextView(oContext);
+		m_otxtCardNo.setLayoutParams(m_txtCardNum);
+		m_otxtCardNo.setTextSize(16);
+		m_otxtCardNo.setGravity(Gravity.CENTER);
+		m_otxtCardNo.setText("房号");
+		m_otxtCardNo.setBackgroundResource(R.color.printbutton);
+		m_otxtCardNo.setTextColor(Color.WHITE);
+		oMainWin_right.addView(m_otxtCardNo);
+		RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
-        m_ocardNumber=new TextView(oContext);
-        m_ocardNumber.setLayoutParams(m_cardNumber);
-        m_ocardNumber.setTextSize(16);
-        m_ocardNumber.setGravity(Gravity.CENTER);
-        m_ocardNumber.setText("卡号");
-        m_ocardNumber.setBackgroundResource(R.color.printbutton);
-        m_ocardNumber.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_ocardNumber);
-        RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
+		m_ocardNumber=new TextView(oContext);
+		m_ocardNumber.setLayoutParams(m_cardNumber);
+		m_ocardNumber.setTextSize(16);
+		m_ocardNumber.setGravity(Gravity.CENTER);
+		m_ocardNumber.setText("卡号");
+		m_ocardNumber.setBackgroundResource(R.color.printbutton);
+		m_ocardNumber.setTextColor(Color.WHITE);
+		oMainWin_right.addView(m_ocardNumber);
+		RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
-        m_oorderTime=new TextView(oContext);
-        m_oorderTime.setLayoutParams(m_orderTime);
-        m_oorderTime.setTextSize(16);
-        m_oorderTime.setGravity(Gravity.CENTER);
-        m_oorderTime.setText("下单时间");
-        m_oorderTime.setBackgroundResource(R.color.printbutton);
-        m_oorderTime.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_oorderTime);
-        RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
+		m_oorderTime=new TextView(oContext);
+		m_oorderTime.setLayoutParams(m_orderTime);
+		m_oorderTime.setTextSize(16);
+		m_oorderTime.setGravity(Gravity.CENTER);
+		m_oorderTime.setText("下单时间");
+		m_oorderTime.setBackgroundResource(R.color.printbutton);
+		m_oorderTime.setTextColor(Color.WHITE);
+		oMainWin_right.addView(m_oorderTime);
+		RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
-        m_osalseman=new TextView(oContext);
-        m_osalseman.setLayoutParams(m_salseMan);
-        m_osalseman.setTextSize(16);
-        m_osalseman.setGravity(Gravity.CENTER);
-        m_osalseman.setText("销售员");
-        m_osalseman.setBackgroundResource(R.color.printbutton);
-        m_osalseman.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_osalseman);
-        oMainWin.addView(oMainWin_left);
-        oMainWin.addView(oMainWin_right);
+		m_osalseman=new TextView(oContext);
+		m_osalseman.setLayoutParams(m_salseMan);
+		m_osalseman.setTextSize(16);
+		m_osalseman.setGravity(Gravity.CENTER);
+		m_osalseman.setText("销售员");
+		m_osalseman.setBackgroundResource(R.color.printbutton);
+		m_osalseman.setTextColor(Color.WHITE);
+		oMainWin_right.addView(m_osalseman);
+		oMainWin.addView(oMainWin_left);
+		oMainWin.addView(oMainWin_right);
 		return oMainWin;
+
 	}
-
-
 	//=============================================================================================
 	//建立页面头部
 	private View onCreatePageHead(Context oContext)
@@ -205,7 +213,7 @@ public class GWareHouseMain
 		m_oCurrentTime=new TextView(oContext);
 		m_oCurrentTime.setLayoutParams( pCurrentTime);
 		m_oCurrentTime.setTextSize(16);
-		m_oCurrentTime.setText(MainActivity.getStringDate());
+		m_oCurrentTime.setText(getStringDate());
 		m_oCurrentTime.setTextColor(Color.BLACK);
 
 		oSubHeader.addView(m_oCurrentTime);
@@ -271,6 +279,17 @@ public class GWareHouseMain
 	{
 		if(requestCode== MainActivity.USER_GROUP_CHANGE && m_oShopCaption != null)
 				m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
+	}
+	/**
+	 * 获取现在时间
+	 *
+	 * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
+	 */
+	public static String getStringDate() {
+		Date currentTime = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateString = formatter.format(currentTime);
+		return dateString;
 	}
 
 

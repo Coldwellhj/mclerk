@@ -6,7 +6,7 @@ android {
     android {compileOptions.encoding = "GBK"}
     defaultConfig {
         applicationId "com.eaosoft.mclerk"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 17
     }
 

@@ -54,7 +54,7 @@
     <color name="gui_navigation_bg">#ffe8ecef</color>
     <color name="gui_navigation_line">#ffd3dde6</color>
     <color name="gui_navigation_text_color">#ff333333</color>
-    <color name="lightgray">#DDDDDD</color>
+    <color name="lightgray">#EBEBEB</color>
     <color name="orange">#FF5809</color>
     <color name="orange2">#e0620d</color>
     <color name="possible_result_points">#c0ffbd21</color>
@@ -226,6 +226,10 @@
     <string name="result_uri">Found URL</string>
     <string name="result_wifi">Found WLAN Configuration</string>
     <string name="sbc_name">Google Book Search</string>
+    <string name="title_activity_gware_house_fill_print">GWareHouseFillPrint</string>
+    <string name="title_activity_gware_house_statistics">GWareHouseStatistics</string>
+    <string name="title_activity_gware_house_statistics_detail">GWareHouseStatisticsDetail</string>
+    <string name="title_activity_order_detail">OrderDetail</string>
     <string name="wifi_changing_network">Requesting connection to network\u2026</string>
     <string name="wifi_ssid_label">Network Name</string>
     <string name="wifi_type_label">Type</string>

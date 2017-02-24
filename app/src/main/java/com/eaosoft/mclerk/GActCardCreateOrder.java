@@ -208,7 +208,7 @@ public class GActCardCreateOrder extends  Activity
   	{
   	//======================================================================================
   		LinearLayout oHead = new LinearLayout(oContext);  //线性布局方式  
-  		oHead.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为垂直排列  VERTICAL
+  		oHead.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为水平排列  VERTICAL
   		//oHead.setBackgroundColor( 0xff00ffff );        //设置布局板的一个特殊颜色，这可以检验我们会话时候是否有地方颜色不正确！  
   		oHead.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
   		//======================================================================================

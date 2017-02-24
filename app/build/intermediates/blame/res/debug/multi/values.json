@@ -182,14 +182,7 @@
                     "endOffset": 1729
                 },
                 "from": {
-                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 2,
-                        "startOffset": 317,
-                        "endColumn": 41,
-                        "endOffset": 356
-                    }
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -2141,8 +2134,8 @@
                     "startLine": 228,
                     "startColumn": 4,
                     "startOffset": 13362,
-                    "endColumn": 88,
-                    "endOffset": 13446
+                    "endColumn": 85,
+                    "endOffset": 13443
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml"
@@ -2152,21 +2145,47 @@
                 "to": {
                     "startLine": 229,
                     "startColumn": 4,
-                    "startOffset": 13451,
-                    "endColumn": 56,
-                    "endOffset": 13503
+                    "startOffset": 13448,
+                    "endColumn": 86,
+                    "endOffset": 13530
                 },
                 "from": {
-                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 146,
+                        "startColumn": 4,
+                        "startOffset": 9828,
+                        "endColumn": 86,
+                        "endOffset": 9910
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 230,
                     "startColumn": 4,
-                    "startOffset": 13508,
-                    "endColumn": 48,
-                    "endOffset": 13552
+                    "startOffset": 13535,
+                    "endColumn": 99,
+                    "endOffset": 13630
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 147,
+                        "startColumn": 4,
+                        "startOffset": 9915,
+                        "endColumn": 99,
+                        "endOffset": 10010
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 231,
+                    "startColumn": 4,
+                    "startOffset": 13635,
+                    "endColumn": 67,
+                    "endOffset": 13698
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml"
@@ -2174,25 +2193,48 @@
             },
             {
                 "to": {
-                    "startLine": 231,
+                    "startLine": 232,
                     "startColumn": 4,
-                    "startOffset": 13557,
-                    "endLine": 233,
-                    "endColumn": 12,
-                    "endOffset": 13635
+                    "startOffset": 13703,
+                    "endColumn": 88,
+                    "endOffset": 13787
                 },
                 "from": {
-                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 233,
+                    "startColumn": 4,
+                    "startOffset": 13792,
+                    "endColumn": 56,
+                    "endOffset": 13844
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 234,
                     "startColumn": 4,
-                    "startOffset": 13640,
-                    "endLine": 236,
+                    "startOffset": 13849,
+                    "endColumn": 48,
+                    "endOffset": 13893
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 235,
+                    "startColumn": 4,
+                    "startOffset": 13898,
+                    "endLine": 237,
                     "endColumn": 12,
-                    "endOffset": 13707
+                    "endOffset": 13976
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
@@ -2200,12 +2242,12 @@
             },
             {
                 "to": {
-                    "startLine": 237,
+                    "startLine": 238,
                     "startColumn": 4,
-                    "startOffset": 13712,
-                    "endLine": 247,
+                    "startOffset": 13981,
+                    "endLine": 240,
                     "endColumn": 12,
-                    "endOffset": 14272
+                    "endOffset": 14048
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
@@ -2213,12 +2255,12 @@
             },
             {
                 "to": {
-                    "startLine": 248,
+                    "startLine": 241,
                     "startColumn": 4,
-                    "startOffset": 14277,
-                    "endLine": 255,
+                    "startOffset": 14053,
+                    "endLine": 251,
                     "endColumn": 12,
-                    "endOffset": 14664
+                    "endOffset": 14613
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
@@ -2226,12 +2268,12 @@
             },
             {
                 "to": {
-                    "startLine": 256,
+                    "startLine": 252,
                     "startColumn": 4,
-                    "startOffset": 14669,
-                    "endLine": 264,
-                    "endColumn": 9,
-                    "endOffset": 15094
+                    "startOffset": 14618,
+                    "endLine": 259,
+                    "endColumn": 12,
+                    "endOffset": 15005
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
@@ -2239,12 +2281,12 @@
             },
             {
                 "to": {
-                    "startLine": 265,
+                    "startLine": 260,
                     "startColumn": 4,
-                    "startOffset": 15099,
-                    "endLine": 273,
+                    "startOffset": 15010,
+                    "endLine": 268,
                     "endColumn": 9,
-                    "endOffset": 15524
+                    "endOffset": 15435
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
@@ -2252,12 +2294,12 @@
             },
             {
                 "to": {
-                    "startLine": 274,
+                    "startLine": 269,
                     "startColumn": 4,
-                    "startOffset": 15529,
-                    "endLine": 282,
+                    "startOffset": 15440,
+                    "endLine": 277,
                     "endColumn": 9,
-                    "endOffset": 15954
+                    "endOffset": 15865
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
@@ -2265,12 +2307,25 @@
             },
             {
                 "to": {
-                    "startLine": 283,
+                    "startLine": 278,
                     "startColumn": 4,
-                    "startOffset": 15959,
-                    "endLine": 292,
+                    "startOffset": 15870,
+                    "endLine": 286,
                     "endColumn": 9,
-                    "endOffset": 16423
+                    "endOffset": 16295
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 287,
+                    "startColumn": 4,
+                    "startOffset": 16300,
+                    "endLine": 296,
+                    "endColumn": 9,
+                    "endOffset": 16764
                 },
                 "from": {
                     "file": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\values\\styles.xml"
