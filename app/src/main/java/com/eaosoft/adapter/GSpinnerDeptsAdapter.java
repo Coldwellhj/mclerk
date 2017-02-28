@@ -1,9 +1,5 @@
 package com.eaosoft.adapter;
 
-import java.util.Map;
-
-import com.eaosoft.userinfo.GOperaterInfo;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.Gravity;
@@ -11,10 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 public class GSpinnerDeptsAdapter extends ArrayAdapter<String> 
 {  
@@ -72,15 +65,15 @@ public class GSpinnerDeptsAdapter extends ArrayAdapter<String>
      *	private Spinner onCreateDeptSpinner(Context	oContext)
   	{
   		Spinner mSpinnerA = new Spinner(oContext);
-  		String[]  spinnerList = new String[GOperaterInfo.m_oGroupDepts.size()];
+  		String[]  spinnerList = new String[ListActivityBean.m_oGroupDepts.size()];
   		
   		Map map = null;
   		int nUser=-1;
-  		for(int i=0;i<GOperaterInfo.m_oGroupDepts.size();i++)
+  		for(int i=0;i<ListActivityBean.m_oGroupDepts.size();i++)
   		{
-  			map = (Map)GOperaterInfo.m_oGroupDepts.get(i);
+  			map = (Map)ListActivityBean.m_oGroupDepts.get(i);
   			spinnerList[i]=map.get("serialNo").toString();
-  			if(map.get("serialNo").toString().equalsIgnoreCase(GOperaterInfo.m_strDefaultDeptSerialNo))
+  			if(map.get("serialNo").toString().equalsIgnoreCase(ListActivityBean.m_strDefaultDeptSerialNo))
   				nUser=i;
   		}
   		LinearLayout.LayoutParams pCell =new  LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);

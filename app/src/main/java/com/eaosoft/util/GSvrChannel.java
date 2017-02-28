@@ -1,44 +1,33 @@
 package com.eaosoft.util;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
-
 
 import com.eaosoft.mclerk.MainActivity;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.loopj.android.http.AsyncHttpClient;
-
-import org.apache.http.params.CoreConnectionPNames;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.BinaryHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+
+import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.ByteArrayEntity;
 import cz.msebera.android.httpclient.message.BasicHeader;
 import cz.msebera.android.httpclient.protocol.HTTP;
-import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.HeaderElement;
 
 public class GSvrChannel
 {
@@ -112,11 +101,11 @@ public class GSvrChannel
         	 @Override
         	 public void  onSuccess(int statusCode, Header[]headers, String  jsonResponse)
         	 {
-        		 
+
         	 }
              @Override
              public void onSuccess(int statusCode, Header[] headers, JSONObject response) 
-             {            	 
+             {
 				try 
 				{
 					onNetSuccess(response.getInt("code"),response.getString("info"),response);

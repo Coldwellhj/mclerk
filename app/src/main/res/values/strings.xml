@@ -146,4 +146,7 @@
     <string name="title_activity_order_detail">OrderDetail</string>
     <string name="title_activity_gware_house_statistics">GWareHouseStatistics</string>
     <string name="title_activity_gware_house_statistics_detail">GWareHouseStatisticsDetail</string>
+
+    <string name="con_success">连接成功</string>
+    <string name="con_has_discon">连接失败</string>
 </resources>

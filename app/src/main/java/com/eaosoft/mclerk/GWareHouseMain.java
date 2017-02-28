@@ -1,24 +1,46 @@
 package com.eaosoft.mclerk;
 
+import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.eaosoft.adapter.GHttpDAO;
+import com.eaosoft.adapter.GWareHouseAdapter;
 import com.eaosoft.fragment.GFragmentOne;
 import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.Conts;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
+
+import net.posprinter.posprinterface.UiExecute;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
+
+import static com.eaosoft.mclerk.MainActivity.binder;
 
 public class GWareHouseMain
 {
@@ -31,25 +53,59 @@ public class GWareHouseMain
 	public ViewPager					m_oImgBanner=null;
 	private TextView				m_txtCardNo=null;
 	public TextView 					m_oShopCaption=null;
-	public TextView 					m_otxtCardNo=null;
+	public TextView 					m_otxtRoomNo=null;
     public TextView 					orderNumber=null;
     public TextView 					m_ocardNumber=null;
     public TextView 					m_oorderTime=null;
+    public TextView                     oTextBle=null;
     public TextView 					m_osalseman=null;
     public TextView                m_oCurrentTime=null;
+    private ListView							wh_listview=null;
+    private GWareHouseAdapter  m_oWareHouseDetailListAdapter=null;
+    private GHttpDAO						m_oWareHouseDetailListDAO=null;
+    BluetoothAdapter blueadapter;
+    private View dialogView;
+    private ArrayAdapter<String> adapter1,adapter2;
+    private ListView lv1,lv2;
+    AlertDialog dialog;
+    private Button btn_scan;
+    private LinearLayout ll1;
+    public  String mac="";
+    private ArrayList<String> deviceList_bonded=new ArrayList<String>();
+    private ArrayList<String> deviceList_found=new ArrayList<String>();
+    private Handler handler = new Handler( );
+    private Runnable runnable;
 
-
-
+    boolean isConnect;//用来标识连接状态的一个boolean值
     //=====================================================
+
+
 	public GWareHouseMain(Context oContext)
 	{
 		m_oContext = oContext;
+
 	}
 	public View OnCreateView()
 	{
 		m_oUserView = new ScrollView(m_oContext);
         m_oUserView.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );
         m_oUserView.setFillViewport(true);
+        m_oUserView.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                return true;
+            }
+        });
+        runnable = new Runnable() {
+            public void run() {
+                m_oWareHouseDetailListAdapter = new GWareHouseAdapter(MainActivity.m_oMainActivity);
+                m_oWareHouseDetailListDAO = new GHttpDAO(MainActivity.m_oMainActivity,m_oWareHouseDetailListAdapter);
+                wh_listview.setAdapter(m_oWareHouseDetailListAdapter);
+                m_oWareHouseDetailListDAO.getWareHouseDetail();
+                handler.postDelayed(this, 180000);
+                //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
+            }
+        };
 
         //============================================================================
 		//主背景
@@ -68,6 +124,14 @@ public class GWareHouseMain
 
 		return m_oUserView;
 	}
+    AdapterView.OnItemClickListener lv_listener = new AdapterView.OnItemClickListener()
+    {
+        @Override
+        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,	long arg3)
+        {
+
+        }
+    };
 	private View onCreatePageBody(Context oContext)
 	{
 		//======================================================================================
@@ -126,11 +190,40 @@ public class GWareHouseMain
 
             }});
         oMainWin_left.addView(oBtnViewReport);
+        RelativeLayout.LayoutParams m_oEdtBle= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
+        m_oEdtBle.setMargins(40,40,40,10);
+        oTextBle = new TextView(m_oContext);
+        oTextBle.setLayoutParams(m_oEdtBle);
+
+        oTextBle.setBackgroundResource(R.color.lightgray);
+        oTextBle.setText("点击选择蓝牙设备");
+        oTextBle.setTextColor(oTextBle.getResources().getColor(android.R.color.white));
+        oTextBle.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                connectBLE();
+            }});
+        oMainWin_left.addView(oTextBle);
+        RelativeLayout.LayoutParams m_oConnect= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
+        m_oBtnViewReport.setMargins(40,40,40,10);
+        Button	oConnect = new Button(m_oContext);
+        oConnect.setLayoutParams(m_oConnect);
+        oConnect.setBackgroundResource(R.color.printbutton);
+        oConnect.setText("连接");
+        oConnect.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
+        oConnect.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendble();
+            }});
+        oMainWin_left.addView(oConnect);
 			//======================================================================================
         //右半边打印详细
         LinearLayout oMainWin_right = new LinearLayout(oContext);  //线性布局方式
-        oMainWin_right.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为竖直排列
+        oMainWin_right.setOrientation( LinearLayout.VERTICAL ); //控件对其方式为竖直排列
         oMainWin_right.setLayoutParams( new LayoutParams(MainActivity.mSreenWidth*3/4, LayoutParams.MATCH_PARENT));
+
+        LinearLayout oMainWin_right_head = new LinearLayout(oContext);  //线性布局方式
+        oMainWin_right_head.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为水平排列
+        oMainWin_right_head.setLayoutParams( new LayoutParams(MainActivity.mSreenWidth*3/4, LayoutParams.WRAP_CONTENT));
         RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_orderNumber.setMargins(10,40,10,10);
         orderNumber=new TextView(oContext);
@@ -140,18 +233,18 @@ public class GWareHouseMain
         orderNumber.setText("单号");
         orderNumber.setBackgroundResource(R.color.printbutton);
         orderNumber.setTextColor(Color.WHITE);
-        oMainWin_right.addView(orderNumber);
+        oMainWin_right_head.addView(orderNumber);
 
         RelativeLayout.LayoutParams m_txtCardNo= new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5,100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
-        m_otxtCardNo=new TextView(oContext);
-        m_otxtCardNo.setLayoutParams(m_txtCardNo);
-        m_otxtCardNo.setTextSize(16);
-        m_otxtCardNo.setGravity(Gravity.CENTER);
-        m_otxtCardNo.setText("房号");
-        m_otxtCardNo.setBackgroundResource(R.color.printbutton);
-        m_otxtCardNo.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_otxtCardNo);
+        m_otxtRoomNo=new TextView(oContext);
+        m_otxtRoomNo.setLayoutParams(m_txtCardNo);
+        m_otxtRoomNo.setTextSize(16);
+        m_otxtRoomNo.setGravity(Gravity.CENTER);
+        m_otxtRoomNo.setText("房号");
+        m_otxtRoomNo.setBackgroundResource(R.color.printbutton);
+        m_otxtRoomNo.setTextColor(Color.WHITE);
+        oMainWin_right_head.addView(m_otxtRoomNo);
         RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_ocardNumber=new TextView(oContext);
@@ -161,7 +254,7 @@ public class GWareHouseMain
         m_ocardNumber.setText("卡号");
         m_ocardNumber.setBackgroundResource(R.color.printbutton);
         m_ocardNumber.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_ocardNumber);
+        oMainWin_right_head.addView(m_ocardNumber);
         RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_oorderTime=new TextView(oContext);
@@ -171,7 +264,7 @@ public class GWareHouseMain
         m_oorderTime.setText("下单时间");
         m_oorderTime.setBackgroundResource(R.color.printbutton);
         m_oorderTime.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_oorderTime);
+        oMainWin_right_head.addView(m_oorderTime);
         RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, 100) ;
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_osalseman=new TextView(oContext);
@@ -181,7 +274,26 @@ public class GWareHouseMain
         m_osalseman.setText("销售员");
         m_osalseman.setBackgroundResource(R.color.printbutton);
         m_osalseman.setTextColor(Color.WHITE);
-        oMainWin_right.addView(m_osalseman);
+        oMainWin_right_head.addView(m_osalseman);
+
+        wh_listview = new ListView(oContext);
+        wh_listview.setLayoutParams( new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4, LayoutParams.WRAP_CONTENT)) ;
+        wh_listview.setBackgroundColor(Color.WHITE);
+        wh_listview.setOnItemClickListener(lv_listener);
+//        m_oWareHouseDetailListAdapter = new GWareHouseAdapter(MainActivity.m_oMainActivity);
+//        m_oWareHouseDetailListDAO = new GHttpDAO(MainActivity.m_oMainActivity,m_oWareHouseDetailListAdapter);
+//        wh_listview.setAdapter(m_oWareHouseDetailListAdapter);
+//        m_oWareHouseDetailListDAO.getWareHouseDetail();
+        //=============================================================
+
+       handler.postDelayed(runnable,1000); // 开始Timer
+
+
+
+
+
+        oMainWin_right.addView(oMainWin_right_head);
+        oMainWin_right.addView(wh_listview);
         oMainWin.addView(oMainWin_left);
         oMainWin.addView(oMainWin_right);
 		return oMainWin;
@@ -235,7 +347,7 @@ public class GWareHouseMain
 //		m_oUserCaption=new TextView(oContext);
 //		m_oUserCaption.setLayoutParams( pOPName);
 //		m_oUserCaption.setTextSize(16);
-//		m_oUserCaption.setText(GOperaterInfo.m_strRealName);
+//		m_oUserCaption.setText(ListActivityBean.m_strRealName);
 //		m_oUserCaption.setTextColor(Color.WHITE);
 //		m_oShopCaption.setOnClickListener(new View.OnClickListener()
 //		{
@@ -273,6 +385,176 @@ public class GWareHouseMain
 				m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
 	}
 
+    protected void connectBLE() {
+        // TODO Auto-generated method stub
+        setbluetooth();
+        //sendble();
+    }
+    public void sendble() {
+        binder.connectBtPort(oTextBle.getText().toString(), new UiExecute() {
 
+            @Override
+            public void onsucess() {
+                // TODO Auto-generated method stub
+                //连接成功后在UI线程中的执行
+                isConnect=true;
+                Toast.makeText(MainActivity.m_oMainActivity,R.string.con_success,Toast.LENGTH_SHORT).show();
+                oTextBle.setBackgroundResource(R.color.printbutton);
+
+                //此处也可以开启读取打印机的数据
+                //参数同样是一个实现的UiExecute接口对象
+                //如果读的过程重出现异常，可以判断连接也发生异常，已经断开
+                //这个读取的方法中，会一直在一条子线程中执行读取打印机发生的数据，
+                //直到连接断开或异常才结束，并执行onfailed
+                binder.acceptdatafromprinter(new UiExecute() {
+
+                    @Override
+                    public void onsucess() {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @Override
+                    public void onfailed() {
+                        // TODO Auto-generated method stub
+                        isConnect=false;
+                        Toast.makeText(MainActivity.m_oMainActivity, R.string.con_has_discon, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onfailed() {
+                // TODO Auto-generated method stub
+                //连接失败后在UI线程中的执行
+                isConnect=false;
+                Toast.makeText(MainActivity.m_oMainActivity, R.string.con_has_discon, Toast.LENGTH_SHORT).show();
+                //btn0.setText("连接失败");
+            }
+        });
+    }
+    protected void setbluetooth() {
+        // TODO Auto-generated method stub
+        blueadapter= BluetoothAdapter.getDefaultAdapter();
+        //确认开启蓝牙
+        if(!blueadapter.isEnabled()){
+            //请求用户开启
+            Intent intent=new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            MainActivity.m_oMainActivity.startActivityForResult(intent, Conts.ENABLE_BLUETOOTH);
+
+        } else {
+            //蓝牙已开启
+            showblueboothlist();
+        }
+
+    }
+
+    private void showblueboothlist() {
+        if (!blueadapter.isDiscovering()) {
+            blueadapter.startDiscovery();
+        }
+        LayoutInflater inflater=LayoutInflater.from(MainActivity.m_oMainActivity);
+        dialogView=inflater.inflate(R.layout.printer_list, null);
+        adapter1=new ArrayAdapter<String>(MainActivity.m_oMainActivity, android.R.layout.simple_list_item_1, deviceList_bonded);
+        lv1=(ListView) dialogView.findViewById(R.id.listView1);
+        btn_scan=(Button) dialogView.findViewById(R.id.btn_scan);
+        ll1=(LinearLayout) dialogView.findViewById(R.id.ll1);
+        lv2=(ListView) dialogView.findViewById(R.id.listView2);
+        adapter2=new ArrayAdapter<String>(MainActivity.m_oMainActivity, android.R.layout.simple_list_item_1, deviceList_found);
+        lv1.setAdapter(adapter1);
+        lv2.setAdapter(adapter2);
+        dialog=new AlertDialog.Builder(MainActivity.m_oMainActivity).setTitle("BLE").setView(dialogView).create();
+        dialog.show();
+        setlistener();
+        findAvalibleDevice();
+    }
+    private void setlistener() {
+        // TODO Auto-generated method stub
+        btn_scan.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                ll1.setVisibility(View.VISIBLE);
+                //btn_scan.setVisibility(View.GONE);
+            }
+        });
+        //已配对的设备的点击连接
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                // TODO Auto-generated method stub
+                try {
+                    if(blueadapter!=null&&blueadapter.isDiscovering()){
+                        blueadapter.cancelDiscovery();
+
+                    }
+
+                    String msg=deviceList_bonded.get(arg2);
+                    mac=msg.substring(msg.length()-17);
+                    String name=msg.substring(0, msg.length()-18);
+                    //lv1.setSelection(arg2);
+                    dialog.cancel();
+                    oTextBle.setText(mac);
+
+                    //Log.i("TAG", "mac="+mac);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+        //未配对的设备，点击，配对，再连接
+        lv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                // TODO Auto-generated method stub
+                try {
+                    if(blueadapter!=null&&blueadapter.isDiscovering()){
+                        blueadapter.cancelDiscovery();
+
+                    }
+                    String msg=deviceList_found.get(arg2);
+                    mac=msg.substring(msg.length()-17);
+                    String name=msg.substring(0, msg.length()-18);
+                    //lv2.setSelection(arg2);
+                    dialog.cancel();
+                    oTextBle.setText(mac);
+
+                    Log.i("TAG", "mac="+mac);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void findAvalibleDevice() {
+        // TODO Auto-generated method stub
+        //获取可配对蓝牙设备
+        Set<BluetoothDevice> device=blueadapter.getBondedDevices();
+
+        deviceList_bonded.clear();
+        if(blueadapter!=null&&blueadapter.isDiscovering()){
+            adapter1.notifyDataSetChanged();
+        }
+        if(device.size()>0){
+            //存在已经配对过的蓝牙设备
+            for(Iterator<BluetoothDevice> it = device.iterator(); it.hasNext();){
+                BluetoothDevice btd=it.next();
+                deviceList_bonded.add(btd.getName()+'\n'+btd.getAddress());
+                adapter1.notifyDataSetChanged();
+            }
+        }else{  //不存在已经配对过的蓝牙设备
+            deviceList_bonded.add("No can be matched to use bluetooth");
+            adapter1.notifyDataSetChanged();
+        }
+
+    }
 
 }

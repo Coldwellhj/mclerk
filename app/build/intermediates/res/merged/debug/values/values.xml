@@ -120,6 +120,8 @@
     <string name="button_sms">Send SMS</string>
     <string name="button_web_search">Web search</string>
     <string name="button_wifi">Connect to Network</string>
+    <string name="con_has_discon">连接失败</string>
+    <string name="con_success">连接成功</string>
     <string name="contents_contact">Contact info</string>
     <string name="contents_email">Email address</string>
     <string name="contents_location">Geographic coordinates</string>
@@ -234,10 +236,14 @@
     <string name="wifi_ssid_label">Network Name</string>
     <string name="wifi_type_label">Type</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="content_page_large_text">
 		<item name="android:duplicateParentState">true</item>

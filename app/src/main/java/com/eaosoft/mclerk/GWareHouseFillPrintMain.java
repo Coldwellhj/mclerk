@@ -19,9 +19,6 @@ import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class GWareHouseFillPrintMain
 {
 	private ScrollView				m_oUserView=null;
@@ -82,12 +79,12 @@ public class GWareHouseFillPrintMain
 		oMainWin_left.setBackgroundResource(R.color.lightgray);
 		//======================================================================================
         RelativeLayout.LayoutParams m_txtCardNo = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) ;
-        m_txtCardNo.setMargins(40,40,10,10);
-        m_otxtCardNo=new TextView(oContext);
-        m_otxtCardNo.setLayoutParams(m_txtCardNo);
-        m_otxtCardNo.setTextSize(16);
-        m_otxtCardNo.setText("房号");
-        m_otxtCardNo.setTextColor(Color.BLACK);
+		m_txtCardNo.setMargins(40,40,10,10);
+		m_otxtCardNo=new TextView(oContext);
+		m_otxtCardNo.setLayoutParams(m_txtCardNo);
+		m_otxtCardNo.setTextSize(16);
+		m_otxtCardNo.setText("房号");
+		m_otxtCardNo.setTextColor(Color.BLACK);
 		oMainWin_left.addView(m_otxtCardNo);
 
         RelativeLayout.LayoutParams m_oddnumbers = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) ;
@@ -213,7 +210,7 @@ public class GWareHouseFillPrintMain
 		m_oCurrentTime=new TextView(oContext);
 		m_oCurrentTime.setLayoutParams( pCurrentTime);
 		m_oCurrentTime.setTextSize(16);
-		m_oCurrentTime.setText(getStringDate());
+		m_oCurrentTime.setText(MainActivity.getStringDate());
 		m_oCurrentTime.setTextColor(Color.BLACK);
 
 		oSubHeader.addView(m_oCurrentTime);
@@ -243,7 +240,7 @@ public class GWareHouseFillPrintMain
 //		m_oUserCaption=new TextView(oContext);
 //		m_oUserCaption.setLayoutParams( pOPName);
 //		m_oUserCaption.setTextSize(16);
-//		m_oUserCaption.setText(GOperaterInfo.m_strRealName);
+//		m_oUserCaption.setText(ListActivityBean.m_strRealName);
 //		m_oUserCaption.setTextColor(Color.WHITE);
 //		m_oShopCaption.setOnClickListener(new View.OnClickListener()
 //		{
@@ -280,17 +277,7 @@ public class GWareHouseFillPrintMain
 		if(requestCode== MainActivity.USER_GROUP_CHANGE && m_oShopCaption != null)
 				m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
 	}
-	/**
-	 * 获取现在时间
-	 *
-	 * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
-	 */
-	public static String getStringDate() {
-		Date currentTime = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String dateString = formatter.format(currentTime);
-		return dateString;
-	}
+
 
 
 

@@ -1,23 +1,22 @@
 package com.eaosoft.mclerk;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class GActUserChangePass extends Activity 
 {
@@ -115,7 +114,7 @@ public class GActUserChangePass extends Activity
 				return;
 			}
 			/*
-			if (GOperaterInfo.OnCheckPassword(oldpwd) ==false) 
+			if (ListActivityBean.OnCheckPassword(oldpwd) ==false)
 			{
 				MainActivity.onUserMessageBox("密码修改", "旧密码有误，请重新输入！");
 				return;

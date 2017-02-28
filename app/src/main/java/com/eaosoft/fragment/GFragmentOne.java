@@ -1,15 +1,5 @@
 package com.eaosoft.fragment;
 
-import com.eaosoft.mclerk.GActCardCreate;
-import com.eaosoft.mclerk.GActCardCreateOrder;
-import com.eaosoft.mclerk.GActWebView;
-import com.eaosoft.mclerk.GCashierMain;
-import com.eaosoft.mclerk.GSalseMain;
-import com.eaosoft.mclerk.MainActivity;
-import com.eaosoft.mclerk.GWareHouseMain;
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.GSvrChannel;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.eaosoft.mclerk.GActCardCreate;
+import com.eaosoft.mclerk.GActCardCreateOrder;
+import com.eaosoft.mclerk.GActWebView;
+import com.eaosoft.mclerk.GCashierMain;
+import com.eaosoft.mclerk.GSalseMain;
+import com.eaosoft.mclerk.GWareHouseMain;
+import com.eaosoft.mclerk.MainActivity;
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.GSvrChannel;
 
 
 
