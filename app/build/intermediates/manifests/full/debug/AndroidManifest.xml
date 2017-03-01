@@ -279,6 +279,8 @@
         <activity
             android:name="com.eaosoft.mclerk.GWareHouseStatisticsDetail"
             android:label="@string/title_activity_gware_house_statistics_detail" />
+
+        <service android:name="net.posprinter.service.PosprinterService" />
     </application>
 
 </manifest>

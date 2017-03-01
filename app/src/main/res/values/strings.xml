@@ -148,5 +148,8 @@
     <string name="title_activity_gware_house_statistics_detail">GWareHouseStatisticsDetail</string>
 
     <string name="con_success">连接成功</string>
-    <string name="con_has_discon">连接失败</string>
+    <string name="con_has_discon">连接失败</string>not_con_printer
+    <string name="not_con_printer">未连接打印机</string>send_failed
+    <string name="send_failed">发送失败</string>
+    <string name="send_success">发送成功</string>
 </resources>

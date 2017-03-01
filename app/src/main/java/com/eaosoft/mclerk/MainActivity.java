@@ -38,7 +38,6 @@ import com.eaosoft.util.ActivityCollector;
 import com.eaosoft.util.GUtilSDCard;
 
 import net.posprinter.posprinterface.IMyBinder;
-import net.posprinter.posprinterface.UiExecute;
 import net.posprinter.service.PosprinterService;
 
 import java.text.SimpleDateFormat;
@@ -294,20 +293,8 @@ public class MainActivity extends FragmentActivity {
     protected void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-        binder.disconnectCurrentPort(new UiExecute() {
 
-            @Override
-            public void onsucess() {
-                // TODO Auto-generated method stub
 
-            }
-
-            @Override
-            public void onfailed() {
-                // TODO Auto-generated method stub
-
-            }
-        });
         unbindService(conn);
         ActivityCollector.removeActivity(this);
     }

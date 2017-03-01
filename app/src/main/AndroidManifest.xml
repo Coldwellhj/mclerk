@@ -286,6 +286,7 @@
             android:name=".GWareHouseStatisticsDetail"
             android:label="@string/title_activity_gware_house_statistics_detail"></activity>
 
+        <service android:name="net.posprinter.service.PosprinterService"></service>
     </application>
 
 </manifest>

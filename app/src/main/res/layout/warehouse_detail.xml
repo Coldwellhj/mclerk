@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context="com.eaosoft.mclerk.GWareHouseMain">
 
     <LinearLayout
@@ -60,4 +60,14 @@
             android:ellipsize="end"
             android:text="销售员"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/m_oisPrintTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:maxEms="3"
+        android:ellipsize="end"
+        android:text="打印任务索引"/>
+
 </LinearLayout>

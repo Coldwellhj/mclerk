@@ -34,6 +34,8 @@ public class GWareHouseAdapter extends GBaseAdapter
 			holder.m_ocardNumber= (TextView) arg1.findViewById(R.id.m_ocardNumber);
 			holder.m_oorderTime= (TextView) arg1.findViewById(R.id.m_oorderTime);
 			holder.m_osalseman= (TextView) arg1.findViewById(R.id.m_osalseman);
+			holder.m_oisPrintTask= (TextView) arg1.findViewById(R.id.m_oisPrintTask);
+
 			holder.orderNumber.setLayoutParams(new LinearLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, ViewGroup.LayoutParams.WRAP_CONTENT));
 			holder.m_otxtRoomNo.setLayoutParams(new LinearLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, ViewGroup.LayoutParams.WRAP_CONTENT));
 			holder.m_ocardNumber.setLayoutParams(new LinearLayout.LayoutParams(MainActivity.mSreenWidth*3/4/5, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -53,6 +55,8 @@ public class GWareHouseAdapter extends GBaseAdapter
 		holder.m_ocardNumber.setText(map.get("cardUID").toString());
 		holder.m_oorderTime.setText(map.get("orderTime").toString());
 		holder.m_osalseman.setText(map.get("userCaption").toString());
+		holder.m_oisPrintTask.setText(map.get("taskUID").toString());
+
 		//=============================================================================
 		return arg1;
 
@@ -66,5 +70,7 @@ public class GWareHouseAdapter extends GBaseAdapter
 		public TextView 					m_ocardNumber=null;
 		public TextView 					m_oorderTime=null;
 		public TextView 					m_osalseman=null;
+		public TextView 					m_oisPrintTask=null;
+
 	}
 }

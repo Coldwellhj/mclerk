@@ -28,16 +28,21 @@ import android.widget.Toast;
 
 import com.eaosoft.adapter.GHttpDAO;
 import com.eaosoft.adapter.GWareHouseAdapter;
+import com.eaosoft.adapter.GWareHouseGoodsAdapter;
 import com.eaosoft.fragment.GFragmentOne;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.Conts;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
 
+import net.posprinter.posprinterface.ProcessData;
 import net.posprinter.posprinterface.UiExecute;
+import net.posprinter.utils.DataForSendToPrinterTSC;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import static com.eaosoft.mclerk.MainActivity.binder;
@@ -61,7 +66,9 @@ public class GWareHouseMain
     public TextView 					m_osalseman=null;
     public TextView                m_oCurrentTime=null;
     private ListView							wh_listview=null;
+    private ListView							wh_listview_detail=null;
     private GWareHouseAdapter  m_oWareHouseDetailListAdapter=null;
+    private GWareHouseGoodsAdapter  m_oWareHouseGoodsDetailListAdapter=null;
     private GHttpDAO						m_oWareHouseDetailListDAO=null;
     BluetoothAdapter blueadapter;
     private View dialogView;
@@ -77,6 +84,7 @@ public class GWareHouseMain
     private Runnable runnable;
 
     boolean isConnect;//用来标识连接状态的一个boolean值
+    boolean isPrinted;
     //=====================================================
 
 
@@ -101,6 +109,8 @@ public class GWareHouseMain
                 m_oWareHouseDetailListAdapter = new GWareHouseAdapter(MainActivity.m_oMainActivity);
                 m_oWareHouseDetailListDAO = new GHttpDAO(MainActivity.m_oMainActivity,m_oWareHouseDetailListAdapter);
                 wh_listview.setAdapter(m_oWareHouseDetailListAdapter);
+                m_oWareHouseGoodsDetailListAdapter = new GWareHouseGoodsAdapter(MainActivity.m_oMainActivity);
+                wh_listview_detail.setAdapter(m_oWareHouseGoodsDetailListAdapter);
                 m_oWareHouseDetailListDAO.getWareHouseDetail();
                 handler.postDelayed(this, 180000);
                 //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
@@ -204,7 +214,7 @@ public class GWareHouseMain
             }});
         oMainWin_left.addView(oTextBle);
         RelativeLayout.LayoutParams m_oConnect= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
-        m_oBtnViewReport.setMargins(40,40,40,10);
+        m_oConnect.setMargins(40,40,40,10);
         Button	oConnect = new Button(m_oContext);
         oConnect.setLayoutParams(m_oConnect);
         oConnect.setBackgroundResource(R.color.printbutton);
@@ -215,6 +225,122 @@ public class GWareHouseMain
                 sendble();
             }});
         oMainWin_left.addView(oConnect);
+        RelativeLayout.LayoutParams m_oPrint= new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT) ;
+        m_oPrint.setMargins(40,40,40,10);
+        Button	oPrint = new Button(m_oContext);
+        oPrint.setLayoutParams(m_oPrint);
+        oPrint.setBackgroundResource(R.color.printbutton);
+        oPrint.setText("打印");
+        oPrint.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
+        oPrint.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (isConnect) {
+                    // TODO Auto-generated method stub
+                    //向打印机发生打印指令和打印数据，调用此方法
+                    //第一个参数，还是UiExecute接口的实现，分别是发生数据成功和失败后在ui线程的处理
+                    binder.writeDataByYouself(new UiExecute() {
+
+                        @Override
+                        public void onsucess() {
+                            // TODO Auto-generated method stub
+                            Toast.makeText(MainActivity.m_oMainActivity, R.string.send_success, Toast.LENGTH_SHORT)
+                                    .show();
+                            if(wh_listview.getChildAt(0)!=null) {
+                                String taskUID = ((TextView) wh_listview.getChildAt(0).findViewById(R.id.m_oisPrintTask)).getText().toString();
+                                m_oWareHouseDetailListDAO.opPrnTaskComplete(taskUID);
+                                m_oWareHouseDetailListAdapter.notifyDataSetChanged();
+                            }
+                        }
+
+                        @Override
+                        public void onfailed() {
+                            // TODO Auto-generated method stub
+                            Toast.makeText(MainActivity.m_oMainActivity, R.string.send_failed, Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }, new ProcessData() {//第二个参数是ProcessData接口的实现
+                        //这个接口的重写processDataBeforeSend这个处理你要发送的指令
+
+                        @Override
+                        public List<byte[]> processDataBeforeSend() {
+                            // TODO Auto-generated method stub
+                            //初始化一个list
+                            ArrayList<byte[]> list = new ArrayList<byte[]>();
+                            //在打印请可以先设置打印内容的字符编码类型，默认为gbk，请选择打印机可识别的类型，参看编程手册，打印代码页
+                            DataForSendToPrinterTSC.setCharsetName("gbk");//不设置，默认为gbk
+                            //通过工具类得到一个指令的byte[]数据,以文本为例
+                            //首先得设置size标签尺寸,宽60mm,高30mm,也可以调用以dot或inch为单位的方法具体换算参考编程手册
+                            DataForSendToPrinterTSC
+                                    .sizeBymm(60, 60);
+
+                            try {
+                                if(wh_listview.getChildAt(0)!=null) {
+                                    String orderNumber=((TextView)wh_listview.getChildAt(0).findViewById(R.id.orderNumber)).getText().toString();
+                                    String m_otxtRoomNo = ((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_otxtRoomNo)).getText().toString();
+                                    String m_ocardNumber=((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_ocardNumber)).getText().toString();
+                                    String m_ogoodsCaption=((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_ogoodsCaption)).getText().toString();
+                                    String m_ogoodsNumber=((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_ogoodsNumber)).getText().toString();
+                                    String m_ogoodsUnitName=((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_ogoodsUnitName)).getText().toString();
+                                    String m_oorderTime=((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_oorderTime)).getText().toString();
+                                    String m_osalseman=((TextView)wh_listview.getChildAt(0).findViewById(R.id.m_osalseman)).getText().toString();
+                                    list.add((GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
+                                    list.add(("单号：" + orderNumber + "\n").getBytes("gbk"));
+                                    list.add(("房号：" + m_otxtRoomNo + "\n").getBytes("gbk"));
+                                    list.add(("卡号：" + m_ocardNumber + "\n").getBytes("gbk"));
+                                    list.add(("名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
+                                    if(m_ogoodsCaption.length()==2){
+                                        list.add((m_ogoodsCaption + "        ").getBytes("gbk"));
+                                        list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
+                                        list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    }else if (m_ogoodsCaption.length()==4) {
+                                        list.add((m_ogoodsCaption + "    ").getBytes("gbk"));
+                                        list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
+                                        list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    }
+                                    list.add(("下单时间：" + m_oorderTime + "\n").getBytes("gbk"));
+                                    list.add(("销售员：" + m_osalseman + "\n").getBytes("gbk"));
+                                }
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
+
+//                            byte[] data0 = DataForSendToPrinterTSC
+//                                    .sizeBymm(60, 30);
+//                            list.add(data0);
+                            //设置Gap,同上
+//                            list.add(DataForSendToPrinterTSC.gapBymm(0,
+//                                    0));
+//
+//                            //清除缓存
+//                            list.add(DataForSendToPrinterTSC.cls());
+                            //条码指令，参数：int x，x方向打印起始点；int y，y方向打印起始点；
+                            //string font，字体类型；int rotation，旋转角度；
+                            //int x_multiplication，字体x方向放大倍数
+                            //int y_multiplication,y方向放大倍数
+                            //string content，打印内容
+//                            byte[] data1 = DataForSendToPrinterTSC
+//                                    .text(10, 10, "0", 0, 1, 1,
+//                                            "abc123");
+//                            list.add(data1);
+                            //打印直线,int x;int y;int width,线的宽度，int height,线的高度
+//                            list.add(DataForSendToPrinterTSC.bar(20,
+//                                    40, 200, 3));
+                            //打印条码
+//                            list.add(DataForSendToPrinterTSC.barCode(
+//                                    60, 50, "128", 100, 1, 0, 2, 2,
+//                                    "abcdef12345"));
+                            //打印
+
+                           list.add(DataForSendToPrinterTSC.print(1));
+                            return list;
+                        }
+                   });
+                }else {
+                    Toast.makeText(MainActivity.m_oMainActivity, R.string.not_con_printer,Toast.LENGTH_SHORT).show();
+                }
+            }
+            });
+        oMainWin_left.addView(oPrint);
 			//======================================================================================
         //右半边打印详细
         LinearLayout oMainWin_right = new LinearLayout(oContext);  //线性布局方式
@@ -287,13 +413,16 @@ public class GWareHouseMain
         //=============================================================
 
        handler.postDelayed(runnable,1000); // 开始Timer
-
+        wh_listview_detail = new ListView(oContext);
+        wh_listview_detail.setLayoutParams( new RelativeLayout.LayoutParams(MainActivity.mSreenWidth*3/4, LayoutParams.WRAP_CONTENT)) ;
+        wh_listview_detail.setVisibility(View.GONE);
 
 
 
 
         oMainWin_right.addView(oMainWin_right_head);
         oMainWin_right.addView(wh_listview);
+        oMainWin_right.addView(wh_listview_detail);
         oMainWin.addView(oMainWin_left);
         oMainWin.addView(oMainWin_right);
 		return oMainWin;

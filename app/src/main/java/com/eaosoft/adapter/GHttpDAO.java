@@ -203,7 +203,7 @@ public class GHttpDAO
 			public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
 			{
 
-				if(nCode < 0)
+				if(nCode <=0)
 				{
 					MainActivity.MessageBox("读取打印列表",strInfo);
 					MainActivity.onUserMessageBox("读取打印列表",strInfo);
@@ -213,6 +213,7 @@ public class GHttpDAO
 				try
 				{
 					JSONArray xContent=null;
+					JSONArray content=null;
 					JSONObject oData = oJsonData.getJSONObject("data");
 					if(oData == null)
 					{
@@ -220,22 +221,38 @@ public class GHttpDAO
 						MainActivity.onUserMessageBox("读取打印列表","读取打印列表失败，请检查网络是否畅通或者联系管理员！");
 						return;
 					}
-					try{xContent = oData.getJSONArray("content");}catch(JSONException e){xContent=null;}
-					if(xContent==null)
+					try{xContent = oData.getJSONArray("content");
+						}catch(JSONException e){xContent=null;}
+					if(xContent== null)
 						return;
 					List ar = new ArrayList();
 					for(int i=0;i<xContent.length();i++)
 					{
+
 						JSONObject o = xContent.getJSONObject(i);
+
 						Map map = new HashMap();
+
 						map.put("orderUID", GUtilHttp.getJSONObjectValue("orderUID",o));
 						if(map.get("orderUID").toString().length()>0)
 						{
+
 							map.put("orderUID",GUtilHttp.getJSONObjectValue("orderUID",o) );
 							map.put("roomSerialNo", GUtilHttp.getJSONObjectValue("roomSerialNo",o) );
 							map.put("cardUID", GUtilHttp.getJSONObjectValue("cardUID",o) );
 							map.put("orderTime",GUtilHttp.getJSONObjectValue("orderTime",o) );
 							map.put("userCaption", GUtilHttp.getJSONObjectValue("userCaption",o) );
+							content = o.getJSONArray("content");
+							for(int j=0;j<content.length();j++) {
+								JSONObject oo = content.getJSONObject(j);
+								map.put("goodsCaption", GUtilHttp.getJSONObjectValue("goodsCaption", oo));
+								if (map.get("goodsCaption").toString().length() > 0) {
+									map.put("goodsCaption", GUtilHttp.getJSONObjectValue("goodsCaption", oo));
+									map.put("goodsNumber", GUtilHttp.getJSONObjectValue("goodsNumber", oo));
+									map.put("goodsUnitName", GUtilHttp.getJSONObjectValue("goodsUnitName", oo));
+								}
+							}
+							map.put("taskUID", GUtilHttp.getJSONObjectValue("taskUID",o) );
 							ar.add(map);
 						}
 					}
@@ -271,6 +288,64 @@ public class GHttpDAO
 		}
 		catch(Exception e){
 			e.printStackTrace();
+		}
+	}
+	public void opPrnTaskComplete(String taskUID)
+	{
+		GSvrChannel svr= 	new GSvrChannel()
+		{
+			public void onNetFailure(int statusCode,String strInfo)
+			{
+				MainActivity.MessageBox("打印任务","statusCode:"+statusCode+",Info:"+strInfo);
+				MainActivity.onUserMessageBox("打印任务", "打印任务失败，请检查网络是否畅通或者联系管理员！");
+			}
+			public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
+			{
+				if(nCode < 0)
+				{
+					MainActivity.MessageBox("打印任务",strInfo);
+					MainActivity.onUserMessageBox("打印任务",strInfo);
+					return;
+				}
+
+				try
+				{
+					JSONObject oData = oJsonData.getJSONObject("data");
+					if(oData == null)
+					{
+						MainActivity.MessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+						MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+						return;
+					}
+						if(GUtilHttp.getJSONObjectValue("taskUID",oData)!=null){
+							m_oAdapter.deletePrintTaskItem(GUtilHttp.getJSONObjectValue("taskUID",oData));
+							m_oAdapter.notifyDataSetChanged();
+						}
+
+
+				}
+				catch (JSONException e)
+				{
+					e.printStackTrace();
+					MainActivity.MessageBox("打印任务",e.getMessage());
+					MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+					return;
+				}
+			}
+		};
+		try
+		{
+			JSONObject   requestDatas = new JSONObject();
+
+			requestDatas.put("taskUID", taskUID);
+			svr.m_oCurrentActivity = MainActivity.m_oMainActivity;
+			svr.onPost("api/mobile/opPrnTaskComplete.do", requestDatas);
+		}
+		catch (JSONException e)
+		{
+			e.printStackTrace();
+			MainActivity.MessageBox("打印任务",e.getMessage());
+			MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
 		}
 	}
 }

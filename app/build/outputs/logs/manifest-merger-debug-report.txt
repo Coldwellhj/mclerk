@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:2:1-291:12
+ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:2:1-292:12
 	package
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:4:5-33
 		INJECTED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml
@@ -172,7 +172,7 @@ ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:72:22-90
 application
-ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:79:5-289:19
+ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:79:5-290:19
 	android:label
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:83:9-41
 	android:allowBackup
@@ -433,3 +433,7 @@ ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xm
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:287:13-81
 	android:name
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:286:13-55
+service#net.posprinter.service.PosprinterService
+ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:289:9-84
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:289:18-73
