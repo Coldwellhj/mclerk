@@ -3,7 +3,7 @@
     package="com.eaosoft.mclerk.test" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <instrumentation

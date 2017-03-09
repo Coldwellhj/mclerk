@@ -1,22 +1,17 @@
 package com.eaosoft.userinfo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-
 
 import com.eaosoft.mclerk.MainActivity;
 import com.eaosoft.util.GUtilBase64;
 import com.eaosoft.util.GUtilFile;
 import com.eaosoft.util.GUtilSDCard;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOperaterInfo
 {
@@ -194,7 +189,7 @@ public class GOperaterInfo
 	}
 	public static String OnMakePassword(String strPassword)
 	{
-			return GUtilBase64.MD5(GUtilBase64.encode(strPassword));				
+			return GUtilBase64.MD5(GUtilBase64.encode(strPassword));
 	}
 	public static boolean OnCheckPassword(String strPassword)
 {

@@ -1,25 +1,5 @@
 package com.eaosoft.mclerk;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
-
-import com.eaosoft.mclerk.R;
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilFile;
-import com.eaosoft.util.GUtilHttp;
-import com.eaosoft.util.GUtilSDCard;
-import com.eaosoft.util.XImageDownLoader;
-import com.eaosoft.util.XImageDownLoader.DownLoaderListener;
-import com.eaosoft.view.RoundImageView;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -31,16 +11,33 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.RelativeLayout;
+
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilFile;
+import com.eaosoft.util.GUtilHttp;
+import com.eaosoft.util.GUtilSDCard;
+import com.eaosoft.util.XImageDownLoader;
+import com.eaosoft.util.XImageDownLoader.DownLoaderListener;
+import com.eaosoft.view.RoundImageView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GActUserLogin extends  Activity 
 {
@@ -158,8 +155,10 @@ public class GActUserLogin extends  Activity
 							JSONArray oRoomList=null ;
 							try{oRoomList = oData.getJSONArray("coGroupRooms");}//包房号码列表
 							catch(JSONException e){oRoomList=null;}
-							if(oRoomList != null)
+
+							if(oRoomList!=null)
 							{
+
 								GOperaterInfo.m_oGroupDepts.clear();								
 								for(int i=0;i<oRoomList.length();i++)
 								{
@@ -206,7 +205,6 @@ public class GActUserLogin extends  Activity
 				JSONObject   requestDatas = new JSONObject();
 				requestDatas.put("cellPhone",  m_oEdtUname.getText().toString());
 				requestDatas.put("password", GOperaterInfo.OnMakePassword(m_oEdtUpwd.getText().toString()));
-
 				svr.m_oCurrentActivity=(Activity)v.getTag();
 				svr.onPost("api/mobile/opLogin.do", requestDatas);
 			}

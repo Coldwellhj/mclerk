@@ -66,7 +66,15 @@ public class GFragmentOne extends Fragment
 		ot.setText("GFragmentOne 1");
 		m_oUserView.addView(ot);
 		return m_oUserView;
-	}	
+	}
+	public void OnRefresh()
+	{
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE)//这个是仓管员
+		{
+			if(m_oWareHouseMain!=null)
+				m_oWareHouseMain.OnRefresh();
+		}
+	}
 	public void onScannerResult(String strCardNo,int requestCode)
 	{
 		switch(requestCode)

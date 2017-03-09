@@ -71,6 +71,8 @@ public class MainActivity extends FragmentActivity {
     public static final int PROGRESS_NETWORK_WAIT_END = 2;
     public static final int JUMP_FRAME_PAGE = 3;//跳转到
     public static final int FINISH_APP = -9999;//结束进程
+    public static final int USER_REFRESH_MAINFACE = 100;//刷新主界面
+
     //==================================================
     private GFragmentOne m_oFragmentOne = null;
     private GFragmentTwo m_oFragmentTwo = null;
@@ -105,6 +107,7 @@ public class MainActivity extends FragmentActivity {
     public static final int UI_OP_ROLE_CHIFE = 0x10;//总监
     public static final int UI_OP_ROLE_SUPPER = 0x20;//超级管理员
 
+
     //==============================================
     public static int m_nOperaterUI = UI_OP_ROLE_STORE;//
     public static int m_oHeadColor = Color.rgb(65, 195, 168);
@@ -118,9 +121,10 @@ public class MainActivity extends FragmentActivity {
     public static final int SCAN_CODE_CAED_CREATE = 0x04;//扫码建新卡
     public static final int USER_GROUP_CHANGE = 0x10;//更换门店
     //==============================================
-    public static String m_strDebugCardNo = "6921734953018";
+    public static String m_strDebugCardNo = "6921734953017";
     public static boolean m_bDebugCardNo = true;
     public static int mSreenWidth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,8 +143,8 @@ public class MainActivity extends FragmentActivity {
             Intent intent = new Intent(this, GActUserLogin.class);
             startActivityForResult(intent, USER_NETWORK_LOGIN);
         } else {
-            initView();
-            getFragment(1);
+                initView();
+                getFragment(1);
         }
 
         //获取屏幕宽度
@@ -188,10 +192,15 @@ public class MainActivity extends FragmentActivity {
             try {
                 super.handleMessage(msg);
                 switch (msg.what) {
+                    case USER_REFRESH_MAINFACE:
+                    {
+                        if (MainActivity.m_oMainActivity.m_oFragmentOne != null)
+                            MainActivity.m_oMainActivity.m_oFragmentOne.OnRefresh();
+                    }break;
                     case FINISH_APP: {
                         MainActivity.m_oMainActivity.finish();
                         System.exit(0);
-                    }
+                    }break;
                     case PROGRESS_NETWORK_WAIT_START: {
                         //if(m_oProgressDialog==null)
 
@@ -240,10 +249,13 @@ public class MainActivity extends FragmentActivity {
             return;
         if (requestCode == USER_NETWORK_LOGIN && data != null) {
             if (data.getStringExtra("login_result").equalsIgnoreCase("login_ok")) {
-                // 初始化控件
-                initView();
-                getFragment(1);
-                return;
+
+                    // 初始化控件
+                    initView();
+                    getFragment(1);
+                    return;
+
+
             }
         }
         if (requestCode == USER_GROUP_CHANGE)//用户更换门店了

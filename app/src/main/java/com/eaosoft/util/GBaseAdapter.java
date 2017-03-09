@@ -23,7 +23,11 @@ public class GBaseAdapter extends BaseAdapter
 	public void setData(List ar)
 	{
 		this.ar=ar;
-	};
+	}
+	public List getData()
+	{
+		return ar;
+	}
 	@Override
 	public int getCount()
 	{
