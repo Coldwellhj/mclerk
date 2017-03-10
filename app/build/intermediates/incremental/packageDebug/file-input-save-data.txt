@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Mar 08 18:53:04 GMT+08:00 2017
+#Thu Mar 09 16:14:58 GMT+08:00 2017
 122.file=C\:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\small_bg.png
 60.set=ANDROID_RESOURCE
 129.file=C\:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\ic_preference_last_pressed.9.png

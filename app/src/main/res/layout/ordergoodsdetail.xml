@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:textSize="15sp"
             android:gravity="center"
             android:text="名称"/>
         <TextView
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-
+            android:textSize="15sp"
             android:text="数量"
             />
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-
+            android:textSize="15sp"
             android:text="单位"/>
         </LinearLayout>
 </LinearLayout>

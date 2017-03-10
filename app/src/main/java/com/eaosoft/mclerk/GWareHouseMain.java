@@ -155,6 +155,7 @@ public class GWareHouseMain {
             intent.putExtra("orderTime",(String)map.get("orderTime"));
             intent.putExtra("userCaption",(String)map.get("userCaption"));
             intent.putExtra("taskUID",(String)map.get("taskUID"));
+            intent.putExtra("fillPrint","nofillPrint");
             intent.putExtra("ar1",(Serializable)(List<Map>)map.get("ar1"));
 
 
@@ -228,13 +229,8 @@ public class GWareHouseMain {
         oBtnViewReport.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
         oBtnViewReport.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if( wh_listview.getChildAt(0)!=null) {
-                    String taskUID = ((TextView) wh_listview.getChildAt(0).findViewById(R.id.m_oisPrintTask)).getText().toString();
-                    m_oWareHouseDetailListDAO.opPrnTaskComplete(taskUID);
-
-                }
-//                m_oWareHouseDetailListAdapter.notifyDataSetChanged();
-
+               Intent intent =new Intent(MainActivity.m_oMainActivity,GWareHouseStatistics.class);
+               MainActivity.m_oMainActivity.startActivity(intent);
             }
         });
         oMainWin_left.addView(oBtnViewReport);
@@ -658,13 +654,8 @@ public class GWareHouseMain {
                             .show();
                     if (wh_listview.getChildAt(0) != null) {
                         String taskUID = ((TextView) wh_listview.getChildAt(0).findViewById(R.id.m_oisPrintTask)).getText().toString();
-                        m_oWareHouseDetailListAdapter.deletePrintTaskItem(taskUID);
-                        m_oWareHouseDetailListAdapter.notifyDataSetChanged();
                         m_oWareHouseDetailListDAO.opPrnTaskComplete(taskUID);
 
-                        Message msg =Message.obtain();
-                        msg.what= 1;
-                        mHandler.sendMessage(msg);
 
 
                     }
