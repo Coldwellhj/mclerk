@@ -1,6 +1,7 @@
 package com.eaosoft.mclerk;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.Toast;
@@ -24,6 +25,9 @@ public class GWareHouseFillPrint extends Activity {
     protected void onResume() {
         super.onResume();
         m_oWareHouseFillPrintMain.onResume();
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
     }
 
     public static void onUserMessageBox(String strTitle, String strText) {

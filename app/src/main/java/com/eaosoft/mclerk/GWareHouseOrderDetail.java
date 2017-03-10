@@ -2,6 +2,7 @@ package com.eaosoft.mclerk;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -57,6 +58,14 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
         initData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+    }
+
     private void initData() {
         Intent intent = this.getIntent();
         orderUID = intent.getStringExtra("orderUID");
@@ -80,7 +89,7 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
     }
 
     private void initView() {
-        tv_package = (TextView) findViewById(R.id.tv_package);
+//        tv_package = (TextView) findViewById(R.id.tv_package);
         orderNumber = (TextView) findViewById(R.id.orderNumber);
         orderTime = (TextView) findViewById(R.id.orderTime);
         roomNumber = (TextView) findViewById(R.id.roomNumber);
@@ -175,7 +184,7 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                 }
 
 
-                                list.add(DataForSendToPrinterTSC.print(1));
+                                DataForSendToPrinterTSC.print(1);
                                 return list;
                             }
                         });
@@ -261,7 +270,7 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                 }
 
 
-                                list.add(DataForSendToPrinterTSC.print(1));
+                                DataForSendToPrinterTSC.print(1);
                                 return list;
                             }
                         });

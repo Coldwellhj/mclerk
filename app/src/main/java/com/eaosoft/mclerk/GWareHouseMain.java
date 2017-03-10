@@ -61,6 +61,9 @@ public class GWareHouseMain {
     public TextView orderNumber = null;
     public TextView m_ocardNumber = null;
     public TextView m_oorderTime = null;
+    public TextView view1 = null;
+    public TextView view2 = null;
+    public TextView view3 = null;
     public TextView oTextBle = null;
     public TextView m_osalseman = null;
     public TextView m_oCurrentTime = null;
@@ -176,24 +179,34 @@ public class GWareHouseMain {
         oMainWin_left.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth / 4, LayoutParams.MATCH_PARENT));
         oMainWin_left.setBackgroundResource(R.color.lightgray);
         //======================================================================================
-
-
+        RelativeLayout.LayoutParams view_one = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 5);
+        view1 = new TextView(m_oContext);
+        view1.setLayoutParams(view_one);
+        view1.setBackgroundResource(R.color.lightgray);
+        view1.setText("");
+        view1.setTextColor(view1.getResources().getColor(android.R.color.white));
+        oMainWin_left.addView(view1);
         RelativeLayout.LayoutParams m_oBtnPrintOrder = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         m_oBtnPrintOrder.setMargins(40, 40, 40, 10);
         Button oBtnPrintOrder = new Button(m_oContext);
         oBtnPrintOrder.setLayoutParams(m_oBtnPrintOrder);
-
         oBtnPrintOrder.setBackgroundResource(R.color.printbutton);
         oBtnPrintOrder.setText("历史补打");
         oBtnPrintOrder.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
         oBtnPrintOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.m_oMainActivity, GWareHouseFillPrint.class);
-                intent.putExtra("UserMgr", "UserMgr");
                 MainActivity.m_oMainActivity.startActivity(intent);
             }
         });
         oMainWin_left.addView(oBtnPrintOrder);
+        RelativeLayout.LayoutParams view_two = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 20);
+        view2 = new TextView(m_oContext);
+        view2.setLayoutParams(view_two);
+        view2.setBackgroundResource(R.color.lightgray);
+        view2.setText("");
+        view2.setTextColor(view2.getResources().getColor(android.R.color.white));
+        oMainWin_left.addView(view2);
 
         RelativeLayout.LayoutParams m_oBtnFillPrint = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         m_oBtnFillPrint.setMargins(40, 40, 40, 10);
@@ -219,7 +232,13 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oBtnFillPrint);
-
+        RelativeLayout.LayoutParams view_three = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 20);
+        view3 = new TextView(m_oContext);
+        view3.setLayoutParams(view_three);
+        view3.setBackgroundResource(R.color.lightgray);
+        view3.setText("");
+        view3.setTextColor(view3.getResources().getColor(android.R.color.white));
+        oMainWin_left.addView(view3);
         RelativeLayout.LayoutParams m_oBtnViewReport = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         m_oBtnViewReport.setMargins(40, 40, 40, 10);
         Button oBtnViewReport = new Button(m_oContext);
@@ -234,7 +253,7 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oBtnViewReport);
-        RelativeLayout.LayoutParams m_oEdtBle = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams m_oEdtBle = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
         m_oEdtBle.setMargins(40, 40, 40, 10);
         oTextBle = new TextView(m_oContext);
         oTextBle.setLayoutParams(m_oEdtBle);
@@ -286,7 +305,7 @@ public class GWareHouseMain {
         oMainWin_right_head.setOrientation(LinearLayout.HORIZONTAL); //控件对其方式为水平排列
         oMainWin_right_head.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth * 3 / 4, LayoutParams.WRAP_CONTENT));
 
-        RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+        RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_orderNumber.setMargins(10,40,10,10);
         orderNumber = new TextView(oContext);
         orderNumber.setLayoutParams(m_orderNumber);
@@ -297,7 +316,7 @@ public class GWareHouseMain {
         orderNumber.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(orderNumber);
 
-        RelativeLayout.LayoutParams m_txtCardNo = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+        RelativeLayout.LayoutParams m_txtCardNo = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_otxtRoomNo = new TextView(oContext);
         m_otxtRoomNo.setLayoutParams(m_txtCardNo);
@@ -307,7 +326,7 @@ public class GWareHouseMain {
         m_otxtRoomNo.setBackgroundResource(R.color.printbutton);
         m_otxtRoomNo.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(m_otxtRoomNo);
-        RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+        RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_ocardNumber = new TextView(oContext);
         m_ocardNumber.setLayoutParams(m_cardNumber);
@@ -317,7 +336,7 @@ public class GWareHouseMain {
         m_ocardNumber.setBackgroundResource(R.color.printbutton);
         m_ocardNumber.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(m_ocardNumber);
-        RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+        RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_oorderTime = new TextView(oContext);
         m_oorderTime.setLayoutParams(m_orderTime);
@@ -327,7 +346,7 @@ public class GWareHouseMain {
         m_oorderTime.setBackgroundResource(R.color.printbutton);
         m_oorderTime.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(m_oorderTime);
-        RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+        RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_osalseman = new TextView(oContext);
         m_osalseman.setLayoutParams(m_salseMan);
@@ -750,7 +769,7 @@ public class GWareHouseMain {
 //                                    "abcdef12345"));
                     //打印
 
-                    list.add(DataForSendToPrinterTSC.print(1));
+                   DataForSendToPrinterTSC.print(1);
                     return list;
                 }
             });

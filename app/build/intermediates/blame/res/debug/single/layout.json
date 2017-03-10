@@ -52,6 +52,10 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\act_card_goods_change_list.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\statisticsgoodsdetail.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\statisticsgoodsdetail.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_book_contents.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\search_book_contents.xml"
     },

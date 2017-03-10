@@ -235,7 +235,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		oMainWin_right_head.setOrientation(LinearLayout.HORIZONTAL); //控件对其方式为水平排列
 		oMainWin_right_head.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth * 3 / 4, LayoutParams.WRAP_CONTENT));
 
-		RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+		RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_orderNumber.setMargins(10,40,10,10);
 		orderNumber = new TextView(oContext);
 		orderNumber.setLayoutParams(m_orderNumber);
@@ -246,7 +246,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		orderNumber.setTextColor(Color.WHITE);
 		oMainWin_right_head.addView(orderNumber);
 
-		RelativeLayout.LayoutParams m_txtCardNum = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+		RelativeLayout.LayoutParams m_txtCardNum = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
 		m_otxtRoomNo = new TextView(oContext);
 		m_otxtRoomNo.setLayoutParams(m_txtCardNum);
@@ -256,7 +256,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		m_otxtRoomNo.setBackgroundResource(R.color.printbutton);
 		m_otxtRoomNo.setTextColor(Color.WHITE);
 		oMainWin_right_head.addView(m_otxtRoomNo);
-		RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+		RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
 		m_ocardNumber = new TextView(oContext);
 		m_ocardNumber.setLayoutParams(m_cardNumber);
@@ -266,7 +266,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		m_ocardNumber.setBackgroundResource(R.color.printbutton);
 		m_ocardNumber.setTextColor(Color.WHITE);
 		oMainWin_right_head.addView(m_ocardNumber);
-		RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+		RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
 		m_oorderTime = new TextView(oContext);
 		m_oorderTime.setLayoutParams(m_orderTime);
@@ -276,7 +276,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		m_oorderTime.setBackgroundResource(R.color.printbutton);
 		m_oorderTime.setTextColor(Color.WHITE);
 		oMainWin_right_head.addView(m_oorderTime);
-		RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 100);
+		RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
 //        m_txtCardNo.setMargins(40,40,10,10);
 		m_osalseman = new TextView(oContext);
 		m_osalseman.setLayoutParams(m_salseMan);

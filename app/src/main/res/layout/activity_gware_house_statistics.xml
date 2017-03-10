@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:text="显示实时时间"
             android:textSize="18sp" />
 
@@ -26,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:text="门店"
             android:textSize="18sp" />
 
@@ -45,9 +47,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="100px"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="单位"
+                    android:text="数量"
                     android:textColor="@color/encode_view"
                     android:textSize="18sp" />
 
@@ -85,12 +85,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="数量"
+                    android:text="单位"
                     android:textColor="@color/encode_view"
                     android:textSize="18sp" />
 
             </LinearLayout>
         <com.eaosoft.view.LoadMoreListView
+            android:id="@+id/lv_goodsStatistics"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </com.eaosoft.view.LoadMoreListView>
@@ -99,7 +100,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5">
+            android:layout_weight="10">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -151,6 +152,18 @@
                     android:layout_weight="1"
                     android:background="@color/printbutton"
                     android:text="打印报表"
+                    android:textColor="@color/encode_view"
+                    android:textSize="18sp" />
+                <Button
+                    android:id="@+id/look_statistics_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/printbutton"
+                    android:text="查看详情"
                     android:textColor="@color/encode_view"
                     android:textSize="18sp" />
             </LinearLayout>

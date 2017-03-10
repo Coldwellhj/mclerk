@@ -13,13 +13,13 @@
         android:layout_marginBottom="40dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_package"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/lightgray"
-            android:gravity="center"
-            android:text="套餐名称" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_package"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/lightgray"-->
+            <!--android:gravity="center"-->
+            <!--android:text="套餐名称" />-->
 
         <TextView
             android:layout_width="match_parent"
@@ -27,6 +27,7 @@
             android:background="@color/printbutton"
             android:gravity="center"
             android:text="酒卡出品单"
+            android:textSize="22sp"
             android:textColor="@color/encode_view" />
 
         <LinearLayout
@@ -39,12 +40,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="10dp"
+                android:textSize="18sp"
                 android:text="单        号" />
 
             <TextView
                 android:id="@+id/orderNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
@@ -58,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 android:text="出品时间" />
 
@@ -66,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
 
@@ -78,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 android:text="房间号码" />
 
@@ -86,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
 
@@ -98,6 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 android:text="出  品  人" />
 
@@ -106,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
 
@@ -119,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:text="名称" />
@@ -129,13 +139,14 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 android:text="数量" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -156,12 +167,12 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="页脚某某公司出品" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:gravity="center"-->
+            <!--android:text="页脚某某公司出品" />-->
 
         <Button
             android:id="@+id/confirm"
@@ -169,6 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/printbutton"
+            android:textSize="22sp"
             android:text="确认打印"
             android:textColor="@color/encode_view" />
     </LinearLayout>
