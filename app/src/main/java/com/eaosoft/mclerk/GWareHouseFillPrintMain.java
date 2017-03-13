@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GWareHouseFillPrintMain implements View.OnTouchListener {
-	private ScrollView m_oUserView = null;
+	private RelativeLayout m_oUserView = null;
 	private Context m_oContext = null;
 	//=====================================================
 	public RoundImageView m_oImgHead = null;
@@ -67,9 +67,9 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 	}
 
 	public View OnCreateView() {
-		m_oUserView = new ScrollView(m_oContext);
+		m_oUserView = new RelativeLayout(m_oContext);
 		m_oUserView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		m_oUserView.setFillViewport(true);
+
 
 		//============================================================================
 		//主背景
@@ -478,14 +478,14 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 				GWareHouseFillPrint.onUserMessageBox("", "已经到底了");
 			}
 		}
-		GWareHouseFillPrint.m_oGWareHouseFillPrintActivity.runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-
-				wh_fillprint_listview.setLoadCompleted();
-
-			}
-		});
+//		GWareHouseFillPrint.m_oGWareHouseFillPrintActivity.runOnUiThread(new Runnable() {
+//			@Override
+//			public void run() {
+//
+//				wh_fillprint_listview.setLoadCompleted();
+//
+//			}
+//		});
 //			}
 //		}.start();
 	}

@@ -2,19 +2,15 @@ package com.eaosoft.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
-
-import com.eaosoft.mclerk.R;
 
 
 
 public class LoadMoreListView extends ListView implements AbsListView.OnScrollListener {
     private Context mContext;
     private View mFootView;
-    private View mFootView1;
     private int mTotalItemCount;
     private OnLoadMoreListener mLoadMoreListener;
     private boolean mIsLoading=false;
@@ -36,7 +32,7 @@ public class LoadMoreListView extends ListView implements AbsListView.OnScrollLi
 
     private void init(Context context){
         this.mContext=context;
-        mFootView= LayoutInflater.from(context).inflate(R.layout.home_foot_view,null);
+//        mFootView= LayoutInflater.from(context).inflate(R.layout.home_foot_view,null);
 
         setOnScrollListener(this);
     }
@@ -48,8 +44,8 @@ public class LoadMoreListView extends ListView implements AbsListView.OnScrollLi
         int lastVisibleIndex=listView.getLastVisiblePosition();
         if (!mIsLoading&&scrollState == OnScrollListener.SCROLL_STATE_IDLE
                 && lastVisibleIndex ==mTotalItemCount-1) {
-            mIsLoading=true;
-            addFooterView(mFootView);
+//            mIsLoading=true;
+//            addFooterView(mFootView);
 
             if (mLoadMoreListener!=null) {
                 mLoadMoreListener.onloadMore();
@@ -69,9 +65,9 @@ public class LoadMoreListView extends ListView implements AbsListView.OnScrollLi
     public interface OnLoadMoreListener{
         void onloadMore();
     }
-    public void setLoadCompleted(){
-        mIsLoading=false;
-        removeFooterView(mFootView);
-    }
+//    public void setLoadCompleted(){
+//        mIsLoading=false;
+//        removeFooterView(mFootView);
+//    }
 
 }

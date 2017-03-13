@@ -275,14 +275,14 @@ public class GWareHouseStatisticsDetail extends Activity implements View.OnClick
                 Toast.makeText(GWareHouseStatisticsDetail.this, "已经到底了", Toast.LENGTH_SHORT).show();
             }
         }
-       runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-
-                lv_goods_statistics_detail.setLoadCompleted();
-
-            }
-        });
+//       runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                lv_goods_statistics_detail.setLoadCompleted();
+//
+//            }
+//        });
 //			}
 //		}.start();
     }
