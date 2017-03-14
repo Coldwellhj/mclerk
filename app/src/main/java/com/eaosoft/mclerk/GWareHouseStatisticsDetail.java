@@ -145,7 +145,7 @@ public class GWareHouseStatisticsDetail extends Activity implements View.OnClick
 
                             try {
 
-                                list.add((GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
+                                list.add(("            "+GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
 
                                 list.add(("ʱ�䣺"+dayTime + "\n").getBytes("gbk"));
 

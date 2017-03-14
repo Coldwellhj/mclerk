@@ -281,6 +281,9 @@
             android:label="@string/title_activity_gware_house_statistics_detail" />
 
         <service android:name="net.posprinter.service.PosprinterService" />
+
+        <activity android:name="com.eaosoft.mclerk.GCashier_Package" >
+        </activity>
     </application>
 
 </manifest>

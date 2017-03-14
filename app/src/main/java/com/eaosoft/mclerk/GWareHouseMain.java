@@ -191,8 +191,8 @@ public class GWareHouseMain {
         Button oBtnPrintOrder = new Button(m_oContext);
         oBtnPrintOrder.setLayoutParams(m_oBtnPrintOrder);
         oBtnPrintOrder.setBackgroundResource(R.color.printbutton);
-        oBtnPrintOrder.setText("历史补打");
         oBtnPrintOrder.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
+        oBtnPrintOrder.setText("历史补打");
         oBtnPrintOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.m_oMainActivity, GWareHouseFillPrint.class);
@@ -674,9 +674,6 @@ public class GWareHouseMain {
                     if (wh_listview.getChildAt(0) != null) {
                         String taskUID = ((TextView) wh_listview.getChildAt(0).findViewById(R.id.m_oisPrintTask)).getText().toString();
                         m_oWareHouseDetailListDAO.opPrnTaskComplete(taskUID);
-
-
-
                     }
                 }
 
@@ -698,8 +695,7 @@ public class GWareHouseMain {
                     DataForSendToPrinterTSC.setCharsetName("gbk");//不设置，默认为gbk
                     //通过工具类得到一个指令的byte[]数据,以文本为例
                     //首先得设置size标签尺寸,宽60mm,高30mm,也可以调用以dot或inch为单位的方法具体换算参考编程手册
-                    DataForSendToPrinterTSC
-                            .sizeBymm(60, 60);
+//                    DataForSendToPrinterTSC.sizeBymm(360, 360);
 
                     try {
 
@@ -714,21 +710,26 @@ public class GWareHouseMain {
                             String m_oorderTime = (String) map.get("orderTime");
                             String m_osalseman = (String) map.get("userCaption");
 
-                            list.add((GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
+                            list.add(("            "+GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
                             list.add(("单号：" + orderNumber + "\n").getBytes("gbk"));
                             list.add(("房号：" + m_otxtRoomNo + "\n").getBytes("gbk"));
                             list.add(("卡号：" + m_ocardNumber + "\n").getBytes("gbk"));
-                            list.add(("名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
+
+//                            DataForSendToPrinterTSC.sizeBymm(60, 60);
+//                            DataForSendToPrinterTSC.bar(20, 40, 200, 3);
+                            list.add(("----------------------------"+ "\n").getBytes("gbk"));
+
+                            list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
                             for (int i = 0; i <((List<Map>) map.get("ar1")).size(); i++) {
                                 String m_ogoodsCaption = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsCaption");
                                 String m_ogoodsNumber = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsNumber");
                                 String m_ogoodsUnitName = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsUnitName");
                                 if (m_ogoodsCaption.length() == 2) {
-                                    list.add((m_ogoodsCaption + "        ").getBytes("gbk"));
+                                    list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
                                 } else if (m_ogoodsCaption.length() == 4) {
-                                    list.add((m_ogoodsCaption + "    ").getBytes("gbk"));
+                                    list.add(("    "+m_ogoodsCaption + "      ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
                                 }

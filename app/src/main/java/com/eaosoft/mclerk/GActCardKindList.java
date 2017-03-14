@@ -1,29 +1,22 @@
 package com.eaosoft.mclerk;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.eaosoft.adapter.GCardKindAdapter;
 import com.eaosoft.adapter.GHttpDAO;
@@ -31,6 +24,11 @@ import com.eaosoft.util.ActivityCollector;
 import com.eaosoft.util.GSvrChannel;
 import com.eaosoft.util.GUtilDialog;
 import com.eaosoft.util.GUtilHttp;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 /*
  * ListView 和 其它能触发点击事件的widget无法一起正常工作的原因是加入其它widget后，ListView的itemclick事件将无法触发，被其它widget的click事件屏蔽。
 解决办法：
@@ -71,6 +69,16 @@ public class GActCardKindList extends  Activity
            if(bundle.getString("UserMgr")!=null)
         	   m_szUserMgr = bundle.getString("UserMgr");                
        }
+    @Override
+    protected void onResume() {
+        /**
+         * 设置为横屏
+         */
+            if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+        super.onResume();
+    }
   @Override
 	protected void onDestroy() 
     {

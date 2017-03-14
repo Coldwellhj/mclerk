@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 19
     buildToolsVersion "25.0.2"
-    android {compileOptions.encoding = "GBK"}
+    android { compileOptions.encoding = "GBK" }
     defaultConfig {
         applicationId "com.eaosoft.mclerk"
         minSdkVersion 11
@@ -19,7 +19,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.1.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -27,4 +26,6 @@ dependencies {
     compile files('libs/core_home.jar')
     compile files('libs/httpclient-4.3.6.jar')
     compile files('libs/posprinterconnectandsendsdk.jar')
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:appcompat-v7:19.1.0'
 }

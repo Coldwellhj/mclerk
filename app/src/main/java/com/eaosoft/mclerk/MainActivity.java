@@ -109,7 +109,7 @@ public class MainActivity extends FragmentActivity {
 
 
     //==============================================
-    public static int m_nOperaterUI = UI_OP_ROLE_STORE;//
+    public static int m_nOperaterUI = UI_OP_ROLE_CASHIER;//
     public static int m_oHeadColor = Color.rgb(65, 195, 168);
     public static int m_oHeadStoreColor = Color.rgb(235, 235, 235);
     //==============================================
@@ -160,7 +160,7 @@ public class MainActivity extends FragmentActivity {
         /**
          * …Ë÷√Œ™∫·∆¡
          */
-        if (MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_STORE) {
+        if (MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_STORE||MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_CASHIER) {
             if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             }
