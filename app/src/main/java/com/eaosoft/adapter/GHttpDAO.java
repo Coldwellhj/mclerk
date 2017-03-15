@@ -113,7 +113,7 @@ public class GHttpDAO
 			MainActivity.onUserMessageBox("读取门店列表","读取门店列表失败，请检查网络是否畅通或者联系管理员！");
 		}
 	}
-	public void getCardKindPage(String strSearchText,int nPageIndex,int nPageSize)
+	public void getCardKindList(String strSearchText,int nPageIndex,int nPageSize)
 	{
 		GSvrChannel svr= 	new GSvrChannel()
 		{
@@ -134,6 +134,7 @@ public class GHttpDAO
 				try
 				{
 					JSONArray xContent=null;
+                    JSONArray goodsList=null;
 					JSONObject oData = oJsonData.getJSONObject("data");
 					if(oData == null)
 					{
@@ -161,13 +162,34 @@ public class GHttpDAO
 							map.put("dateEnd", GUtilHttp.getJSONObjectValue("dateEnd",o) );
 							map.put("bkColor", GUtilHttp.getJSONObjectValue("bkColor",o) );
 							map.put("enabled", GUtilHttp.getJSONObjectValue("enabled",o) );
+                            goodsList = o.getJSONArray("goodsList");
+                            List<Map> ar1 = new ArrayList<Map>();
+                            for(int j=0;j<goodsList.length();j++) {
+                                JSONObject oo = goodsList.getJSONObject(j);
+                                Map map1 = new HashMap();
+                                map1.put("caption", GUtilHttp.getJSONObjectValue("caption", oo));
+                                if (map1.get("caption").toString().length() > 0) {
+                                    map1.put("caption",GUtilHttp.getJSONObjectValue("caption",oo) );
+                                    map1.put("serialNo", GUtilHttp.getJSONObjectValue("serialNo",oo) );
+                                    map1.put("unitName", GUtilHttp.getJSONObjectValue("unitName",oo) );
+                                    map1.put("norImage", GUtilHttp.getJSONObjectValue("norImage",oo) );
+                                    map1.put("minImage", GUtilHttp.getJSONObjectValue("minImage",oo) );
+                                    map1.put("price", GUtilHttp.getJSONObjectValue("price",oo));
+                                    map1.put("num",GUtilHttp.getJSONObjectValue("goodsNum",oo) );
+
+                                    ar1.add(map1);
+                                }
+                            }
+                            map.put("ar1",ar1);
 							ar.add(map);
 						}
+
 					}
 
 					//####################################################
 					m_oAdapter.setData(ar);
 					m_oAdapter.notifyDataSetChanged();
+
 				}
 				catch (JSONException e)
 				{
@@ -186,7 +208,7 @@ public class GHttpDAO
 			requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
 			requestDatas.put("searchText", strSearchText);
 			svr.m_oCurrentActivity = m_oActivity;
-			svr.onPost("api/mobile/opHRGroupCardKindPage.do", requestDatas);
+			svr.onPost("api/mobile/opHRGroupCardKindList.do", requestDatas);
 		}
 		catch (JSONException e)
 		{
@@ -195,6 +217,91 @@ public class GHttpDAO
 			MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
 		}
 	}
+    public void getCardKindPage(String strSearchText,int nPageIndex,int nPageSize)
+    {
+        GSvrChannel svr= 	new GSvrChannel()
+        {
+            public void onNetFailure(int statusCode,String strInfo)
+            {
+                MainActivity.MessageBox("读取卡套餐","statusCode:"+statusCode+",Info:"+strInfo);
+                MainActivity.onUserMessageBox("读取卡套餐", "读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+            }
+            public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
+            {
+                if(nCode < 0)
+                {
+                    MainActivity.MessageBox("读取卡套餐",strInfo);
+                    MainActivity.onUserMessageBox("读取卡套餐",strInfo);
+                    return;
+                }
+
+                try
+                {
+                    JSONArray xContent=null;
+                    JSONObject oData = oJsonData.getJSONObject("data");
+                    if(oData == null)
+                    {
+                        MainActivity.MessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+                        MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+                        return;
+                    }
+                    try{xContent = oData.getJSONArray("content");}catch(JSONException e){xContent=null;}
+                    if(xContent==null)
+                        return;
+                    List ar = new ArrayList();
+                    for(int i=0;i<xContent.length();i++)
+                    {
+                        JSONObject o = xContent.getJSONObject(i);
+                        Map map = new HashMap();
+                        map.put("uID", GUtilHttp.getJSONObjectValue("uID",o));
+                        if(map.get("uID").toString().length()>0)
+                        {
+                            map.put("caption",GUtilHttp.getJSONObjectValue("caption",o) );
+                            map.put("serialNo", GUtilHttp.getJSONObjectValue("serialNo",o) );
+                            map.put("briefing", GUtilHttp.getJSONObjectValue("briefing",o) );
+                            map.put("totalMoney",GUtilHttp.getJSONObjectValue("totalMoney",o) );
+                            map.put("dateStart", GUtilHttp.getJSONObjectValue("dateStart",o) );
+                            map.put("imgLogo", GUtilHttp.getJSONObjectValue("imgLogo",o) );
+                            map.put("dateEnd", GUtilHttp.getJSONObjectValue("dateEnd",o) );
+                            map.put("bkColor", GUtilHttp.getJSONObjectValue("bkColor",o) );
+                            map.put("enabled", GUtilHttp.getJSONObjectValue("enabled",o) );
+
+                            ar.add(map);
+                        }
+
+                    }
+
+                    //####################################################
+                    m_oAdapter.setData(ar);
+                    m_oAdapter.notifyDataSetChanged();
+
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                    MainActivity.MessageBox("读取卡套餐",e.getMessage());
+                    MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+                    return;
+                }
+            }
+        };
+        try
+        {
+            JSONObject   requestDatas = new JSONObject();
+            requestDatas.put("pageIndex", nPageIndex);
+            requestDatas.put("pageSize", nPageSize);
+            requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
+            requestDatas.put("searchText", strSearchText);
+            svr.m_oCurrentActivity = m_oActivity;
+            svr.onPost("api/mobile/opHRGroupCardKindPage.do", requestDatas);
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            MainActivity.MessageBox("读取卡套餐",e.getMessage());
+            MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+        }
+    }
 	public void getWareHouseDetail()
 	{
 

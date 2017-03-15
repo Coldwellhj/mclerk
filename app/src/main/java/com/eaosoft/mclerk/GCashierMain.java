@@ -92,6 +92,9 @@ public class GCashierMain {
 //                Intent intent = new Intent(MainActivity.m_oMainActivity, GActCardKindList.class);
 //                intent.putExtra("UserMgr", "UserMgr");
 //                MainActivity.m_oMainActivity.startActivity(intent);
+                Intent intent = new Intent(MainActivity.m_oMainActivity, GCashier_Package.class);
+                intent.putExtra("UserMgr", "UserMgr");
+                MainActivity.m_oMainActivity.startActivity(intent);
             }
         });
         oMainWin_left.addView(oBtnCardKindList);

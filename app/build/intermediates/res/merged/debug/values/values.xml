@@ -119,6 +119,7 @@
     <color name="base_end_color_pressed">#ff2570ba</color>
     <color name="base_start_color_default">#FFFFFF</color>
     <color name="base_start_color_pressed">#ff3590c4</color>
+    <color name="bgBackSideColor">#f4f0ff</color>
     <color name="black">#000000</color>
     <color name="blue">#4169E1</color>
     <color name="contents_text">#ff000000</color>
@@ -172,6 +173,7 @@
             <flag name="fill" value="1"/>
         </attr><attr format="dimension" name="circleSeparation"/><attr format="dimension" name="activeRadius"/></declare-styleable>
     <declare-styleable name="CompatTextView"><attr format="reference|boolean" name="textAllCaps"/></declare-styleable>
+    <declare-styleable name="FoldingCell"><attr format="color" name="backSideColor"/><attr format="integer" name="animationDuration"/><attr format="integer" name="additionalFlipsCount"/></declare-styleable>
     <declare-styleable name="LinearLayoutICS"><attr name="divider"/><attr name="showDividers">
             <flag name="none" value="0"/>
             <flag name="beginning" value="1"/>

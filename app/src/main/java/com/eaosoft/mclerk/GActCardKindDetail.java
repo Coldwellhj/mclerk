@@ -1,24 +1,8 @@
 package com.eaosoft.mclerk;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilDateTimePickDialog;
-import com.eaosoft.util.GUtilHttp;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,12 +12,25 @@ import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
+
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilHttp;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GActCardKindDetail extends  Activity 
 {
@@ -80,12 +77,12 @@ public class GActCardKindDetail extends  Activity
     		oCell.setBackgroundColor(Color.rgb(0,255,0));
     		switch(nColNum)
     		{
-    		case 0:oCell.setText("名称");break;
-    		case 1:oCell.setText("单位");break;
-    		case 2:oCell.setText("数量");break;
-    		case 3:oCell.setText("单价");break;
-    		case 4:oCell.setText("操作");break;
-    		}
+            case 0:oCell.setText("名称");break;
+            case 1:oCell.setText("单位");break;
+            case 2:oCell.setText("数量");break;
+            case 3:oCell.setText("单价");break;
+            case 4:oCell.setText("操作");break;
+        }
     	}
     	else
     	{
@@ -193,6 +190,7 @@ public class GActCardKindDetail extends  Activity
     	m_oGroupCaption=(TextView)findViewById(R.id.txt_group_caption);    	
     	m_oTotalMoney=(TextView)findViewById(R.id.txt_total_money);
     	m_oDateEnd=(TextView)findViewById(R.id.txt_date_end);
+
     	m_oCardKindGoodsList = (LinearLayout)findViewById(R.id.ll_card_kind_goods_list);
     	
     	m_oGroupCaption.setText(GOperaterInfo.m_strGroupName);
@@ -567,7 +565,6 @@ public class GActCardKindDetail extends  Activity
 							map.put("minImage", GUtilHttp.getJSONObjectValue("minImage",o) );
 							map.put("price", GUtilHttp.getJSONObjectValue("price",o));	
 							map.put("num",GUtilHttp.getJSONObjectValue("goodsNum",o) );
-				  			
 							m_oKindGoodsList.add(map);
 						}
 					}

@@ -286,6 +286,8 @@
 
         <activity android:name=".GCashier_Package">
         </activity>
+        <activity android:name=".GCashier_Package_New">
+        </activity>
     </application>
 
 </manifest>

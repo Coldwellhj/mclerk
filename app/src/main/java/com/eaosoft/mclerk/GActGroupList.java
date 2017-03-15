@@ -1,22 +1,5 @@
 package com.eaosoft.mclerk;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.eaosoft.adapter.GCardKindAdapter;
-import com.eaosoft.adapter.GGroupAdapter;
-import com.eaosoft.adapter.GHttpDAO;
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilHttp;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -25,10 +8,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
+
+import com.eaosoft.adapter.GGroupAdapter;
+import com.eaosoft.adapter.GHttpDAO;
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilHttp;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GActGroupList extends  Activity 
 {
@@ -49,7 +46,7 @@ public class GActGroupList extends  Activity
 		/**
 		 * …Ë÷√Œ™∫·∆¡
 		 */
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE) {
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE||MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_CASHIER) {
 			if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
 				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			}
