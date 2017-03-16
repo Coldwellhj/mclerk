@@ -2,7 +2,6 @@ package com.eaosoft.mclerk;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -70,6 +69,7 @@ public class GCashier_Package_New extends Activity implements ListItemClickHelp{
         if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
+        store.setText(GOperaterInfo.m_strGroupName);
     }
 
     private void OnReadUserParameter()
@@ -168,13 +168,7 @@ public class GCashier_Package_New extends Activity implements ListItemClickHelp{
                 }
             }
         });
-        store.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GCashier_Package_New.this, GActGroupList.class);
-                startActivityForResult(intent,MainActivity.USER_GROUP_CHANGE);
-            }
-        });
+
     }
 
     private void initData() {

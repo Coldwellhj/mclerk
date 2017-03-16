@@ -728,7 +728,7 @@ public class GWareHouseMain {
                                     list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
-                                } else if (m_ogoodsCaption.length() == 4) {
+                                } else  {
                                     list.add(("    "+m_ogoodsCaption + "      ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));

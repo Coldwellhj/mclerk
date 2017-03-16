@@ -54,18 +54,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:orientation="vertical">
-            <Button
-                android:id="@+id/package_detail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/printbutton"
-                android:textColor="@color/encode_view"
-                android:textSize="20sp"
-                android:text="套餐明细"
-               />
+
             <Button
                 android:id="@+id/package_new"
                 android:layout_width="match_parent"

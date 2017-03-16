@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:2:1-293:12
+ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:2:1-295:12
 	package
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:4:11-39
 		INJECTED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml
@@ -173,7 +173,7 @@ ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:70:22-90
 application
-ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:75:5-291:19
+ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:75:5-293:19
 MERGED from [com.android.support:appcompat-v7:19.1.0] C:\Users\Administrator\Desktop\mclerk\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\AndroidManifest.xml:19:5-20
 	android:label
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:78:9-41
@@ -447,3 +447,7 @@ activity#com.eaosoft.mclerk.GCashier_Package_New
 ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:289:9-290:20
 	android:name
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:289:19-55
+activity#com.eaosoft.mclerk.GCashier_Search
+ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:291:9-292:20
+	android:name
+		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:291:19-50

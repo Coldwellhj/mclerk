@@ -286,6 +286,8 @@
         </activity>
         <activity android:name="com.eaosoft.mclerk.GCashier_Package_New" >
         </activity>
+        <activity android:name="com.eaosoft.mclerk.GCashier_Search" >
+        </activity>
     </application>
 
 </manifest>

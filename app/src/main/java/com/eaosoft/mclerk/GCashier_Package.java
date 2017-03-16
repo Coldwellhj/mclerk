@@ -1,8 +1,6 @@
 package com.eaosoft.mclerk;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,8 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -155,21 +151,17 @@ public class GCashier_Package extends Activity implements View.OnClickListener {
         currentTime = (TextView) findViewById(R.id.currentTime);
         store = (TextView) findViewById(R.id.store);
         personal = (RoundImageView) findViewById(R.id.personal);
-        package_detail = (Button) findViewById(R.id.package_detail);
         package_new = (Button) findViewById(R.id.package_new);
         lv_packagelist = (ListView) findViewById(R.id.lv_packagelist);
         View view = View.inflate(this, R.layout.act_card_kind_cashier_item, null);
         m_oCardKindGoodsList = (LinearLayout) view.findViewById(R.id.ll_card_kind_goods_list);
-        package_detail.setOnClickListener(this);
         package_new.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.package_detail:
 
-                break;
             case R.id.package_new:
                 Intent intent =new Intent(GCashier_Package.this,GCashier_Package_New.class);
                 startActivity(intent);
@@ -352,156 +344,10 @@ public class GCashier_Package extends Activity implements View.OnClickListener {
             MainActivity.onUserMessageBox("套餐禁用／启用","套餐禁用／启用失败，请检查网络是否畅通或者联系管理员！");
         }
     }
-    private TextView onCreateCell(Context oContext, LinearLayout.LayoutParams pCell, Map map, int nColNum)
-    {
-        TextView oCell=new TextView(oContext);
-
-        oCell.setTextSize(18);
-        oCell.setLayoutParams(pCell);
-        if(map == null)//这个是标题
-        {
-            oCell.setGravity(Gravity.CENTER_HORIZONTAL);
-            oCell.setBackgroundColor(Color.rgb(0,255,0));
-            switch(nColNum)
-            {
-                case 0:oCell.setText("名称");break;
-                case 1:oCell.setText("单位");break;
-                case 2:oCell.setText("数量");break;
-                case 3:oCell.setText("单价");break;
-                case 4:oCell.setText("操作");break;
-            }
-        }
-        else
-        {
-            oCell.setTag(map);
-            switch(nColNum)
-            {
-                case 0:oCell.setText(map.get("caption").toString());break;
-                case 1:oCell.setText(map.get("unitName").toString());oCell.setGravity(Gravity.CENTER_HORIZONTAL);  break;
-                case 2:oCell.setText(map.get("num").toString());oCell.setGravity(Gravity.CENTER_HORIZONTAL);  break;
-                case 3:oCell.setText(map.get("price").toString());oCell.setGravity(Gravity.CENTER_HORIZONTAL);  break;
-                case 4:oCell.setText("删除");oCell.setGravity(Gravity.CENTER_HORIZONTAL);  break;
-            }
-        }
-        if(nColNum==4 && map!=null)
-        {
-            oCell.setText("删");
-            oCell.setBackgroundResource(R.drawable.login);
-            oCell.setTag(map);
-            oCell.setClickable(true);
-            oCell.setOnClickListener(m_oGoodsDelete);
-        }
-        if(nColNum==2 && map != null)
-        {
-            oCell.setBackgroundColor(Color.rgb(255,255,0));
-            oCell.setTag(map);
-            oCell.setClickable(true);
-            oCell.setBackgroundResource(R.drawable.login);
-            oCell.setOnClickListener(m_oGoodsNumberChange);
-        }
-        return oCell;
-    }
-    View.OnClickListener m_oGoodsDelete = new View.OnClickListener()
-    {
-        public void onClick(View v)
-        {
-            Map map=(Map)v.getTag();
-            if(map == null)
-                return;
-            int n = getGoodsFromCardKind(map.get("uID").toString());
-            if(n<0 || n>=m_oKindGoodsList.size())
-                return;
-            m_oKindGoodsList.remove(n);
-            onReadCardKindInfo();
-        }
-    };
-    View.OnClickListener m_oGoodsNumberChange = new View.OnClickListener()
-    {
-        public void onClick(View v)
-        {
-            final EditText inputServer = new EditText(v.getContext());
-            inputServer.setTag(v);
-            inputServer.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_NORMAL);
-            inputServer.setFocusable(true);
-            TextView txtNum = (TextView)v;
-            inputServer.setText(txtNum.getText());
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-            builder.setTitle("请输入数量").setIcon(R.drawable.ic_launcher).setView(inputServer).setNegativeButton("取消", null);
-            builder.setPositiveButton("确认",new DialogInterface.OnClickListener()
-            {
-                public void onClick(DialogInterface dialog, int which)
-                {
-                    int nNum=0;
-                    String inputName = inputServer.getText().toString();
-                    try{nNum = Integer.parseInt(inputName);}catch(NumberFormatException ex){nNum=0;};
-                    TextView oNum = (TextView)inputServer.getTag();
-                    Map map=(Map)oNum.getTag();
-                    if(map == null)
-                        return;
-                    int n = getGoodsFromCardKind(map.get("uID").toString());
-                    if(n<0 || n>=m_oKindGoodsList.size())
-                        return;
-                    oNum.setText(""+nNum);
-                    map.put("num", ""+nNum);
-                    onReadCardKindInfo();
-                }
-            });
-            builder.show();
 
 
-        }
-    };
-    private void onReadCardKindInfo()
-    {
-        float fTotalMoney=0.0f;
-        float fPrice=0.0f;
-        float fNum=0;
-        Map map=null;
-        int 	i;
 
-        m_oCardKindGoodsList.removeAllViews();
-        m_oCardKindGoodsList.addView(OnCreateCardKindGoods(this,null,-1));//标题
 
-        for(i=0;i<m_oKindGoodsList.size();i++)
-        {
-            map = (Map)m_oKindGoodsList.get(i);
-            m_oCardKindGoodsList.addView(OnCreateCardKindGoods(this,map,i));
-            try{fPrice = Float.parseFloat(map.get("price").toString());}catch(NumberFormatException ex){fPrice=0.0f;};
-            try{fNum = Float.parseFloat(map.get("num").toString());}catch(NumberFormatException ex){fNum=0.0f;};
-            fTotalMoney +=(fPrice*fNum);
-        }
-//        m_oTotalMoney.setText(""+fTotalMoney);
-    }
-    private LinearLayout OnCreateCardKindGoods(Context oContext,Map map,int nLineNum)
-    {
-        LinearLayout oLine = new LinearLayout(oContext);  //线性布局方式
-        oLine.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为水平排列  VERTICAL
-        oLine.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        //=====================================================================================
-        LinearLayout.LayoutParams pCell =new  LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT);
-        pCell.weight=1.0f;
 
-        TextView oCell = null;
-
-        oCell = onCreateCell(oContext,pCell,map,0);oLine.addView(oCell);
-        oCell = onCreateCell(oContext,pCell,map,1);oLine.addView(oCell);
-        oCell = onCreateCell(oContext,pCell,map,2);oLine.addView(oCell);
-        oCell = onCreateCell(oContext,pCell,map,3);oLine.addView(oCell);
-        oCell = onCreateCell(oContext,pCell,map,4);oLine.addView(oCell);
-        //=====================================================================================
-        return oLine;
-    }
-    private int getGoodsFromCardKind(String strGoodsUID)
-    {
-        Map map;
-        for(int i=0;i<m_oKindGoodsList.size();i++)
-        {
-            map = (Map)m_oKindGoodsList.get(i);
-            if(map.get("uID").toString().equalsIgnoreCase(strGoodsUID))
-                return i;
-        }
-        return -1;
-    }
 
 }

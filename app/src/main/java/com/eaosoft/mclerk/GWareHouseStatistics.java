@@ -159,7 +159,7 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                                 list.add(("            "+GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
                                 list.add(("日期："+dayTime + "\n").getBytes("gbk"));
                                 list.add(("----------------------------"+ "\n").getBytes("gbk"));
-                                list.add(("名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
+                                list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
                                 if (ar.size()>0) {
                                     for(int i =0;i<ar.size();i++){
                                         Map map = (Map)ar.get(i);
@@ -170,7 +170,7 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                                             list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                             list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                             list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
-                                        } else if (m_ogoodsCaption.length() == 4) {
+                                        } else  {
                                             list.add(("    "+m_ogoodsCaption + "    ").getBytes("gbk"));
                                             list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                             list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));

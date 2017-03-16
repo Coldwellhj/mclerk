@@ -288,6 +288,8 @@
         </activity>
         <activity android:name=".GCashier_Package_New">
         </activity>
+        <activity android:name=".GCashier_Search">
+        </activity>
     </application>
 
 </manifest>
