@@ -1,13 +1,18 @@
 package com.eaosoft.mclerk;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,6 +23,8 @@ import android.widget.Toast;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
+
+import java.util.Calendar;
 
 public class GCashier_Search extends Activity implements View.OnClickListener {
 
@@ -83,7 +90,7 @@ public class GCashier_Search extends Activity implements View.OnClickListener {
         allPrice = (TextView) findViewById(R.id.allPrice);
         print_sales = (Button) findViewById(R.id.print_sales);
         rl_sales_report = (RelativeLayout) findViewById(R.id.rl_sales_report);
-
+        dateTime.setOnClickListener(this);
         card_search.setOnClickListener(this);
         sales_report.setOnClickListener(this);
         bt_search.setOnClickListener(this);
@@ -114,6 +121,54 @@ public class GCashier_Search extends Activity implements View.OnClickListener {
                 break;
             case R.id.print_sales:
 
+                break;
+            case R.id.dateTime:
+                AlertDialog.Builder builder = new AlertDialog.Builder(GCashier_Search.this);
+                View view = View.inflate(GCashier_Search.this, R.layout.date_time_dialog, null);
+                final DatePicker datePicker = (DatePicker) view.findViewById(R.id.date_picker);
+//			final TimePicker timePicker = (TimePicker) view.findViewById(R.id.time_picker);
+                builder.setView(view);
+                Calendar cal = Calendar.getInstance();
+                cal.setTimeInMillis(System.currentTimeMillis());
+                datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null);
+//			timePicker.setIs24HourView(true);
+//			timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
+//			timePicker.setCurrentMinute(Calendar.MINUTE);
+
+
+                final int inType = dateTime.getInputType();
+                dateTime.setInputType(InputType.TYPE_NULL);
+
+                dateTime.setInputType(inType);
+                //etStartTime.setSelection(etStartTime.getText().length());
+
+                builder.setTitle("请确定查询日期");
+                builder.setPositiveButton("确  定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        StringBuffer sb = new StringBuffer();
+                        sb.append(String.format("%d-%02d-%02d",
+                                datePicker.getYear(),
+                                datePicker.getMonth() + 1,
+                                datePicker.getDayOfMonth()
+                        ));
+//					sb.append(timePicker.getCurrentHour())
+//							.append(":").append(timePicker.getCurrentMinute());
+                        dateTime.setText(sb);
+                        dialog.cancel();
+                    }
+                });
+                builder.setNegativeButton("取  消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dateTime.setText("");
+                        dialog.cancel();
+                    }
+                });
+
+
+                Dialog dialog = builder.create();
+                dialog.show();
                 break;
         }
     }

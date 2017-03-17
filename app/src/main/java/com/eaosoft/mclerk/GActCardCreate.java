@@ -1,30 +1,24 @@
 package com.eaosoft.mclerk;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilHttp;
-import com.eaosoft.view.GCouponsView;
-import com.eaosoft.view.GRoundImageView;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.view.GCouponsView;
+import com.eaosoft.view.GRoundImageView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class GActCardCreate extends  Activity 
@@ -53,7 +47,19 @@ public class GActCardCreate extends  Activity
 		setResult(RESULT_OK, null);
 		onChangeCardKind(null);
     }
-  @Override
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_CASHIER){
+            if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
+        }
+        }
+
+
+    @Override
 	protected void onDestroy() 
     {
 		super.onDestroy();

@@ -1,23 +1,6 @@
 package com.eaosoft.mclerk;
 
 
-import java.io.File;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
-
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilFile;
-import com.eaosoft.util.GUtilImage;
-import com.eaosoft.util.GUtilSDCard;
-import com.eaosoft.view.RoundImageView;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -37,17 +20,25 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.view.Window;
 import android.widget.RelativeLayout;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilFile;
+import com.eaosoft.util.GUtilImage;
+import com.eaosoft.util.GUtilSDCard;
+import com.eaosoft.view.RoundImageView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 public class GActUserInfo extends  Activity 
 {
 	private RoundImageView m_oHeadImage=null;
@@ -78,7 +69,7 @@ public class GActUserInfo extends  Activity
 		/**
 		 * …Ë÷√Œ™∫·∆¡
 		 */
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE) {
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE||MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_CASHIER) {
 			if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
 				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			}

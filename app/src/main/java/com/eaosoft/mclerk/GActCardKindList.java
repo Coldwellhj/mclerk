@@ -60,6 +60,7 @@ public class GActCardKindList extends  Activity
 		setResult(RESULT_OK, null);
 		
     }
+
 	private void OnReadUserParameter()
    	{
    		Bundle bundle = this.getIntent().getExtras();
@@ -370,8 +371,6 @@ public class GActCardKindList extends  Activity
 		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,	long arg3) 
 		{
-			if(m_oCardKindListAdapter == null)
-				return;
 			if(m_oCardKindListAdapter == null)
 				return;
 			if(m_oCardKindListAdapter.ar==null)

@@ -718,8 +718,8 @@ public class GWareHouseMain {
 //                            DataForSendToPrinterTSC.sizeBymm(60, 60);
 //                            DataForSendToPrinterTSC.bar(20, 40, 200, 3);
                             list.add(("----------------------------"+ "\n").getBytes("gbk"));
-
                             list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
+                            list.add(("----------------------------"+ "\n").getBytes("gbk"));
                             for (int i = 0; i <((List<Map>) map.get("ar1")).size(); i++) {
                                 String m_ogoodsCaption = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsCaption");
                                 String m_ogoodsNumber = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsNumber");
@@ -734,10 +734,12 @@ public class GWareHouseMain {
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
                                 }
                             }
-
+                            list.add(("----------------------------"+ "\n").getBytes("gbk"));
 
                             list.add(("下单时间：" + m_oorderTime + "\n").getBytes("gbk"));
                             list.add(("销售员：" + m_osalseman + "\n").getBytes("gbk"));
+                            list.add(( "\n").getBytes("gbk"));
+                            list.add(( "\n").getBytes("gbk"));
                         }
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();

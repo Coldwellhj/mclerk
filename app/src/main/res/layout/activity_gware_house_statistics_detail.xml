@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="显示实时时间"
+            android:layout_gravity="center"
             android:textSize="18sp"
             android:gravity="center"/>
         <TextView
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="门店"
+            android:layout_gravity="center"
             android:textSize="18sp"
             android:gravity="center"/>
         <com.eaosoft.view.RoundImageView

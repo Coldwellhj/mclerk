@@ -161,6 +161,7 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                         list.add(("卡号：" + cardUID + "\n").getBytes("gbk"));
                                         list.add(("----------------------------"+ "\n").getBytes("gbk"));
                                         list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
+                                        list.add(("----------------------------"+ "\n").getBytes("gbk"));
                                         for (int i = 0; i <ar1.size(); i++) {
                                             String m_ogoodsCaption = (String) ar1.get(i).get("goodsCaption");
                                             String m_ogoodsNumber = (String) ar1.get(i).get("goodsNumber");
@@ -176,14 +177,16 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                             }
                                         }
 
-
+                                        list.add(("----------------------------"+ "\n").getBytes("gbk"));
                                         list.add(("下单时间：" + ordertime + "\n").getBytes("gbk"));
                                         list.add(("销售员：" + userCaption + "\n").getBytes("gbk"));
+                                        list.add(( "\n").getBytes("gbk"));
+                                        list.add(( "\n").getBytes("gbk"));
+
                                     }
                                 } catch (UnsupportedEncodingException e) {
                                     e.printStackTrace();
                                 }
-
 
                                 DataForSendToPrinterTSC.print(1);
                                 return list;

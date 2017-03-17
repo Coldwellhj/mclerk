@@ -105,7 +105,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/encode_view"
                 android:gravity="center"
-                android:text="截止日期"/>
+                android:text="2030-12-31"/>
             <TextView
                 android:id="@+id/tv_package_operate"
                 android:layout_width="match_parent"

@@ -109,7 +109,7 @@ public class MainActivity extends FragmentActivity {
 
 
     //==============================================
-    public static int m_nOperaterUI = UI_OP_ROLE_CASHIER;//
+    public static int m_nOperaterUI ;//
     public static int m_oHeadColor = Color.rgb(65, 195, 168);
     public static int m_oHeadStoreColor = Color.rgb(235, 235, 235);
     //==============================================
@@ -122,7 +122,7 @@ public class MainActivity extends FragmentActivity {
     public static final int USER_GROUP_CHANGE = 0x10;//更换门店
     //==============================================
     public static String m_strDebugCardNo = "6921734953017";
-    public static boolean m_bDebugCardNo = true;
+    public static boolean m_bDebugCardNo;
     public static int mSreenWidth;
 
 
@@ -134,7 +134,13 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
        ActivityCollector.addActivity(this);
-
+        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
+            m_nOperaterUI = UI_OP_ROLE_CASHIER;
+        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+            m_nOperaterUI = UI_OP_ROLE_STORE;
+        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
+            m_nOperaterUI = UI_OP_ROLE_SALSE;
+        }
         m_oMainActivity = this;
         onInitApp(this);
         m_oFrmManager = getSupportFragmentManager();
@@ -157,6 +163,13 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onResume() {
+        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
+            m_nOperaterUI = UI_OP_ROLE_CASHIER;
+        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+            m_nOperaterUI = UI_OP_ROLE_STORE;
+        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
+            m_nOperaterUI = UI_OP_ROLE_SALSE;
+        }
         /**
          * 设置为横屏
          */
@@ -164,7 +177,10 @@ public class MainActivity extends FragmentActivity {
             if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             }
+        }else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+
         super.onResume();
     }
 
