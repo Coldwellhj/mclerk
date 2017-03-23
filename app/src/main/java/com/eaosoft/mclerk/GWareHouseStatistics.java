@@ -83,6 +83,7 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
         m_oWareHouseDetailListDAO = new GHttpDAO(GWareHouseStatistics.this, m_oWareHouseStatisticsAdapter);
         lv_goodsStatistics.setAdapter(m_oWareHouseStatisticsAdapter);
         m_oWareHouseDetailListDAO.getWareHouseGoodsStatistics_Search(dayTime);
+
     }
 
     private void initView() {
@@ -171,8 +172,12 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                                             list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                             list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                             list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
-                                        } else  {
-                                            list.add(("    "+m_ogoodsCaption + "    ").getBytes("gbk"));
+                                        } else if (m_ogoodsCaption.length() == 4){
+                                            list.add(("    "+m_ogoodsCaption +  "        ").getBytes("gbk"));
+                                            list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                            list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                        } else {
+                                            list.add(("    "+m_ogoodsCaption + " ").getBytes("gbk"));
                                             list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                             list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
                                         }

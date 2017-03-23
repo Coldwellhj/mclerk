@@ -728,8 +728,12 @@ public class GWareHouseMain {
                                     list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
-                                } else  {
-                                    list.add(("    "+m_ogoodsCaption + "      ").getBytes("gbk"));
+                                } else if(m_ogoodsCaption.length() == 4) {
+                                    list.add(("    "+m_ogoodsCaption + "       ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                } else {
+                                    list.add(("    "+m_ogoodsCaption +" ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
                                 }
@@ -773,7 +777,7 @@ public class GWareHouseMain {
                     //¥Ú”°
 
                    DataForSendToPrinterTSC.print(1);
-                    return list;
+                   return list;
                 }
             });
         } else {

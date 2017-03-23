@@ -31,7 +31,8 @@ import cz.msebera.android.httpclient.protocol.HTTP;
 
 public class GSvrChannel
 {
-	private static final String BASE_URL = "http://192.168.10.210/web_jetleex/mclerk/";
+	private static final String BASE_URL = "http://120.26.96.179/mclerk/";
+//    private static final String BASE_URL = "http://192.168.10.210/web_jetleex/mclerk/";
 	public static String			m_strSystemToken="";
 	//private static final String BASE_URL = "http://222.92.3.40:16000/htchina/";
 	public static final String CALLER_NAME="Android";

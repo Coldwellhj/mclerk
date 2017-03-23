@@ -337,7 +337,7 @@ public class GCashierMain {
                 endno=s.toString();
 
                 int totalNo=Integer.parseInt(endno)-Integer.parseInt(startno)+1;
-                System.out.println("======="+totalNo);
+
                 totalNum.setText("总计"+totalNo+"张");
 
             }
@@ -475,7 +475,7 @@ public class GCashierMain {
         totalNum_use.setBackgroundResource(R.color.encode_view);
         totalNum_use.setGravity(Gravity.CENTER_HORIZONTAL);
         totalNum_use.setText("总计0张");
-        totalNum_use.addTextChangedListener(new TextWatcher() {
+        et_endNo_use.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -492,7 +492,7 @@ public class GCashierMain {
                 endno_use=s.toString();
 
                 int totalNo=Integer.parseInt(endno_use)-Integer.parseInt(startno_use)+1;
-                System.out.println("======="+totalNo);
+
                 totalNum_use.setText("总计"+totalNo+"张");
 
             }

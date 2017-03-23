@@ -552,8 +552,11 @@ public class GHttpDAO
 
 				if(nCode <=0)
 				{
+                    List ar=new ArrayList();
 					MainActivity.MessageBox("读取打印列表",strInfo);
 					MainActivity.onUserMessageBox("读取打印列表","暂无查询记录！");
+                    m_oAdapter.setData(ar);
+                    m_oAdapter.notifyDataSetChanged();
 					return;
 				}
 
@@ -641,8 +644,12 @@ public class GHttpDAO
 
                 if(nCode <=0)
                 {
+                    List ar=new ArrayList();
                     MainActivity.MessageBox("读取打印列表",strInfo);
                     MainActivity.onUserMessageBox("读取打印列表","暂无查询记录！");
+                    m_oAdapter.setData(ar);
+                    m_oAdapter.notifyDataSetChanged();
+
                     return;
                 }
 

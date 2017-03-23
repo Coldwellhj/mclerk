@@ -28,13 +28,18 @@
             android:layout_gravity="center"
             android:textSize="18sp"
             android:gravity="center"/>
-        <com.eaosoft.view.RoundImageView
-            android:id="@+id/personal"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:layout_weight="1"
-            android:src="@drawable/user_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </LinearLayout>
+    <com.eaosoft.view.RoundImageView
+        android:id="@+id/personal"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/user_icon" />
     <LinearLayout
         android:layout_below="@id/head"
         android:layout_width="match_parent"
@@ -111,7 +116,6 @@
                 android:id="@+id/lv_goods_statistics_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
             </com.eaosoft.view.LoadMoreListView>
         </LinearLayout>
         <LinearLayout
@@ -141,9 +145,7 @@
                 android:id="@+id/statistics_detail_search"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-
                 android:layout_marginTop="10dp"
-
                 android:background="@color/printbutton"
                 android:text="查找订单"
                 android:textColor="@color/encode_view"
@@ -158,7 +160,6 @@
                     android:gravity="center"
                     android:textSize="18sp"
                     android:text="打印报表"/>
-
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
