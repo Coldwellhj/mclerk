@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xxhdpi\\common_plus_signin_btn_icon_dark_focused.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_divider_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_list_divider_holo_light.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_search_api_holo_light.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_ic_search_api_holo_light.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_list_divider_holo_light.9.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-xxhdpi\\abc_list_divider_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\abc_ic_ab_back_holo_dark.png",

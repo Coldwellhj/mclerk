@@ -1,34 +1,19 @@
 package com.eaosoft.fragment;
 
-import java.io.File;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-
-import com.eaosoft.mclerk.GSalseMain;
-import com.eaosoft.mclerk.GSalseMgr;
-import com.eaosoft.mclerk.MainActivity;
-
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.eaosoft.mclerk.GSalseMgr;
+import com.eaosoft.mclerk.GShareholderMgr;
+import com.eaosoft.mclerk.MainActivity;
 
 
 
@@ -46,7 +31,11 @@ public class GFragmentFive extends Fragment
 			GSalseMgr oSalseMgr = new GSalseMgr(m_oContext);
 			return oSalseMgr.OnCreateView();
 		}
-		
+        if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_MANAGER)
+        {
+            GShareholderMgr oShareholderMgr = new GShareholderMgr(m_oContext);
+            return oShareholderMgr.OnCreateView();
+        }
 		m_oContext = inflater.getContext();
 		m_oUserView = new ScrollView(m_oContext);
 		m_oUserView.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );

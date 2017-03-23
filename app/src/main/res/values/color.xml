@@ -8,6 +8,10 @@
   <color name="contents_text">#ff000000</color>
   <color name="printbutton">#1196EE</color>
   <color name="printbutton_light">#7BCFFE</color>
+  <color name="shareholder_background">#41C3A8</color>
+  <color name="shareholder_todayMoney">#FF8253</color>
+  <color name="shareholder_monthCardCreate">#F5B82C</color>
+  <color name="shareholder_monthMoney">#0CA3D0</color>
   <color name="lightgray">#EBEBEB</color>
   <color name="encode_view">#ffffffff</color>
   <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
@@ -42,4 +46,13 @@
     <color name="gui_navigation_bg">#ffe8ecef</color>
     <color name="gui_navigation_text_color">#ff333333</color>
     <color name="gui_navigation_line">#ffd3dde6</color>
+
+    <!-- 柱状图中的颜色 -->
+    <color name="leftColor">#a1de89</color>
+    <color name="rightColor">#f7e494</color>
+    <color name="rightBottomColor">#f7d194</color>
+    <color name="leftColorBottom">#208C59</color>
+    <color name="selectLeftColor">#1daf00</color>
+    <color name="selectRightColor">#f8935c</color>
+    <color name="xyColor">#999</color>
 </resources>

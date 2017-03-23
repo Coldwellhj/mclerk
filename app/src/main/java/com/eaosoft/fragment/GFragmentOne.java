@@ -17,6 +17,7 @@ import com.eaosoft.mclerk.GActCardCreateOrder;
 import com.eaosoft.mclerk.GActWebView;
 import com.eaosoft.mclerk.GCashierMain;
 import com.eaosoft.mclerk.GSalseMain;
+import com.eaosoft.mclerk.GShareholderMain;
 import com.eaosoft.mclerk.GWareHouseMain;
 import com.eaosoft.mclerk.MainActivity;
 import com.eaosoft.userinfo.GOperaterInfo;
@@ -27,8 +28,9 @@ import com.eaosoft.util.GSvrChannel;
 public class GFragmentOne extends Fragment 
 {
 	private GSalseMain 				m_oSalseMain=null;
-	private GCashierMain			m_oCashierMain;
-	private GWareHouseMain			m_oWareHouseMain;
+	private GCashierMain			m_oCashierMain=null;
+	private GWareHouseMain			m_oWareHouseMain=null;
+	private GShareholderMain			m_oShareholderMain=null;
 	private ScrollView				m_oUserView=null;
 	private Context 					m_oContext=null;
 
@@ -55,6 +57,12 @@ public class GFragmentOne extends Fragment
 			m_oWareHouseMain.m_oFragmentOne = this;
 			return m_oWareHouseMain.OnCreateView();
 		}
+        if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_MANAGER)//这个是股东
+        {
+            m_oShareholderMain = new GShareholderMain(m_oContext);
+            m_oShareholderMain.m_oFragmentOne = this;
+            return m_oShareholderMain.OnCreateView();
+        }
 		m_oUserView = new ScrollView(m_oContext);
 		m_oUserView.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );
 		m_oUserView.setFillViewport(true);
