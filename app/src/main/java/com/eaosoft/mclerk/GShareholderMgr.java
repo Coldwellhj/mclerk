@@ -103,7 +103,7 @@ public class GShareholderMgr
         pShopName.addRule(RelativeLayout.CENTER_IN_PARENT);
 
         m_oShopCaption=new TextView(m_oContext);
-        m_oShopCaption.setLayoutParams( pShopName);
+        m_oShopCaption.setLayoutParams(pShopName);
         m_oShopCaption.setTextSize(16);
         m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
         m_oShopCaption.setTextColor(Color.WHITE);
@@ -148,7 +148,7 @@ public class GShareholderMgr
         //快捷按钮区
 		LinearLayout oSubShortBtn = new LinearLayout(m_oContext);  //线性布局方式
 		oSubShortBtn.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为横向排列  HORIZONTAL
-		oSubShortBtn.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, 160) );
+		oSubShortBtn.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/8) );
 		oMainWin.addView(oSubShortBtn);
 
 		LayoutParams p = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT) ;
@@ -156,91 +156,71 @@ public class GShareholderMgr
 		p.weight=1.0f;
 		Button	oBtnCardOrderCreate = new Button(m_oContext);
 		oBtnCardOrderCreate.setLayoutParams( p);
-		//oBtnCardOrderCreate.setText("下单");
-		oBtnCardOrderCreate.setBackgroundResource(R.drawable.btn_order_create);
+		//oBtnCardOrderCreate.setText("卡销售");
+		oBtnCardOrderCreate.setBackgroundResource(R.drawable.card_salse);
 		oBtnCardOrderCreate.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
-	        	if(MainActivity.m_bDebugCardNo)
-	        	{
-	        		if(m_oFragmentOne !=null)
-	        			m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo,MainActivity.SCAN_CODE_ORDER_CREATE);
-	        	}
-	        	else
-	        	{
-	        	Intent intent = new Intent(MainActivity.m_oMainActivity, CaptureActivity.class);
-	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_ORDER_CREATE);
-	        	}
+                        Intent intent =new Intent(MainActivity.m_oMainActivity,CardSalse.class);
+                        MainActivity.m_oMainActivity.startActivity(intent);
 	        	        }});
 		oSubShortBtn.addView(oBtnCardOrderCreate);
 
 		Button	oBtnCardSearch = new Button(m_oContext);
 		oBtnCardSearch.setLayoutParams( p);
-		//oBtnCardSearch.setText("查卡");
-		oBtnCardSearch.setBackgroundResource(R.drawable.btn_card_search);
+		oBtnCardSearch.setBackgroundResource(R.drawable.card_search);
 		//oSubShortBtn.addView(oHLineView);
 		oBtnCardSearch.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
-	        	if(MainActivity.m_bDebugCardNo)
-	        	{
-	        		if(m_oFragmentOne !=null)
-	        			m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo,MainActivity.SCAN_CODE_CAED_INFO);
-	        	}
-	        	else
-	        	{
-	        	Intent intent = new Intent(MainActivity.m_oMainActivity, CaptureActivity.class);
-	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_INFO);
-	        	}
+                        Intent intent = new Intent(MainActivity.m_oMainActivity,CardSearch.class);
+                        MainActivity.m_oMainActivity.startActivity(intent);
 	        	        }});
 		oSubShortBtn.addView(oBtnCardSearch);
 
 		Button	oBtnConsume = new Button(m_oContext);
 		oBtnConsume.setLayoutParams( p);
-		//oBtnConsume.setText("消费记录");
-		oBtnConsume.setBackgroundResource(R.drawable.btn_consume_history);
+		oBtnConsume.setBackgroundResource(R.drawable.consumption_summary);
 		//oSubShortBtn.addView(oHLineView);
 		oBtnConsume.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
-	        	if(MainActivity.m_bDebugCardNo)
-	        	{
-	        		if(m_oFragmentOne !=null)
-	        			m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo,MainActivity.SCAN_CODE_CAED_CONSUME);
-	        	}
-	        	else
-	        	{
-	        	Intent intent = new Intent(MainActivity.m_oMainActivity, CaptureActivity.class);
-	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_CONSUME);
-	        	}
+
 	        	        }});
 		oSubShortBtn.addView(oBtnConsume);
 
 		//==========================================================================
-		//卡销售
+		//业绩排行
 		Button	oBtnCardCreate = new Button(m_oContext);
-		oBtnCardCreate.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, 210) );
-		oBtnCardCreate.setBackgroundResource(R.drawable.btn_performance_ranking);
+		oBtnCardCreate.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+		oBtnCardCreate.setBackgroundResource(R.drawable.performance_ranking);
 		oBtnCardCreate.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
-	        	if(MainActivity.m_bDebugCardNo)
-	        	{
-	        		if(m_oFragmentOne !=null)
-	        			m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo,MainActivity.SCAN_CODE_CAED_CREATE);
-	        	}
-	        	else
-	        	{
-	        	Intent intent = new Intent(MainActivity.m_oMainActivity, CaptureActivity.class);
-	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_CREATE);
-	        	}
+
 	     }});
 		oMainWin.addView(oBtnCardCreate);
+        TextView textView_one = new TextView(m_oContext);
+        textView_one.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 20) );
+        textView_one.setBackgroundColor(Color.WHITE);
+        oMainWin.addView(textView_one);
 
 		Button	oBtnCardOrderList = new Button(m_oContext);
-		oBtnCardOrderList.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, 180) );
-		//oBtnCardOrderList.setText("下单记录");
-		oBtnCardOrderList.setBackgroundResource(R.drawable.btn_order_personal);
+		oBtnCardOrderList.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+		oBtnCardOrderList.setBackgroundResource(R.drawable.salse_personal);
 		oBtnCardOrderList.setId(1000);
 		oBtnCardOrderList.setOnClickListener(vp_click_listener);
 		oMainWin.addView(oBtnCardOrderList);
 
+        TextView textView_two = new TextView(m_oContext);
+        textView_two.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 20) );
+        textView_two.setBackgroundColor(Color.WHITE);
+        oMainWin.addView(textView_two);
+        //异店消费汇总
+        Button	oBtnDifferentStoreSales = new Button(m_oContext);
+        oBtnDifferentStoreSales.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+        oBtnDifferentStoreSales.setBackgroundResource(R.drawable.different_store_sales);
+        oBtnDifferentStoreSales.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+
+            }});
+        oMainWin.addView(oBtnDifferentStoreSales);
 		return m_oUserView;
 	}
 	private void onCreateBannerImageList()

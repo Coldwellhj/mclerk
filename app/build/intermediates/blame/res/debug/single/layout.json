@@ -44,6 +44,10 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\search_book_contents.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_calendar.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\item_calendar.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\layout\\abc_action_menu_layout.xml"
     },
@@ -114,6 +118,10 @@
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_pro_expense.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\layout_pro_expense.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_card_salse.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\activity_card_salse.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_book_contents_list_item.xml",
@@ -234,6 +242,10 @@
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_gware_house_fill_print.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\activity_gware_house_fill_print.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_card_search.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\activity_card_search.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\act_user_login.xml",

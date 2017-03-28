@@ -288,6 +288,10 @@
         </activity>
         <activity android:name="com.eaosoft.mclerk.GCashier_Search" >
         </activity>
+        <activity android:name="com.eaosoft.mclerk.CardSalse" >
+        </activity>
+        <activity android:name="com.eaosoft.mclerk.CardSearch" >
+        </activity>
     </application>
 
 </manifest>

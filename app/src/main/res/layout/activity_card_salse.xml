@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_card_salse"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.eaosoft.mclerk.CardSalse">
+
+    <LinearLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/shareholder_background"
+        android:orientation="horizontal">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="门店"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <com.eaosoft.view.RoundImageView
+        android:id="@+id/personal"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/user_icon" />
+    <TextView
+        android:id="@+id/userName"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        />
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_below="@id/head"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ViewFlipper
+            android:id="@+id/flipper1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

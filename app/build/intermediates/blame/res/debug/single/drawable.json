@@ -4,10 +4,6 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_performance_ranking.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_performance_ranking.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\web_view_progress_bar.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\web_view_progress_bar.xml"
     },
@@ -254,10 +250,6 @@
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\printbutton.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\printbutton.xml"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_order_personal.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_order_personal.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pwd_icon.png",

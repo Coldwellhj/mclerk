@@ -290,6 +290,10 @@
         </activity>
         <activity android:name=".GCashier_Search">
         </activity>
+        <activity android:name=".CardSalse">
+        </activity>
+        <activity android:name=".CardSearch">
+        </activity>
     </application>
 
 </manifest>
