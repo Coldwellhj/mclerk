@@ -1,5 +1,16 @@
 package com.eaosoft.util;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,23 +18,12 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.CoreProtocolPNames;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 
-
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.methods.HttpGet;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.params.CoreProtocolPNames;
 
 
 public class GUtilHttp
@@ -59,7 +59,7 @@ public class GUtilHttp
 			HttpClient client = new DefaultHttpClient();
 			client.getParams().setParameter(CoreProtocolPNames.USER_AGENT,"android");
 			
-			 HttpParams httpParams = client.getParams();
+			 HttpParams httpParams =(HttpParams) client.getParams();
 			 HttpConnectionParams.setConnectionTimeout(httpParams, 3000);
 			 HttpConnectionParams.setSoTimeout(httpParams, 5000);
 			 

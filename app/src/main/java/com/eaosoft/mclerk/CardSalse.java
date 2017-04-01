@@ -12,8 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,13 +23,14 @@ import android.widget.ViewFlipper;
 
 import com.eaosoft.adapter.DateAdapter;
 import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.GSvrChannel;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CardSalse extends Activity implements GestureDetector.OnGestureListener {
+public class CardSalse extends Activity implements GestureDetector.OnGestureListener, View.OnClickListener {
 
     private RoundImageView personal;
     private TextView store;
@@ -45,13 +48,17 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
     private DateAdapter dateAdapter;
 
     private int selectPostion = 0;
-    private String dayNumbers[] = new String[7];
+    private String monthNumbers[] = new String[7];
     private String YearNumbers[] = new String[7];
 
     private int currentYear;
     private int currentMonth;
     private int currentNum;
     private int currentWeek;
+    private WebView wv_record;
+    private String strURL;
+    private Button bt_allInformation;
+
     public CardSalse() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
@@ -61,6 +68,7 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
         currentYear = year_c;
         currentMonth = month_c;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +80,7 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
 
     private void initData() {
         userName.setText(GOperaterInfo.m_strRealName);
-        store.setText(GOperaterInfo.m_strGroupName);
+        store.setText("总部");
         personal.setImageResource(R.drawable.ic_launcher);
         if (GUtilSDCard.isFileExist(GOperaterInfo.m_strLocalDiskImage)) {
             Bitmap photo = BitmapFactory.decodeFile(GOperaterInfo.m_strLocalDiskImage);
@@ -86,12 +94,15 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
                 currentMonth, currentNum, selectPostion,
                 currentWeek == 1 ? true : false);
         addGridView();
-        dayNumbers = dateAdapter.getMonthNumbers();
+        monthNumbers = dateAdapter.getMonthNumbers();
         YearNumbers = dateAdapter.getYearNumbers();
         gridView.setAdapter(dateAdapter);
 
         gridView.setSelection(0);
         flipper1.addView(gridView, 0);
+        strURL = GSvrChannel.m_strURLshopSaleStatistics + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&month=" + currentMonth + "&year=" + currentYear;
+        wv_record.loadUrl(strURL);
+
     }
 
     private void initView() {
@@ -101,7 +112,12 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
         head = (LinearLayout) findViewById(R.id.head);
         flipper1 = (ViewFlipper) findViewById(R.id.flipper1);
 
+        wv_record = (WebView) findViewById(R.id.wv_record);
+//        wv_record.setOnClickListener(this);
+        bt_allInformation = (Button) findViewById(R.id.bt_allInformation);
+        bt_allInformation.setOnClickListener(this);
     }
+
     private void addGridView() {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 AbsListView.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.WRAP_CONTENT);
@@ -125,6 +141,8 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
                                     int position, long id) {
 
                 selectPostion = position;
+                strURL = GSvrChannel.m_strURLshopSaleStatistics + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&month=" + monthNumbers[position] + "&year=" + YearNumbers[position];
+                wv_record.loadUrl(strURL);
                 dateAdapter.setSeclection(position);
                 dateAdapter.notifyDataSetChanged();
 //                tvDate.setText(YearNumbers[position] + "年"
@@ -169,7 +187,6 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
     }
 
 
-
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                            float velocityY) {
@@ -177,17 +194,17 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
         if (e1.getX() - e2.getX() > 80) {
             // 向左滑
             addGridView();
-            currentMonth=currentMonth+7;
-            if(currentMonth>12)
-            {
-                currentMonth=currentMonth-12;
+            currentMonth = currentMonth + 7;
+            if (currentMonth > 12) {
+                currentMonth = currentMonth - 12;
                 currentYear++;
             }
-
+            strURL = GSvrChannel.m_strURLshopSaleStatistics + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&month=" + currentMonth + "&year=" + currentYear;
+            wv_record.loadUrl(strURL);
             dateAdapter = new DateAdapter(this, getResources(), currentYear,
                     currentMonth, currentNum, selectPostion,
                     currentWeek == 1 ? true : false);
-            dayNumbers = dateAdapter.getMonthNumbers();
+            monthNumbers = dateAdapter.getMonthNumbers();
             YearNumbers = dateAdapter.getYearNumbers();
             gridView.setAdapter(dateAdapter);
 //            tvDate.setText(YearNumbers[selectPostion] + "年"
@@ -206,17 +223,17 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
 
         } else if (e1.getX() - e2.getX() < -80) {
             addGridView();
-            currentMonth=currentMonth-7;
-            if(currentMonth<1)
-            {
-                currentMonth=currentMonth+12;
+            currentMonth = currentMonth - 7;
+            if (currentMonth < 1) {
+                currentMonth = currentMonth + 12;
                 currentYear--;
             }
-
+            strURL = GSvrChannel.m_strURLshopSaleStatistics + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&month=" + currentMonth + "&year=" + currentYear;
+            wv_record.loadUrl(strURL);
             dateAdapter = new DateAdapter(this, getResources(), currentYear,
                     currentMonth, currentNum, selectPostion,
                     currentWeek == 1 ? true : false);
-            dayNumbers = dateAdapter.getMonthNumbers();
+            monthNumbers = dateAdapter.getMonthNumbers();
             YearNumbers = dateAdapter.getYearNumbers();
             gridView.setAdapter(dateAdapter);
 //            tvDate.setText(YearNumbers[selectPostion] + "年"
@@ -240,5 +257,17 @@ public class CardSalse extends Activity implements GestureDetector.OnGestureList
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return this.gestureDetector.onTouchEvent(event);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_allInformation:
+                dateAdapter.setSeclection(-1);
+                dateAdapter.notifyDataSetChanged();
+                strURL= GSvrChannel.m_strURLshopSaleStatistics+"?token="+GOperaterInfo.m_strToken+"&callerName="+GSvrChannel.CALLER_NAME;
+                wv_record.loadUrl(strURL);
+                break;
+        }
     }
 }

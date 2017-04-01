@@ -3,14 +3,14 @@ package com.eaosoft.mclerk;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,21 +22,30 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eaosoft.fragment.GFragmentOne;
 import com.eaosoft.fragment.GuidePageAdapter;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilHttp;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.util.SingleView;
 import com.eaosoft.view.RoundImageView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.lang.Boolean.FALSE;
 
 public class GShareholderMain
 {
@@ -61,12 +70,24 @@ public class GShareholderMain
 	private int						m_nCreentViewImage;
     private int                     TodayCardCreateNum=0;
     private int                     MonthCardCreateNum=0;
-    private int                     TodayMoney=0;
+    private int                     TodayMoney=10;
     private int                     MonthMoney=0;
     private List<Float>             singlelist;
     private LinearLayout            llSingle;
     private SingleView              my_single_chart_view;
+    private Button	oBtnTodayMoney;
+    private Button	oBtnMonthMoney;
     private  RelativeLayout rl_single;
+    final Handler m_handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.arg1 == 0) {
+                oBtnTodayMoney.setText(TodayMoney+"元");
+                oBtnMonthMoney.setText(MonthMoney+"元");
+                my_single_chart_view.setList(singlelist);
+            }
+        }
+    };
 	//========================================
 	public GShareholderMain(Context oContext)
 	{
@@ -76,6 +97,7 @@ public class GShareholderMain
 	}
 	public  View OnCreateView()
 	{
+
 		m_oUserView = new ScrollView(m_oContext);
 		m_oUserView.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );
 		m_oUserView.setFillViewport(true);
@@ -117,10 +139,10 @@ public class GShareholderMain
         m_oShopCaption=new TextView(m_oContext);
         m_oShopCaption.setLayoutParams( pShopName);
         m_oShopCaption.setTextSize(16);
-        m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
+        m_oShopCaption.setText("总部");
         m_oShopCaption.setTextColor(Color.WHITE);
         m_oShopCaption.setEnabled(true);
-        m_oShopCaption.setOnClickListener(m_oChangeGroup);
+//       m_oShopCaption.setOnClickListener(m_oChangeGroup);
         oSubHeader.addView(m_oShopCaption);
 
         //操作员名称
@@ -129,7 +151,7 @@ public class GShareholderMain
         pOPName.addRule(RelativeLayout.CENTER_VERTICAL);
 
         m_oUserCaption=new TextView(m_oContext);
-        m_oUserCaption.setLayoutParams( pOPName);
+        m_oUserCaption.setLayoutParams(pOPName);
         m_oUserCaption.setTextSize(16);
         m_oUserCaption.setText(GOperaterInfo.m_strRealName);
         m_oUserCaption.setTextColor(Color.WHITE);
@@ -168,23 +190,24 @@ public class GShareholderMain
 		p.weight=1.0f;
 		Button	oBtnTodayCardCreate = new Button(m_oContext);
         oBtnTodayCardCreate.setLayoutParams( p);
-        oBtnTodayCardCreate.setText("今日开卡"+TodayCardCreateNum+"张");
+//        oBtnTodayCardCreate.setText("今日开卡"+TodayCardCreateNum+"张");
+        oBtnTodayCardCreate.setText("今日");
         oBtnTodayCardCreate.setBackgroundResource(R.color.shareholder_background);
-        oBtnTodayCardCreate.setOnClickListener(new OnClickListener() {
-	        public void onClick(View v) {
-
-	        	        }});
+//        oBtnTodayCardCreate.setOnClickListener(new OnClickListener() {
+//	        public void onClick(View v) {
+//
+//	        	        }});
 		oSubShortBtn.addView(oBtnTodayCardCreate);
 
-		Button	oBtnTodayMoney = new Button(m_oContext);
+        oBtnTodayMoney = new Button(m_oContext);
         oBtnTodayMoney.setLayoutParams( p);
         oBtnTodayMoney.setText(TodayMoney+"元");
         oBtnTodayMoney.setBackgroundResource(R.color.shareholder_todayMoney);
 		//oSubShortBtn.addView(oHLineView);
-        oBtnTodayMoney.setOnClickListener(new OnClickListener() {
-	        public void onClick(View v) {
-
-	        	        }});
+//        oBtnTodayMoney.setOnClickListener(new OnClickListener() {
+//	        public void onClick(View v) {
+//
+//	        	        }});
 		oSubShortBtn.addView(oBtnTodayMoney);
 
         LinearLayout oSubShortBtn1 = new LinearLayout(m_oContext);  //线性布局方式
@@ -196,24 +219,25 @@ public class GShareholderMain
         p1.weight=1.0f;
 		Button	oBtnMonthCardCreate = new Button(m_oContext);
         oBtnMonthCardCreate.setLayoutParams( p1);
-        oBtnMonthCardCreate.setText("本月累计开卡"+ MonthCardCreateNum+"张");
+//        oBtnMonthCardCreate.setText("本月累计开卡"+ MonthCardCreateNum+"张");
+        oBtnMonthCardCreate.setText("本月累计");
         oBtnMonthCardCreate.setBackgroundResource(R.color.shareholder_monthCardCreate);
 		//oSubShortBtn.addView(oHLineView);
-        oBtnMonthCardCreate.setOnClickListener(new OnClickListener() {
-	        public void onClick(View v) {
-
-	        	        }});
+//        oBtnMonthCardCreate.setOnClickListener(new OnClickListener() {
+//	        public void onClick(View v) {
+//
+//	        	        }});
         oSubShortBtn1.addView(oBtnMonthCardCreate);
 
-        Button	oBtnMonthMoney = new Button(m_oContext);
+       	oBtnMonthMoney = new Button(m_oContext);
         oBtnMonthMoney.setLayoutParams( p1);
         oBtnMonthMoney.setText(MonthMoney+"元");
         oBtnMonthMoney.setBackgroundResource(R.color.shareholder_monthMoney);
         //oSubShortBtn.addView(oHLineView);
-        oBtnMonthMoney.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-
-            }});
+//        oBtnMonthMoney.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//
+//            }});
         oSubShortBtn1.addView(oBtnMonthMoney);
 
 		//==========================================================================
@@ -234,47 +258,50 @@ public class GShareholderMain
 //		oBtnCardOrderList.setId(1000);
 //		oBtnCardOrderList.setOnClickListener(vp_click_listener);
 //		oMainWin.addView(oBtnCardOrderList);
-        rl_single = new RelativeLayout(m_oContext);
-        rl_single.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 500));
 
-        oMainWin.addView(rl_single);
-        llSingle = (LinearLayout) LayoutInflater.from(MainActivity.m_oMainActivity).inflate(R.layout.layout_pro_expense, null);
+            rl_single = new RelativeLayout(m_oContext);
+            rl_single.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 500));
+
+            oMainWin.addView(rl_single);
+            llSingle = (LinearLayout) LayoutInflater.from(MainActivity.m_oMainActivity).inflate(R.layout.layout_pro_expense, null);
 //        SingleView my_single_chart_view =new SingleView(m_oContext);
-        my_single_chart_view = (SingleView) llSingle.findViewById(R.id.my_single_chart_view);
-        my_single_chart_view.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 450) );
-        singlelist = new ArrayList<Float>();
-        Random random = new Random();
-        while (singlelist.size() < 12) {
-            int randomInt = random.nextInt(100);
-            singlelist.add((float) randomInt);
-        }
+            my_single_chart_view = (SingleView) llSingle.findViewById(R.id.my_single_chart_view);
+            my_single_chart_view.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 450) );
+            singlelist = new ArrayList<Float>();
+//        Random random = new Random();
+//        while (singlelist.size() < 12) {
+//            int randomInt = random.nextInt(100);
+//            singlelist.add((float) randomInt);
+//        }
 
-        my_single_chart_view.setList(singlelist);
-        rl_single.removeView(llSingle);
-        //原理同双柱
-        my_single_chart_view.setListener(new SingleView.getNumberListener() {
-            @Override
-            public void getNumber(int number, int x, int y) {
-                rl_single.removeView(llSingle);
+            my_single_chart_view.setList(singlelist);
+            rl_single.removeView(llSingle);
+            //原理同双柱
+            my_single_chart_view.setListener(new SingleView.getNumberListener() {
+                @Override
+                public void getNumber(int number, int x, int y) {
+                    rl_single.removeView(llSingle);
 //                llSingle = (LinearLayout) LayoutInflater.from(MainActivity.m_oMainActivity).inflate(R.layout.layout_pro_expense, null);
-                TextView tvMoney = (TextView) llSingle.findViewById(R.id.tv_shouru_pro);
-                tvMoney.setText((number + 1) + "月支出" + (singlelist.get(number)));
-                llSingle.measure(0, 0);
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                        RelativeLayout.LayoutParams.WRAP_CONTENT);
-                params.leftMargin = x - 100;
-                if (x - 100 < 0) {
-                    params.leftMargin = 0;
-                } else if (x - 100 > rl_single.getWidth() - llSingle.getMeasuredWidth()) {
-                    params.leftMargin = rl_single.getWidth() - llSingle.getMeasuredWidth();
-                }
+                    TextView tvMoney = (TextView) llSingle.findViewById(R.id.tv_shouru_pro);
+                    tvMoney.setText( (singlelist.get(number)+"元"));
+                    llSingle.measure(0, 0);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    params.leftMargin = x - 100;
+                    if (x - 100 < 0) {
+                        params.leftMargin = 0;
+                    } else if (x - 100 > rl_single.getWidth() - llSingle.getMeasuredWidth()) {
+                        params.leftMargin = rl_single.getWidth() - llSingle.getMeasuredWidth();
+                    }
 
-                llSingle.setLayoutParams(params);
-                rl_single.addView(llSingle);
-            }
-        });
-        llSingle.removeView(my_single_chart_view);
-        rl_single.addView(my_single_chart_view);
+                    llSingle.setLayoutParams(params);
+                    rl_single.addView(llSingle);
+                }
+            });
+            llSingle.removeView(my_single_chart_view);
+            rl_single.addView(my_single_chart_view);
+
+
 		return m_oUserView;
 	}
 	private void onCreateBannerImageList()
@@ -339,14 +366,14 @@ public class GShareholderMain
 				m_oAtomicInteger.set(0);
 		};
 	};
-	OnClickListener m_oChangeGroup = new OnClickListener()
-  	{
-  		 public void onClick(View v) 
-         {
-  			Intent intent = new Intent(MainActivity.m_oMainActivity, GActGroupList.class);			
-        	MainActivity.m_oMainActivity.startActivityForResult(intent,MainActivity.USER_GROUP_CHANGE);	
-         }
-  	};
+//	OnClickListener m_oChangeGroup = new OnClickListener()
+//  	{
+//  		 public void onClick(View v)
+//         {
+//  			Intent intent = new Intent(MainActivity.m_oMainActivity, GActGroupList.class);
+//        	MainActivity.m_oMainActivity.startActivityForResult(intent,MainActivity.USER_GROUP_CHANGE);
+//         }
+//  	};
 	OnClickListener vp_click_listener = new OnClickListener()
 	{
 		public void onClick(View v) 
@@ -400,4 +427,88 @@ public class GShareholderMain
 		if(requestCode== MainActivity.USER_GROUP_CHANGE && m_oShopCaption != null)
 				m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
 	}
+    public void getshopSalseStatistics()
+    {
+        GSvrChannel svr= 	new GSvrChannel()
+        {
+            public void onNetFailure(int statusCode,String strInfo)
+            {
+                MainActivity.MessageBox("读取门店消费信息","statusCode:"+statusCode+",Info:"+strInfo);
+                MainActivity.onUserMessageBox("读取门店消费信息", "读取门店消费信息失败，请检查网络是否畅通或者联系管理员！");
+            }
+            public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
+            {
+                if(nCode < 0)
+                {
+                    MainActivity.MessageBox("读取门店消费信息",strInfo);
+                    MainActivity.onUserMessageBox("读取门店消费信息",strInfo);
+                    return;
+                }
+
+                try
+                {
+                    JSONArray xContent=null;
+                    JSONArray goodsList=null;
+                    JSONObject oData = oJsonData.getJSONObject("data");
+                    if(oData == null)
+                    {
+                        MainActivity.MessageBox("读取门店消费信息","读取门店消费信息失败，请检查网络是否畅通或者联系管理员！");
+                        MainActivity.onUserMessageBox("读取门店消费信息","读取门店消费信息失败，请检查网络是否畅通或者联系管理员！");
+                        return;
+                    }
+                    try{
+                        xContent = oData.getJSONArray("content");
+                        TodayMoney=Integer.parseInt(String.valueOf( GUtilHttp.getJSONObjectValue("today_money",oData)));
+                        MonthMoney=Integer.parseInt(String.valueOf( GUtilHttp.getJSONObjectValue("month_money",oData)));
+                    }catch(JSONException e)
+                    {
+                        System.out.println(e);
+                        xContent=null;
+                    }
+                    if(xContent==null)
+                        return;
+//                   List ar = new ArrayList();
+                    for(int i=0;i<xContent.length();i++)
+                    {
+                        JSONObject o = xContent.getJSONObject(i);
+                        Map map = new HashMap();
+                        map.put("uID", GUtilHttp.getJSONObjectValue("uID",o));
+                        if(map.get("uID").toString().length()>0)
+                        {
+//                            map.put("caption",GUtilHttp.getJSONObjectValue("caption",o) );
+//                            map.put("money", GUtilHttp.getJSONObjectValue("money",o) );
+//                            ar.add(map);
+                            singlelist.add(Float.parseFloat( GUtilHttp.getJSONObjectValue("money",o)));
+                        }
+                        Message msg = m_handler.obtainMessage();
+                        msg.arg1 = 0;
+                        m_handler.sendMessage(msg);
+                    }
+
+
+
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                    MainActivity.MessageBox("读取门店消费信息",e.getMessage());
+                    MainActivity.onUserMessageBox("读取门店消费信息","读取门店消费信息失败，请检查网络是否畅通或者联系管理员！");
+                    return;
+                }
+            }
+        };
+        try
+        {
+            JSONObject   requestDatas = new JSONObject();
+            requestDatas.put("", "");
+            svr.m_oCurrentActivity = MainActivity.m_oMainActivity;
+            svr.onPost("api/mobile/shopSalseStatistics.do", requestDatas);
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            MainActivity.MessageBox("读取门店消费信息",e.getMessage());
+            MainActivity.onUserMessageBox("读取门店消费信息","读取门店消费信息失败，请检查网络是否畅通或者联系管理员！");
+        }
+    }
 }

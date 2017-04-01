@@ -50,10 +50,36 @@
         android:gravity="center"
         />
     <RelativeLayout
-        android:id="@+id/activity_main"
+        android:id="@+id/title"
         android:layout_below="@id/head"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="卡销售"/>
+        <Button
+            android:id="@+id/bt_allInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/shareholder_background"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/encode_view"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="全部"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <ViewFlipper
             android:id="@+id/flipper1"
             android:layout_width="match_parent"
@@ -61,4 +87,11 @@
             />
 
     </RelativeLayout>
+    <WebView
+        android:id="@+id/wv_record"
+        android:layout_below="@id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </WebView>
 </RelativeLayout>

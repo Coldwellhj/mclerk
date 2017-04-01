@@ -126,11 +126,11 @@ public class GSalseMain
         //Banner
 		LinearLayout oSubBanner = new LinearLayout(m_oContext);  //线性布局方式  
 		oSubBanner.setOrientation( LinearLayout.VERTICAL ); //控件对其方式为垂直排列  VERTICAL
-		oSubBanner.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 240) );		
+		oSubBanner.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/4) );
 		oMainWin.addView(oSubBanner);
 		
 		m_oImgBanner = new  ViewPager(m_oContext);
-		m_oImgBanner.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 240) );
+		m_oImgBanner.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/4) );
 		oSubBanner.addView(m_oImgBanner);
 		
 		
@@ -148,7 +148,7 @@ public class GSalseMain
         //快捷按钮区
 		LinearLayout oSubShortBtn = new LinearLayout(m_oContext);  //线性布局方式  
 		oSubShortBtn.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为横向排列  HORIZONTAL
-		oSubShortBtn.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 160) );
+		oSubShortBtn.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/8) );
 		oMainWin.addView(oSubShortBtn);
 		
 		LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT) ;

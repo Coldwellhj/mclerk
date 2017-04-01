@@ -72,12 +72,16 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:label,android:theme">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -293,6 +297,14 @@
         <activity android:name=".CardSalse">
         </activity>
         <activity android:name=".CardSearch">
+        </activity>
+        <activity android:name=".Consumption_summary">
+        </activity>
+        <activity android:name=".PerformanceRanking">
+        </activity>
+        <activity android:name=".SalesPersonal">
+        </activity>
+        <activity android:name=".DifferentStoreSales">
         </activity>
     </application>
 

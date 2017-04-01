@@ -88,7 +88,7 @@ public class DateAdapter extends BaseAdapter {
 												// （jumpMonth为滑动的次数，每滑动一次就增加一月或减一月）
 
 
-		getWeek(parseInt(currentYear), parseInt(currentMonth)
+		getMonth(parseInt(currentYear), parseInt(currentMonth)
 				);
 
 	}
@@ -97,7 +97,7 @@ public class DateAdapter extends BaseAdapter {
 
 
 
-	public void getWeek(int year, int month) {
+	public void getMonth(int year, int month) {
 		for (int i = 0; i < MonthNumber.length; i++) {
             if(month+i<=12){
                 MonthNumber[i] = String.valueOf(month+i);
@@ -146,7 +146,7 @@ public class DateAdapter extends BaseAdapter {
 		TextView tvMonth = (TextView) convertView.findViewById(R.id.tv_month);
 		TextView tvYear = (TextView) convertView.findViewById(R.id.tv_year);
         ImageView round = (ImageView) convertView.findViewById(R.id.round);
-        if(MonthNumber[position]==currentMonth&&YearNumber[position]==currentYear){
+        if(MonthNumber[position].equals(sys_month)&&YearNumber[position].equals(sys_year)){
             tvMonth.setText("本月");
             tvYear.setText("");
         }else {
@@ -155,11 +155,15 @@ public class DateAdapter extends BaseAdapter {
         }
 		if (clickTemp == position) {
             tvMonth.setSelected(true);
-            tvMonth.setTextColor(Color.BLACK);
-            round.setBackgroundResource(R.drawable.round1);
+            tvYear.setSelected(true);
+            tvMonth.setTextColor(tvMonth.getResources().getColor(R.color.shareholder_background));
+            tvYear.setTextColor(tvMonth.getResources().getColor(R.color.shareholder_background));
+            round.setBackgroundResource(R.drawable.yuan);
 		} else {
             tvMonth.setSelected(false);
+            tvYear.setSelected(false);
             tvMonth.setTextColor(Color.BLACK);
+            tvYear.setTextColor(Color.BLACK);
             round.setBackgroundResource(R.drawable.round);
             tvMonth.setBackgroundColor(Color.TRANSPARENT);
 		}

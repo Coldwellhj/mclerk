@@ -5,14 +5,18 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.GSvrChannel;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
 
@@ -27,7 +31,10 @@ public class CardSearch extends Activity implements View.OnClickListener {
     private TextView tv_card_balance;
     private TextView card_balance;
     private TextView tv_record;
-
+    private WebView wv_search;
+    private String strURL;
+    private String cardNum;
+    private String phoneNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +46,17 @@ public class CardSearch extends Activity implements View.OnClickListener {
 
     private void initData() {
         userName.setText(GOperaterInfo.m_strRealName);
-        store.setText(GOperaterInfo.m_strGroupName);
+        store.setText("总部");
         personal.setImageResource(R.drawable.ic_launcher);
         if (GUtilSDCard.isFileExist(GOperaterInfo.m_strLocalDiskImage)) {
             Bitmap photo = BitmapFactory.decodeFile(GOperaterInfo.m_strLocalDiskImage);
             if (photo != null && personal != null)
                 personal.setImageBitmap(photo);
         }
+        cardNum=et_cardNum.getText().toString().trim();
+        phoneNumber=et_phoneNumber.getText().toString().trim();
     }
+
     private void initView() {
         store = (TextView) findViewById(R.id.store);
         personal = (RoundImageView) findViewById(R.id.personal);
@@ -54,16 +64,18 @@ public class CardSearch extends Activity implements View.OnClickListener {
         et_cardNum = (EditText) findViewById(R.id.et_cardNum);
         et_phoneNumber = (EditText) findViewById(R.id.et_phoneNumber);
         bt_search = (Button) findViewById(R.id.bt_search);
-        tv_card_balance = (TextView) findViewById(R.id.tv_card_balance);
-        card_balance = (TextView) findViewById(R.id.card_balance);
+
         tv_record = (TextView) findViewById(R.id.tv_record);
         bt_search.setOnClickListener(this);
+        wv_search = (WebView) findViewById(R.id.wv_search);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_search:
+                submit();
+
 
                 break;
         }
@@ -71,20 +83,43 @@ public class CardSearch extends Activity implements View.OnClickListener {
 
     private void submit() {
         // validate
-        String cardNum = et_cardNum.getText().toString().trim();
-        if (TextUtils.isEmpty(cardNum)) {
-            Toast.makeText(this, "cardNum不能为空", Toast.LENGTH_SHORT).show();
+
+        String card = et_cardNum.getText().toString().trim();
+        String phoneNum = et_phoneNumber.getText().toString().trim();
+        if (TextUtils.isEmpty(card) && TextUtils.isEmpty(phoneNum)) {
+            Toast.makeText(this, "card和phoneNum不能全为空", Toast.LENGTH_SHORT).show();
             return;
+        }else {
+            strURL = GSvrChannel.m_strURLcardConsume + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&cardNo=" + cardNum + "&cellPhone=" + phoneNumber;
+            wv_search.loadUrl(strURL);
+            wv_search.setWebViewClient(new WebViewClient()
+            {
+                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
+                {                 // Handle the error
+
+                }
+
+                public boolean shouldOverrideUrlLoading(WebView view, String url)
+                {
+                    view.loadUrl(url);     //不要跳往系统窗口
+                    return true;
+                }
+            });
         }
 
-        String phoneNumber = et_phoneNumber.getText().toString().trim();
-        if (TextUtils.isEmpty(phoneNumber)) {
-            Toast.makeText(this, "phoneNumber不能为空", Toast.LENGTH_SHORT).show();
-            return;
+
+    }
+    @Override
+    //设置回退
+    //覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && wv_search.canGoBack())
+        {
+            wv_search.goBack(); //goBack()表示返回WebView的上一页面
+            return true;
         }
-
-        // TODO validate success, do something
-
-
+        finish();
+        return false;
     }
 }

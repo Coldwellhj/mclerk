@@ -152,4 +152,12 @@
     <string name="not_con_printer">未连接打印机</string>send_failed
     <string name="send_failed">发送失败</string>
     <string name="send_success">发送成功</string>
+
+    <string-array name="groupList">
+        <item>昆山一店</item>
+        <item>昆山二店</item>
+        <item>昆山三店</item>
+    </string-array>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
 </resources>

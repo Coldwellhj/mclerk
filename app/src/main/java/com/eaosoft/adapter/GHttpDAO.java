@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.eaosoft.mclerk.GCashier_Search.mHandler_GCashier;
 import static com.eaosoft.mclerk.GWareHouseMain.mHandler;
 
 public class GHttpDAO
@@ -628,6 +629,102 @@ public class GHttpDAO
 			e.printStackTrace();
 		}
 	}
+    public void getCashierSalesReport_Search(String dateTime)
+    {
+
+        GSvrChannel svr= 	new GSvrChannel()
+        {
+            public void onNetFailure(int statusCode,String strInfo)
+            {
+
+                MainActivity.MessageBox("读取打印列表","statusCode:"+statusCode+",Info:"+strInfo);
+                MainActivity.onUserMessageBox("读取打印列表", "读取打印列表失败，请检查网络是否畅通或者联系管理员！");
+            }
+            public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
+            {
+
+                if(nCode <=0)
+                {
+                    List ar=new ArrayList();
+                    MainActivity.MessageBox("读取打印列表",strInfo);
+                    MainActivity.onUserMessageBox("读取打印列表","暂无查询记录！");
+                    m_oAdapter.setData(ar);
+                    m_oAdapter.notifyDataSetChanged();
+                    return;
+                }
+
+                try
+                {
+                    JSONArray xContent=null;
+                    JSONObject oData = oJsonData.getJSONObject("data");
+                    if(oData == null)
+                    {
+                        MainActivity.MessageBox("读取打印列表","读取打印列表失败，请检查网络是否畅通或者联系管理员！");
+                        MainActivity.onUserMessageBox("读取打印列表","读取打印列表失败，请检查网络是否畅通或者联系管理员！");
+                        return;
+                    }
+                    try{xContent = oData.getJSONArray("content");
+
+                    }catch(JSONException e){xContent=null;}
+                    if(xContent== null)
+                        return;
+                    List ar=new ArrayList();
+
+
+
+                    for(int i=0;i<xContent.length();i++)
+                    {
+                        JSONObject o = xContent.getJSONObject(i);
+                        Map map = new HashMap();
+                        map.put("serialNo", GUtilHttp.getJSONObjectValue("serialNo",o));
+                        if(map.get("serialNo").toString().length()>0)
+                        {
+                            map.put("serialNo", GUtilHttp.getJSONObjectValue("serialNo", o));
+                            map.put("buyTime", GUtilHttp.getJSONObjectValue("buyTime", o));
+                            map.put("caption", GUtilHttp.getJSONObjectValue("caption", o));
+                            map.put("realMoney", GUtilHttp.getJSONObjectValue("realMoney", o));
+                            ar.add(map);
+                        }
+                    }
+                    //####################################################
+                    m_oAdapter.setData(ar);
+                    m_oAdapter.notifyDataSetChanged();
+                    Message msg =Message.obtain();
+                    msg.what= 2;
+                    mHandler_GCashier.sendMessage(msg);
+
+
+                }
+
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                    MainActivity.MessageBox("读取打印列表",e.getMessage());
+                    MainActivity.onUserMessageBox("读取打印列表","读取打印列表失败，请检查网络是否畅通或者联系管理员！");
+                    return;
+                }
+
+            }
+        };
+        try
+        {
+            JSONObject   requestDatas = new JSONObject();
+            requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
+            requestDatas.put("dayTime", dateTime);
+            svr.m_oCurrentActivity = m_oActivity;
+            svr.onPost("api/mobile/opSalesReport.do", requestDatas);
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            MainActivity.MessageBox("读读取打印列表",e.getMessage());
+            MainActivity.onUserMessageBox("读取打印列表","读取打印列表失败，请检查网络是否畅通或者联系管理员！");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void getWareHouseGoodsStatisticsDetail_Search(Integer page,String dateTime)
     {
         HD_page=page;

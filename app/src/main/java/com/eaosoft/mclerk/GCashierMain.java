@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
+import android.webkit.DownloadListener;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -24,6 +28,7 @@ import com.eaosoft.fragment.GFragmentOne;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GSvrChannel;
 import com.eaosoft.util.GUtilSDCard;
+import com.eaosoft.view.GProgressWebView;
 import com.eaosoft.view.RoundImageView;
 import com.google.zxing.client.android.CaptureActivity;
 
@@ -43,13 +48,21 @@ public class GCashierMain {
     private LinearLayout oMainWin_Right_one;
     private LinearLayout oMainWin_Right_two;
     private Button oBtnCardStorage;
+    private Button oBtnCardKindList;
+    private Button oBtnCardStock;
+    private Button oBtnCardCreate;
+    private Button oBtnCardStatistics;
+    private Button oBtnCardSearch;
+    private Button oBtnCardSearchByScanner;
     private Button oBtnCardUse;
     public TextView m_oCurrentTime = null;
     String startno="";
     String startno_use="";
     String endno="";
     String endno_use="";
-
+    private String strURL;
+    private GProgressWebView 		m_oWebViewStock;
+    private GProgressWebView 		m_oWebViewStatistics;
     //=====================================================
     public GCashierMain(Context oContext) {
         m_oContext = oContext;
@@ -101,7 +114,7 @@ public class GCashierMain {
         oMainWin_left.setBackgroundResource(R.color.lightgray);
         //======================================================================================
         //当前套餐
-        Button oBtnCardKindList = new Button(m_oContext);
+        oBtnCardKindList = new Button(m_oContext);
         oBtnCardKindList.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         oBtnCardKindList.setText("卡套餐");
         oBtnCardKindList.setBackgroundResource(R.color.printbutton);
@@ -111,6 +124,18 @@ public class GCashierMain {
 //                Intent intent = new Intent(MainActivity.m_oMainActivity, GActCardKindList.class);
 //                intent.putExtra("UserMgr", "UserMgr");
 //                MainActivity.m_oMainActivity.startActivity(intent);
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton_light);
+                oBtnCardStorage.setBackgroundResource(R.color.printbutton);
+                oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oMainWin_Right_one.setVisibility(View.GONE);
+                oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
                 Intent intent = new Intent(MainActivity.m_oMainActivity, GCashier_Package.class);
                 intent.putExtra("UserMgr", "UserMgr");
                 MainActivity.m_oMainActivity.startActivity(intent);
@@ -126,10 +151,18 @@ public class GCashierMain {
         oBtnCardStorage.setTextColor(oBtnCardStorage.getResources().getColor(android.R.color.white));
         oBtnCardStorage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
                 oBtnCardStorage.setBackgroundResource(R.color.printbutton_light);
                 oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
                 oMainWin_Right_one.setVisibility(View.VISIBLE);
                 oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
             }
         });
         oMainWin_left.addView(oBtnCardStorage);
@@ -142,22 +175,42 @@ public class GCashierMain {
         oBtnCardUse.setTextColor(oBtnCardUse.getResources().getColor(android.R.color.white));
         oBtnCardUse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
                 oBtnCardStorage.setBackgroundResource(R.color.printbutton);
                 oBtnCardUse.setBackgroundResource(R.color.printbutton_light);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
                 oMainWin_Right_one.setVisibility(View.GONE);
                 oMainWin_Right_two.setVisibility(View.VISIBLE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
             }
         });
         oMainWin_left.addView(oBtnCardUse);
         //==========================================================================
         //新卡销售
-        Button oBtnCardCreate = new Button(m_oContext);
+        oBtnCardCreate = new Button(m_oContext);
         oBtnCardCreate.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         oBtnCardCreate.setText("卡销售");
         oBtnCardCreate.setBackgroundResource(R.color.printbutton);
         oBtnCardCreate.setTextColor(oBtnCardCreate.getResources().getColor(android.R.color.white));
         oBtnCardCreate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
+                oBtnCardStorage.setBackgroundResource(R.color.printbutton);
+                oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton_light);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oMainWin_Right_one.setVisibility(View.GONE);
+                oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
                 if (MainActivity.m_bDebugCardNo) {
                     if (m_oFragmentOne != null)
                         m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo, MainActivity.SCAN_CODE_CAED_CREATE);
@@ -170,39 +223,73 @@ public class GCashierMain {
         oMainWin_left.addView(oBtnCardCreate);
         //==========================================================================
         //卡库存
-        Button oBtnCardStock = new Button(m_oContext);
+        oBtnCardStock = new Button(m_oContext);
         oBtnCardStock.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         oBtnCardStock.setText("卡库存");
         oBtnCardStock.setBackgroundResource(R.color.printbutton);
         oBtnCardStock.setTextColor(oBtnCardStock.getResources().getColor(android.R.color.white));
         oBtnCardStock.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
+                oBtnCardStorage.setBackgroundResource(R.color.printbutton);
+                oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton_light);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
+                oMainWin_Right_one.setVisibility(View.GONE);
+                oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.VISIBLE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
             }
         });
         oMainWin_left.addView(oBtnCardStock);
         //==========================================================================
         //卡统计
-        Button oBtnCardStatistics = new Button(m_oContext);
+        oBtnCardStatistics = new Button(m_oContext);
         oBtnCardStatistics.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         oBtnCardStatistics.setText("卡统计");
         oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
         oBtnCardStatistics.setTextColor(oBtnCardStatistics.getResources().getColor(android.R.color.white));
         oBtnCardStatistics.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
+                oBtnCardStorage.setBackgroundResource(R.color.printbutton);
+                oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton_light);
+                oMainWin_Right_one.setVisibility(View.GONE);
+                oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.VISIBLE);
             }
         });
         oMainWin_left.addView(oBtnCardStatistics);
         //======================================================================================
         //卡查询
-        Button oBtnCardSearch = new Button(m_oContext);
+        oBtnCardSearch = new Button(m_oContext);
         oBtnCardSearch.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         oBtnCardSearch.setText("卡查询");
         oBtnCardSearch.setBackgroundResource(R.color.printbutton);
         oBtnCardSearch.setTextColor(oBtnCardStatistics.getResources().getColor(android.R.color.white));
         oBtnCardSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
+                oBtnCardStorage.setBackgroundResource(R.color.printbutton);
+                oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton_light);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
+                oMainWin_Right_one.setVisibility(View.GONE);
+                oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
                 Intent intent =new Intent(MainActivity.m_oMainActivity,GCashier_Search.class);
                 MainActivity.m_oMainActivity.startActivity(intent);
             }
@@ -210,7 +297,7 @@ public class GCashierMain {
         oMainWin_left.addView(oBtnCardSearch);
         //======================================================================================
         //扫码查询
-        Button oBtnCardSearchByScanner = new Button(m_oContext);
+        oBtnCardSearchByScanner = new Button(m_oContext);
         oBtnCardSearchByScanner.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         oBtnCardSearchByScanner.setBackgroundResource(R.drawable.login);
         oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton);
@@ -218,6 +305,18 @@ public class GCashierMain {
         oBtnCardSearchByScanner.setText("扫码查询");
         oBtnCardSearchByScanner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                oBtnCardKindList.setBackgroundResource(R.color.printbutton);
+                oBtnCardStorage.setBackgroundResource(R.color.printbutton);
+                oBtnCardUse.setBackgroundResource(R.color.printbutton);
+                oBtnCardStock.setBackgroundResource(R.color.printbutton);
+                oBtnCardCreate.setBackgroundResource(R.color.printbutton);
+                oBtnCardStatistics.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearch.setBackgroundResource(R.color.printbutton);
+                oBtnCardSearchByScanner.setBackgroundResource(R.color.printbutton_light);
+                oMainWin_Right_one.setVisibility(View.GONE);
+                oMainWin_Right_two.setVisibility(View.GONE);
+                m_oWebViewStock.setVisibility(View.GONE);
+                m_oWebViewStatistics.setVisibility(View.GONE);
                 if (MainActivity.m_bDebugCardNo) {
                     if (m_oFragmentOne != null)
                         m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo, MainActivity.SCAN_CODE_CAED_CONSUME);
@@ -388,7 +487,6 @@ public class GCashierMain {
             }
         });
         oMainWin_Right_one.addView(oBtnCardSave_Storage);
-
         oMainWin_Right_two = new LinearLayout(oContext);  //线性布局方式
         oMainWin_Right_two.setOrientation(LinearLayout.VERTICAL); //控件对其方式为竖直排列
         oMainWin_Right_two.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth*3 / 4, LayoutParams.MATCH_PARENT));
@@ -544,11 +642,63 @@ public class GCashierMain {
         });
         oMainWin_Right_two.addView(oBtnCardSave_Use);
 
+        m_oWebViewStock = new GProgressWebView(oContext);
+        m_oWebViewStock.setVisibility(View.GONE);
+        m_oWebViewStock.setWebViewClient(new WebViewClient()
+        {
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
+            {                 // Handle the error
+
+            }
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url)
+            {
+                view.loadUrl(url);     //不要跳往系统窗口
+                return true;
+            }
+        });
+        m_oWebViewStock.setDownloadListener(new DownloadListener()
+        {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                if (url != null && url.startsWith("http://"))
+                    MainActivity.m_oMainActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            }
+        });
+        strURL = GSvrChannel.m_strURLcardStock + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&groupUID=" +GOperaterInfo.m_strGroupUID ;
+        m_oWebViewStock.loadUrl(strURL);
+
+        m_oWebViewStatistics = new GProgressWebView(oContext);
+        m_oWebViewStatistics.setVisibility(View.GONE);
+        m_oWebViewStatistics.setWebViewClient(new WebViewClient()
+        {
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
+            {                 // Handle the error
+
+            }
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url)
+            {
+                view.loadUrl(url);     //不要跳往系统窗口
+                return true;
+            }
+        });
+        m_oWebViewStatistics.setDownloadListener(new DownloadListener()
+        {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                if (url != null && url.startsWith("http://"))
+                    MainActivity.m_oMainActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            }
+        });
+        strURL = GSvrChannel.m_strURLcardStatistics + "?token=" + GOperaterInfo.m_strToken + "&callerName=" + GSvrChannel.CALLER_NAME + "&groupUID=" +GOperaterInfo.m_strGroupUID ;
+        m_oWebViewStatistics.loadUrl(strURL);
+        oMainWin_Right.addView(m_oWebViewStock);
+        oMainWin_Right.addView(m_oWebViewStatistics);
         oMainWin_Right.addView(oMainWin_Right_one);
         oMainWin_Right.addView(oMainWin_Right_two);
         oMainWin.addView(oMainWin_left);
         oMainWin.addView(oMainWin_Right);
-
         return oMainWin;
     }
 
@@ -570,7 +720,6 @@ public class GCashierMain {
         m_oCurrentTime.setTextSize(16);
         m_oCurrentTime.setText(MainActivity.getStringDate());
         m_oCurrentTime.setTextColor(Color.BLACK);
-
         oSubHeader.addView(m_oCurrentTime);
         //头像
         RelativeLayout.LayoutParams pImgHead = new RelativeLayout.LayoutParams(80, 80);

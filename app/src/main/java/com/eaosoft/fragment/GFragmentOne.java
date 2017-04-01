@@ -61,7 +61,9 @@ public class GFragmentOne extends Fragment
         {
             m_oShareholderMain = new GShareholderMain(m_oContext);
             m_oShareholderMain.m_oFragmentOne = this;
+            m_oShareholderMain.getshopSalseStatistics();
             return m_oShareholderMain.OnCreateView();
+
         }
 		m_oUserView = new ScrollView(m_oContext);
 		m_oUserView.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT) );

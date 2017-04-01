@@ -22,7 +22,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,6 +44,7 @@ import java.util.Date;
 
 public class MainActivity extends FragmentActivity {
     //==============================================
+    public static Context context;
     public static IMyBinder binder;//IMyBinder接口，所有可供调用的连接和发送数据的方法都封装在这个接口内
     ServiceConnection conn=new ServiceConnection() {
         @Override
@@ -109,7 +109,7 @@ public class MainActivity extends FragmentActivity {
 
 
     //==============================================
-    public static int m_nOperaterUI=UI_OP_ROLE_MANAGER ;//
+    public static int m_nOperaterUI;//
     public static int m_oHeadColor = Color.rgb(65, 195, 168);
     public static int m_oHeadStoreColor = Color.rgb(235, 235, 235);
     //==============================================
@@ -130,18 +130,20 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        context=getApplicationContext();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
        ActivityCollector.addActivity(this);
-//        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
-//            m_nOperaterUI = UI_OP_ROLE_CASHIER;
-//        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
-//            m_nOperaterUI = UI_OP_ROLE_STORE;
-//        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
-//            m_nOperaterUI = UI_OP_ROLE_SALSE;
-//        }
+        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
+            m_nOperaterUI = UI_OP_ROLE_CASHIER;
+        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+            m_nOperaterUI = UI_OP_ROLE_STORE;
+        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
+            m_nOperaterUI = UI_OP_ROLE_SALSE;
+        }else if(GOperaterInfo.m_strRoleID.equals("manager")){
+            m_nOperaterUI = UI_OP_ROLE_MANAGER;
+        }
         m_oMainActivity = this;
         onInitApp(this);
         m_oFrmManager = getSupportFragmentManager();
@@ -165,13 +167,15 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onResume() {
-//        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
-//            m_nOperaterUI = UI_OP_ROLE_CASHIER;
-//        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
-//            m_nOperaterUI = UI_OP_ROLE_STORE;
-//        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
-//            m_nOperaterUI = UI_OP_ROLE_SALSE;
-//        }
+        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
+            m_nOperaterUI = UI_OP_ROLE_CASHIER;
+        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+            m_nOperaterUI = UI_OP_ROLE_STORE;
+        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
+            m_nOperaterUI = UI_OP_ROLE_SALSE;
+        }else if(GOperaterInfo.m_strRoleID.equals("manager")){
+            m_nOperaterUI = UI_OP_ROLE_MANAGER;
+        }
         /**
          * 设置为横屏
          */
@@ -286,8 +290,9 @@ public class MainActivity extends FragmentActivity {
             String strScannerCode = data.getStringExtra("scan_result");
             if (m_bUserConfirmBarcode)//用户确认扫描的码
             {
-                final EditText inputServer = new EditText(this);
+                final TextView inputServer = new TextView(this);
                 inputServer.setFocusable(true);
+                inputServer.setTextColor(inputServer.getResources().getColor(R.color.encode_view));
                 inputServer.setText(strScannerCode);
                 inputServer.setTag(requestCode);
 
@@ -323,8 +328,6 @@ public class MainActivity extends FragmentActivity {
     protected void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-
-
         unbindService(conn);
         ActivityCollector.removeActivity(this);
     }
@@ -555,4 +558,5 @@ public class MainActivity extends FragmentActivity {
         return dateString;
     }
 
+    public static Context getContext(){return context ;}
 }

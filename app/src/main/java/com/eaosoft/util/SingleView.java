@@ -34,7 +34,7 @@ public class SingleView extends View {
     private int number = 1000;
     private int selectIndex = -1;
     private List<Integer> selectIndexRoles = new ArrayList<Integer>();
-
+    private String shopName[]={"Ò»µê","¶þµê","Èýµê","ËÄµê","Îåµê","Áùµê","Æßµê","°Ëµê","¾Åµê","Ê®µê","Ê®Ò»µê"};
     public void setList(List<Float> list) {
         this.list = list;
         mSize = getWidth() / 25;
@@ -144,17 +144,17 @@ public class SingleView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mPaint.setColor(lineColor);
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < list.size(); i++) {
             //»­Êý×Ö
-            mPaint.setTextSize(35);
+            mPaint.setTextSize(30);
             mPaint.setTextAlign(Paint.Align.CENTER);
             mPaint.getTextBounds(String.valueOf(i + 1) + "", 0, String.valueOf(i).length(), mBound);
-            canvas.drawText(String.valueOf(i + 1) + "ÔÂ", mStartWidth - mBound.width() * 1 / 2,
+            canvas.drawText(shopName[i], mStartWidth - mBound.width() * 1 / 2,
                 mHeight - 60 + mBound.height() * 1 / 2, mPaint);
             mStartWidth += getWidth() / 13;
         }
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < list.size(); i++) {
             int size = mHeight / 120;
             mChartPaint.setStyle(Paint.Style.FILL);
             if (list.size() > 0) {
@@ -186,14 +186,14 @@ public class SingleView extends View {
         int y = (int) ev.getY();
         int left = 0;
         int top = 0;
-        int right = mWidth / 12;
+        int right = mWidth / 11;
         int bottom = mHeight - 100;
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                for (int i = 0; i < 12; i++) {
+                for (int i = 0; i < 11; i++) {
                     Rect rect = new Rect(left, top, right, bottom);
-                    left += mWidth / 12;
-                    right += mWidth / 12;
+                    left += mWidth / 11;
+                    right += mWidth / 11;
                     if (rect.contains(x, y)) {
                         if (listener != null){
                             listener.getNumber(i, x, y);

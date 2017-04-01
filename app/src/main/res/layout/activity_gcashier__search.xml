@@ -243,14 +243,6 @@
                                     android:textColor="@color/encode_view"
                                     android:textSize="18sp"/>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="收银员"
-                                    android:textColor="@color/encode_view"
-                                    android:textSize="18sp"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -314,7 +306,30 @@
                                     android:text="查找订单"
                                     android:textColor="@color/encode_view"
                                     android:textSize="18sp"/>
-
+                                <Button
+                                    android:id="@+id/connectBlueTooth"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/xyColor"
+                                    android:text="点击连接蓝牙"
+                                    android:textColor="@color/encode_view"
+                                    android:textSize="18sp"/>
+                                <Button
+                                    android:id="@+id/Connect"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/printbutton"
+                                    android:text="连接"
+                                    android:textColor="@color/encode_view"
+                                    android:textSize="18sp"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -333,15 +348,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:layout_weight="1"
-                        android:text="合计"/>
-                    <TextView
-                        android:id="@+id/total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:text="15"/>
+                        android:text="合计:"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -356,7 +364,7 @@
                         android:textSize="20sp"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"
-                        android:text="20"/>
+                        android:text=""/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -371,7 +379,7 @@
                         android:textSize="20sp"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"
-                        android:text="10000"/>
+                        android:text=""/>
                     <Button
                         android:id="@+id/print_sales"
                         android:layout_width="wrap_content"
@@ -386,6 +394,5 @@
                 </LinearLayout>
             </RelativeLayout>
         </FrameLayout>
-
     </LinearLayout>
 </RelativeLayout>

@@ -1,63 +1,59 @@
 [
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_clear_search_api_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_clear_search_api_holo_light.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_clear_search_api_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab3_nomal.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab3_nomal.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_focused_holo.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_style_one_normal.9.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\btn_style_one_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_focused_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_tab_unselected_pressed_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_unselected_pressed_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_tab_unselected_pressed_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_stacked_solid_light_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_solid_light_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_stacked_solid_light_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_clear_search_api_disabled_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_clear_search_api_disabled_holo_light.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab3_pressed.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab3_pressed.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_clear_search_api_disabled_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\login_edit_normal.9.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\login_edit_normal.9.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab3_pressed.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab3_pressed.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_voice_search_api_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_voice_search_api_holo_light.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_voice_search_api_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_stacked_solid_dark_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_solid_dark_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_stacked_solid_dark_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_right_default_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\card_salse.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\card_salse.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_ic_googleplayservices.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_ic_googleplayservices.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\login_error_icon.png",
@@ -65,31 +61,27 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_go_search_api_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_go_search_api_holo_light.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_go_search_api_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_divider_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_divider_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_divider_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_share_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_light.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_menu_share_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_cab_background_top_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_top_holo_dark.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_dark_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_dark_disabled.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_cab_background_top_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_stacked_transparent_dark_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_transparent_dark_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_stacked_transparent_dark_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_stacked_transparent_light_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_stacked_transparent_light_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_stacked_transparent_light_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_style_one_focused.9.png",
@@ -101,7 +93,7 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_cab_done_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_cab_done_holo_light.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_cab_done_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mm_title_back_focused.9.png",
@@ -116,36 +108,28 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\different_store_sales.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_dark_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_dark_normal.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_dropdown_panel_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_search.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_search.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_search.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_cab_done_holo_dark.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_cab_done_holo_dark.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_cab_done_holo_dark.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\salse_personal.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\salse_personal.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_light_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_light_normal.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_commit_search_api_holo_dark.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_dark.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_dark.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_transparent_light_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_transparent_light_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_transparent_light_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_preference_normal.9.png",
@@ -153,31 +137,19 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_default_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_default_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_default_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_search_api_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_search_api_holo_light.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_dark_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_dark_focused.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_search_api_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\performance_ranking.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\performance_ranking.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_light_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_light_pressed.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_login.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\btn_login.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_light_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_light_disabled.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mm_title_back_normal.9.png",
@@ -189,15 +161,15 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_right_selected_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_commit_search_api_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_light.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_cab_background_top_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_top_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_cab_background_top_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\card_search.png",
@@ -205,63 +177,43 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_solid_dark_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_solid_dark_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_solid_dark_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_pressed_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_light_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_light_disabled.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_dark_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_dark_focused.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_tab_selected_focused_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_selected_focused_holo.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_dropdown_panel_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_tab_selected_focused_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\delete_32.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\delete_32.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_light_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_light_focused.9.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_dropdown_panel_holo_light.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_selected_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_light.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_dark_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_dark_disabled.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_go.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_go.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_go.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_tab_selected_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_selected_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_tab_selected_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_focused_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_light.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_light_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_light_normal.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\btn_style_one_pressed.9.png",
@@ -276,12 +228,12 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\btn_join.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\checkbox_selected_press.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\checkbox_selected_press.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_bottom_solid_dark_holo.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_bottom_solid_dark_holo.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_bottom_solid_dark_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_solid_dark_holo.9.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\checkbox_selected_press.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\checkbox_selected_press.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_preference_last_pressed.9.png",
@@ -289,19 +241,11 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_tab_selected_pressed_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_tab_selected_pressed_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_tab_selected_pressed_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab1_pressed.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab1_pressed.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_light_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_light_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_light_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab5_pressed.png",
@@ -309,7 +253,7 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_hardkey_panel_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_menu_hardkey_panel_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_menu_hardkey_panel_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_preference_last_normal.9.png",
@@ -324,72 +268,44 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\checkbox_unselect_press.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_dark_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_dark_normal.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_light_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_light_normal.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_cab_background_bottom_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_bottom_transparent_dark_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_dark_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_bottom_transparent_dark_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_focused_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_bottom_transparent_light_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_light_holo.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\login_edit_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\login_edit_pressed.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_bottom_transparent_light_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\delete.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\delete.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_pressed_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_light.9.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\login_edit_pressed.9.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\login_edit_pressed.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_dark_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_dark_pressed.9.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_pressed_holo_light.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_clear_disabled.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_clear_disabled.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_dark_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_dark_normal.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_light_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_light_focused.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_dark_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_dark_pressed.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_clear_disabled.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_divider_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_divider_holo_dark.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_light_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_light_pressed.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_divider_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_menu_hardkey_panel_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_menu_hardkey_panel_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_menu_hardkey_panel_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab1_nomal.png",
@@ -401,111 +317,83 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_cab_background_bottom_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_bottom_solid_light_holo.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_bottom_solid_light_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab2_nomal.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab2_nomal.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_dark_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_dark_pressed.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_bottom_solid_light_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_bottom_solid_light_holo.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_light.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_full_open_on_phone.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_full_open_on_phone.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_ab_back_holo_dark.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_ab_back_holo_dark.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_light_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_light_disabled.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_ab_back_holo_dark.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_clear_normal.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_clear_normal.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_dark_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_dark_pressed.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_clear_normal.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_longpressed_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_disabled_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_voice_search.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_voice_search.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_voice_search.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_right_selected_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_solid_light_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_solid_light_holo.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_solid_light_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab2_pressed.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab2_pressed.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_right_default_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_light.9.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_transparent_dark_holo.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_transparent_dark_holo.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_transparent_dark_holo.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_transparent_dark_holo.9.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_right_default_holo_light.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_ab_back_holo_light.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_ab_back_holo_light.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_dark_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_dark_disabled.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_ab_back_holo_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_disabled_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab4_pressed.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab4_pressed.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_light_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_light_focused.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_dark_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_dark_disabled.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\mm_title_back_pressed.9.png",
@@ -513,7 +401,7 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_spinner_ab_default_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_spinner_ab_default_holo_dark.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_spinner_ab_default_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\consumption_summary.png",
@@ -521,7 +409,7 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ic_menu_share_holo_dark.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_dark.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ic_menu_share_holo_dark.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_preference_first_normal.9.png",
@@ -532,36 +420,20 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\main_tab4_nomal.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_text_dark_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_text_dark_focused.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_light_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_light_normal.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_default_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_default_holo_light.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_default_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_default_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_default_holo_dark.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_dark_normal.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_dark_normal.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_default_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_icon_dark_focused.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_icon_dark_focused.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\main_tab5_nomal.png",
@@ -572,23 +444,19 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\checkbox_unselect.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_google_signin_btn_icon_light_pressed.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_light_pressed.9.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\round1.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\round1.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_textfield_search_selected_holo_dark.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\19.1.0\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_dark.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_plus_signin_btn_text_light_disabled.9.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_plus_signin_btn_text_light_disabled.9.png"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_preference_first_pressed.9.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\ic_preference_first_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\yuan.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable-hdpi\\yuan.png"
     }
 ]

@@ -79,6 +79,7 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                 personal.setImageBitmap(photo);
         }
         dayTime=currentTime.getText().toString().trim().split(" ")[0];
+        dateTime.setText(dayTime);
         m_oWareHouseStatisticsAdapter = new GWareHouseStatisticsGoodsAdapter(GWareHouseStatistics.this);
         m_oWareHouseDetailListDAO = new GHttpDAO(GWareHouseStatistics.this, m_oWareHouseStatisticsAdapter);
         lv_goodsStatistics.setAdapter(m_oWareHouseStatisticsAdapter);

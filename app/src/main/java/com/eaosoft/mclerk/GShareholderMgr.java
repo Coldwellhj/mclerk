@@ -23,10 +23,8 @@ import android.widget.TextView;
 import com.eaosoft.fragment.GFragmentOne;
 import com.eaosoft.fragment.GuidePageAdapter;
 import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.GSvrChannel;
 import com.eaosoft.util.GUtilSDCard;
 import com.eaosoft.view.RoundImageView;
-import com.google.zxing.client.android.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,10 +103,10 @@ public class GShareholderMgr
         m_oShopCaption=new TextView(m_oContext);
         m_oShopCaption.setLayoutParams(pShopName);
         m_oShopCaption.setTextSize(16);
-        m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
+        m_oShopCaption.setText("总部");
         m_oShopCaption.setTextColor(Color.WHITE);
         m_oShopCaption.setEnabled(true);
-        m_oShopCaption.setOnClickListener(m_oChangeGroup);
+//        m_oShopCaption.setOnClickListener(m_oChangeGroup);
         oSubHeader.addView(m_oShopCaption);
 
         //操作员名称
@@ -179,34 +177,35 @@ public class GShareholderMgr
 		Button	oBtnConsume = new Button(m_oContext);
 		oBtnConsume.setLayoutParams( p);
 		oBtnConsume.setBackgroundResource(R.drawable.consumption_summary);
-		//oSubShortBtn.addView(oHLineView);
 		oBtnConsume.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.m_oMainActivity,Consumption_summary.class);
+                MainActivity.m_oMainActivity.startActivity(intent);
 	        	        }});
 		oSubShortBtn.addView(oBtnConsume);
 
 		//==========================================================================
 		//业绩排行
-		Button	oBtnCardCreate = new Button(m_oContext);
-		oBtnCardCreate.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
-		oBtnCardCreate.setBackgroundResource(R.drawable.performance_ranking);
-		oBtnCardCreate.setOnClickListener(new OnClickListener() {
+		Button	oBtnPerformanceRanking = new Button(m_oContext);
+        oBtnPerformanceRanking.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+        oBtnPerformanceRanking.setBackgroundResource(R.drawable.performance_ranking);
+        oBtnPerformanceRanking.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.m_oMainActivity,PerformanceRanking.class);
+                MainActivity.m_oMainActivity.startActivity(intent);
 	     }});
-		oMainWin.addView(oBtnCardCreate);
+		oMainWin.addView(oBtnPerformanceRanking);
         TextView textView_one = new TextView(m_oContext);
         textView_one.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 20) );
         textView_one.setBackgroundColor(Color.WHITE);
         oMainWin.addView(textView_one);
 
-		Button	oBtnCardOrderList = new Button(m_oContext);
-		oBtnCardOrderList.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
-		oBtnCardOrderList.setBackgroundResource(R.drawable.salse_personal);
-		oBtnCardOrderList.setId(1000);
-		oBtnCardOrderList.setOnClickListener(vp_click_listener);
-		oMainWin.addView(oBtnCardOrderList);
+		Button	oBtnSalsePersonal = new Button(m_oContext);
+        oBtnSalsePersonal.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+        oBtnSalsePersonal.setBackgroundResource(R.drawable.salse_personal);
+        oBtnSalsePersonal.setId(1000);
+        oBtnSalsePersonal.setOnClickListener(vp_click_listener);
+		oMainWin.addView(oBtnSalsePersonal);
 
         TextView textView_two = new TextView(m_oContext);
         textView_two.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 20) );
@@ -218,7 +217,8 @@ public class GShareholderMgr
         oBtnDifferentStoreSales.setBackgroundResource(R.drawable.different_store_sales);
         oBtnDifferentStoreSales.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-
+                    Intent intent=new Intent(MainActivity.m_oMainActivity,DifferentStoreSales.class);
+                    MainActivity.m_oMainActivity.startActivity(intent);
             }});
         oMainWin.addView(oBtnDifferentStoreSales);
 		return m_oUserView;
@@ -285,40 +285,20 @@ public class GShareholderMgr
 				m_oAtomicInteger.set(0);
 		};
 	};
-	OnClickListener m_oChangeGroup = new OnClickListener()
-  	{
-  		 public void onClick(View v) 
-         {
-  			Intent intent = new Intent(MainActivity.m_oMainActivity, GActGroupList.class);			
-        	MainActivity.m_oMainActivity.startActivityForResult(intent,MainActivity.USER_GROUP_CHANGE);	
-         }
-  	};
+//	OnClickListener m_oChangeGroup = new OnClickListener()
+//  	{
+//  		 public void onClick(View v)
+//         {
+//  			Intent intent = new Intent(MainActivity.m_oMainActivity, GActGroupList.class);
+//        	MainActivity.m_oMainActivity.startActivityForResult(intent,MainActivity.USER_GROUP_CHANGE);
+//         }
+//  	};
 	OnClickListener vp_click_listener = new OnClickListener()
 	{
 		public void onClick(View v) 
 		{
-			if(v.getId()==1000)//查询下单的历史记录
-			{
-				String strURL=GSvrChannel.m_strURLOrderHistory+"?token="+GOperaterInfo.m_strToken+"&callerName="+GSvrChannel.CALLER_NAME;
-				String strTitle=GOperaterInfo.m_strRealName+"的下单记录";
-				Intent intent = new Intent(MainActivity.m_oMainActivity, GActWebView.class);
-				
-				intent.putExtra("startURL", strURL);
-				intent.putExtra("strTitle", strTitle);
-				
-	        	MainActivity.m_oMainActivity.startActivity(intent);	
-				return;
-			}
-			String strURL="http://www.ndtquam.com";
-			if(m_nCreentViewImage==4)
-				strURL = "http://www.eaosoft.com";
-			/*
-			Intent intent = new Intent(getActivity(), GActWebView.class);
-			
-			intent.putExtra("startURL", strURL);
-			
-			startActivity(intent);
-			*/
+		    Intent intent =new Intent(MainActivity.m_oMainActivity,SalesPersonal.class);
+            MainActivity.m_oMainActivity.startActivity(intent);
 		}
 	};
 	OnPageChangeListener vp_listener = new OnPageChangeListener() 
@@ -340,10 +320,5 @@ public class GShareholderMgr
 		@Override
 		public void onPageScrollStateChanged(int arg0) {}
 	};
-	//用户扫描卡号
-	public void onScannerResult(String strCardNo,int requestCode)
-	{
-		if(requestCode== MainActivity.USER_GROUP_CHANGE && m_oShopCaption != null)
-				m_oShopCaption.setText(GOperaterInfo.m_strGroupName);
-	}
+
 }

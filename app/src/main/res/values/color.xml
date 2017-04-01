@@ -17,6 +17,7 @@
   <color name="gray">#D9D9D9</color>
   <color name="lightgray">#EBEBEB</color>
   <color name="encode_view">#ffffffff</color>
+    <color name="refreshcolor">#9770AE</color>
   <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
   <color name="result_minor_text">#ffc0c0c0</color>
   <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->

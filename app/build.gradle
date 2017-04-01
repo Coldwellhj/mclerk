@@ -6,6 +6,9 @@ android {
     android { compileOptions.encoding = "GBK" }
     defaultConfig {
         applicationId "com.eaosoft.mclerk"
+
+
+
         minSdkVersion 11
         targetSdkVersion 17
     }
@@ -28,4 +31,5 @@ dependencies {
     compile files('libs/posprinterconnectandsendsdk.jar')
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.android.support:appcompat-v7:19.1.0'
+
 }

@@ -14,7 +14,7 @@ import java.io.OutputStreamWriter;
 import java.util.Calendar;
 import java.util.Locale;
 
-import org.apache.http.util.EncodingUtils;
+
 
 import com.eaosoft.mclerk.MainActivity;
 

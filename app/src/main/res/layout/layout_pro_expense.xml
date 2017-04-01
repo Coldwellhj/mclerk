@@ -8,6 +8,8 @@
     <TextView
         android:textSize="14sp"
         android:id="@+id/tv_shouru_pro"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:textColor="#FA6B7D"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

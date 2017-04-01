@@ -292,6 +292,14 @@
         </activity>
         <activity android:name="com.eaosoft.mclerk.CardSearch" >
         </activity>
+        <activity android:name="com.eaosoft.mclerk.Consumption_summary" >
+        </activity>
+        <activity android:name="com.eaosoft.mclerk.PerformanceRanking" >
+        </activity>
+        <activity android:name="com.eaosoft.mclerk.SalesPersonal" >
+        </activity>
+        <activity android:name="com.eaosoft.mclerk.DifferentStoreSales" >
+        </activity>
     </application>
 
 </manifest>

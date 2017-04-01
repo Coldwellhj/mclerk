@@ -33,6 +33,11 @@
     <item>TW</item>
     <item>US</item>
   </string-array>
+    <string-array name="groupList">
+        <item>昆山一店</item>
+        <item>昆山二店</item>
+        <item>昆山三店</item>
+    </string-array>
     <string-array name="preferences_front_light_options">
     <item>@string/preferences_front_light_on</item>
     <item>@string/preferences_front_light_auto</item>
@@ -137,6 +142,7 @@
     <color name="possible_result_points">#c0ffbd21</color>
     <color name="printbutton">#1196EE</color>
     <color name="printbutton_light">#7BCFFE</color>
+    <color name="refreshcolor">#9770AE</color>
     <color name="result_minor_text">#ffc0c0c0</color>
     <color name="result_points">#c099cc00</color>
     <color name="result_text">#ffffffff</color>
@@ -222,6 +228,7 @@
     <declare-styleable name="Theme"><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="popupMenuStyle"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/></declare-styleable>
     <declare-styleable name="ViewFlow"><attr format="integer" name="sidebuffer"/></declare-styleable>
+    <declare-styleable name="WheelView"><attr format="reference|integer" name="npv_ShowCount"/><attr format="reference|boolean" name="npv_ShowDivider"/><attr format="reference|color" name="npv_DividerColor"/><attr format="reference|dimension" name="npv_DividerMarginLeft"/><attr format="reference|dimension" name="npv_DividerMarginRight"/><attr format="reference|dimension" name="npv_DividerHeight"/><attr format="reference|color" name="npv_TextColorNormal"/><attr format="reference|color" name="npv_TextColorSelected"/><attr format="reference|color" name="npv_TextColorHint"/><attr format="reference|dimension" name="npv_TextSizeNormal"/><attr format="reference|dimension" name="npv_TextSizeSelected"/><attr format="reference|dimension" name="npv_TextSizeHint"/><attr format="reference" name="npv_TextArray"/><attr format="reference|integer" name="npv_MinValue"/><attr format="reference|integer" name="npv_MaxValue"/><attr format="reference|boolean" name="npv_WrapSelectorWheel"/><attr format="reference|string" name="npv_HintText"/><attr format="reference|string" name="npv_EmptyItemHint"/><attr format="reference|dimension" name="npv_MarginStartOfHint"/><attr format="reference|dimension" name="npv_MarginEndOfHint"/><attr format="reference|dimension" name="npv_ItemPaddingHorizental"/><attr format="reference|dimension" name="npv_ItemPaddingVertical"/><attr format="reference" name="npv_AlternativeTextArrayWithMeasureHint"/><attr format="reference" name="npv_AlternativeTextArrayWithoutMeasureHint"/><attr format="reference|string" name="npv_AlternativeHint"/></declare-styleable>
     <declare-styleable name="roundedimageview"><attr format="dimension" name="border_thickness"/><attr format="color" name="border_inside_color"/><attr format="color" name="border_outside_color"/></declare-styleable>
     <dimen name="abc_action_bar_default_height">48dip</dimen>
     <dimen name="abc_action_bar_icon_vertical_padding">8dip</dimen>
@@ -305,6 +312,7 @@
     <string name="button_sms">Send SMS</string>
     <string name="button_web_search">Web search</string>
     <string name="button_wifi">Connect to Network</string>
+    <string name="cancel">取消</string>
     <string name="con_has_discon">连接失败</string>
     <string name="con_success">连接成功</string>
     <string name="contents_contact">Contact info</string>
@@ -416,6 +424,7 @@
     <string name="sbc_name">Google Book Search</string>
     <string name="send_failed">发送失败</string>
     <string name="send_success">发送成功</string>
+    <string name="sure">确定</string>
     <string name="title_activity_gware_house_fill_print">GWareHouseFillPrint</string>
     <string name="title_activity_gware_house_statistics">GWareHouseStatistics</string>
     <string name="title_activity_gware_house_statistics_detail">GWareHouseStatisticsDetail</string>
@@ -424,10 +433,14 @@
     <string name="wifi_ssid_label">Network Name</string>
     <string name="wifi_type_label">Type</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="TextAppearance.AppCompat.Base.CompactMenu.Dialog" parent="android:TextAppearance.Medium">
         <item name="android:textColor">@android:color/primary_text_light</item>

@@ -31,8 +31,8 @@ import cz.msebera.android.httpclient.protocol.HTTP;
 
 public class GSvrChannel
 {
-	private static final String BASE_URL = "http://120.26.96.179/mclerk/";
-//    private static final String BASE_URL = "http://192.168.10.210/web_jetleex/mclerk/";
+//	private static final String BASE_URL = "http://120.26.96.179/mclerk/";
+    private static final String BASE_URL = "http://192.168.10.210/web_jetleex/mclerk/";
 	public static String			m_strSystemToken="";
 	//private static final String BASE_URL = "http://222.92.3.40:16000/htchina/";
 	public static final String CALLER_NAME="Android";
@@ -42,6 +42,14 @@ public class GSvrChannel
 	public static final String	m_strURLCardRemain=BASE_URL+"api/html/cardRemain.html";//余额查询
 	public static final String	m_strURLCardConsume=BASE_URL+"api/html/cardConsume.html";//消费记录
 	public static final String	m_strURLOrderHistory=BASE_URL+"api/html/opOrderHistory.html";//下单记录
+	public static final String	m_strURLshopSaleStatistics=BASE_URL+"api/html/shopSaleStatistics.html";//卡销售
+	public static final String	m_strURLcardConsume=BASE_URL+"api/html/cardConsume.html";//单卡查询
+	public static final String	m_strURLshopConsumeStatistics=BASE_URL+"api/html/shopConsumeStatistics.html";//消费汇总
+	public static final String	m_strURLopSaleScore=BASE_URL+"api/html/opSaleScore.html";//销售业绩排行
+	public static final String	m_strURLopSaleStatistics=BASE_URL+"api/html/opSaleStatistics.html";//单人销售
+	public static final String	m_strURLshopXConsumeStatistics=BASE_URL+"api/html/shopXConsumeStatistics.html";//异店消费汇总
+	public static final String	m_strURLcardStock=BASE_URL+"api/html/cardStock.html";//卡统计
+	public static final String	m_strURLcardStatistics=BASE_URL+"api/html/cardStatistics.html";//卡统计
 	//=======================================================
 	public static final int	NET_RESPON_OK=0;//应答成功 
 	public static final int	NET_RESPON_NG=-1;//应答失败
