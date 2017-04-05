@@ -206,7 +206,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public static void onUserMessageBox(String strTitle, String strText) {
-        Toast.makeText(MainActivity.m_oMainActivity, strText, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.m_oMainActivity, strText, Toast.LENGTH_SHORT).show();
     }
 
     public static Handler m_oMsgHandler = new Handler() {
@@ -288,7 +288,7 @@ public class MainActivity extends FragmentActivity {
         }
         if (data != null && requestCode >= SCAN_CODE_ORDER_CREATE && requestCode <= SCAN_CODE_CAED_CREATE) {
             String strScannerCode = data.getStringExtra("scan_result");
-            if (m_bUserConfirmBarcode)//用户确认扫描的码
+                if (m_bUserConfirmBarcode)//用户确认扫描的码
             {
                 final TextView inputServer = new TextView(this);
                 inputServer.setFocusable(true);

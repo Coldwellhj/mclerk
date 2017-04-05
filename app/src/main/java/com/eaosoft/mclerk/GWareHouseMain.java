@@ -108,7 +108,7 @@ public class GWareHouseMain {
                 wh_listview.setAdapter(m_oWareHouseDetailListAdapter);
                 m_oWareHouseDetailListDAO.getWareHouseDetail();
 
-                handler.postDelayed(this, 180000);
+                handler.postDelayed(this, 20000);
                 //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
             }
         };
@@ -179,14 +179,14 @@ public class GWareHouseMain {
         oMainWin_left.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth / 4, LayoutParams.MATCH_PARENT));
         oMainWin_left.setBackgroundResource(R.color.lightgray);
         //======================================================================================
-        RelativeLayout.LayoutParams view_one = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 5);
-        view1 = new TextView(m_oContext);
-        view1.setLayoutParams(view_one);
-        view1.setBackgroundResource(R.color.lightgray);
-        view1.setText("");
-        view1.setTextColor(view1.getResources().getColor(android.R.color.white));
-        oMainWin_left.addView(view1);
-        RelativeLayout.LayoutParams m_oBtnPrintOrder = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+//        RelativeLayout.LayoutParams view_one = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 5);
+//        view1 = new TextView(m_oContext);
+//        view1.setLayoutParams(view_one);
+//        view1.setBackgroundResource(R.color.lightgray);
+//        view1.setText("");
+//        view1.setTextColor(view1.getResources().getColor(android.R.color.white));
+//        oMainWin_left.addView(view1);
+        RelativeLayout.LayoutParams m_oBtnPrintOrder = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, MainActivity.mSreenHeight/10);
         m_oBtnPrintOrder.setMargins(40, 40, 40, 10);
         Button oBtnPrintOrder = new Button(m_oContext);
         oBtnPrintOrder.setLayoutParams(m_oBtnPrintOrder);
@@ -208,7 +208,7 @@ public class GWareHouseMain {
         view2.setTextColor(view2.getResources().getColor(android.R.color.white));
         oMainWin_left.addView(view2);
 
-        RelativeLayout.LayoutParams m_oBtnFillPrint = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams m_oBtnFillPrint = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, MainActivity.mSreenHeight/10);
         m_oBtnFillPrint.setMargins(40, 40, 40, 10);
         Button oBtnFillPrint = new Button(m_oContext);
         oBtnFillPrint.setLayoutParams(m_oBtnFillPrint);
@@ -239,7 +239,7 @@ public class GWareHouseMain {
         view3.setText("");
         view3.setTextColor(view3.getResources().getColor(android.R.color.white));
         oMainWin_left.addView(view3);
-        RelativeLayout.LayoutParams m_oBtnViewReport = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams m_oBtnViewReport = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,MainActivity.mSreenHeight/10);
         m_oBtnViewReport.setMargins(40, 40, 40, 10);
         Button oBtnViewReport = new Button(m_oContext);
         oBtnViewReport.setLayoutParams(m_oBtnViewReport);
@@ -253,12 +253,14 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oBtnViewReport);
-        RelativeLayout.LayoutParams m_oEdtBle = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams m_oEdtBle = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,MainActivity.mSreenHeight/10);
         m_oEdtBle.setMargins(40, 40, 40, 10);
         oTextBle = new TextView(m_oContext);
         oTextBle.setLayoutParams(m_oEdtBle);
 
         oTextBle.setBackgroundResource(R.color.lightgray);
+        oTextBle.setTextSize(16);
+        oTextBle.setGravity(Gravity.CENTER);
         oTextBle.setText("点击选择蓝牙设备");
         oTextBle.setTextColor(oTextBle.getResources().getColor(android.R.color.white));
         oTextBle.setOnClickListener(new View.OnClickListener() {
@@ -267,7 +269,7 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oTextBle);
-        RelativeLayout.LayoutParams m_oConnect = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams m_oConnect = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,MainActivity.mSreenHeight/10);
         m_oConnect.setMargins(40, 40, 40, 10);
         Button oConnect = new Button(m_oContext);
         oConnect.setLayoutParams(m_oConnect);
@@ -277,6 +279,21 @@ public class GWareHouseMain {
         oConnect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sendble();
+            }
+        });
+        oMainWin_left.addView(oConnect);
+
+        Button oRefresh = new Button(m_oContext);
+        oRefresh.setLayoutParams(m_oConnect);
+        oRefresh.setBackgroundResource(R.color.printbutton);
+        oRefresh.setText("刷新");
+        oRefresh.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
+        oRefresh.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m_oWareHouseDetailListAdapter = new GWareHouseAdapter(MainActivity.m_oMainActivity);
+                m_oWareHouseDetailListDAO = new GHttpDAO(MainActivity.m_oMainActivity, m_oWareHouseDetailListAdapter);
+                wh_listview.setAdapter(m_oWareHouseDetailListAdapter);
+                m_oWareHouseDetailListDAO.getWareHouseDetail();
             }
         });
         oMainWin_left.addView(oConnect);
@@ -303,9 +320,9 @@ public class GWareHouseMain {
 
         LinearLayout oMainWin_right_head = new LinearLayout(oContext);  //线性布局方式
         oMainWin_right_head.setOrientation(LinearLayout.HORIZONTAL); //控件对其方式为水平排列
-        oMainWin_right_head.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth * 3 / 4, LayoutParams.WRAP_CONTENT));
+        oMainWin_right_head.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth * 3 / 4, MainActivity.mSreenHeight/10));
 
-        RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
+        RelativeLayout.LayoutParams m_orderNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, MainActivity.mSreenHeight/10);
 //        m_orderNumber.setMargins(10,40,10,10);
         orderNumber = new TextView(oContext);
         orderNumber.setLayoutParams(m_orderNumber);
@@ -316,7 +333,7 @@ public class GWareHouseMain {
         orderNumber.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(orderNumber);
 
-        RelativeLayout.LayoutParams m_txtCardNo = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
+        RelativeLayout.LayoutParams m_txtCardNo = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, MainActivity.mSreenHeight/10);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_otxtRoomNo = new TextView(oContext);
         m_otxtRoomNo.setLayoutParams(m_txtCardNo);
@@ -326,7 +343,7 @@ public class GWareHouseMain {
         m_otxtRoomNo.setBackgroundResource(R.color.printbutton);
         m_otxtRoomNo.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(m_otxtRoomNo);
-        RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
+        RelativeLayout.LayoutParams m_cardNumber = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, MainActivity.mSreenHeight/10);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_ocardNumber = new TextView(oContext);
         m_ocardNumber.setLayoutParams(m_cardNumber);
@@ -336,7 +353,7 @@ public class GWareHouseMain {
         m_ocardNumber.setBackgroundResource(R.color.printbutton);
         m_ocardNumber.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(m_ocardNumber);
-        RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
+        RelativeLayout.LayoutParams m_orderTime = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, MainActivity.mSreenHeight/10);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_oorderTime = new TextView(oContext);
         m_oorderTime.setLayoutParams(m_orderTime);
@@ -346,7 +363,7 @@ public class GWareHouseMain {
         m_oorderTime.setBackgroundResource(R.color.printbutton);
         m_oorderTime.setTextColor(Color.WHITE);
         oMainWin_right_head.addView(m_oorderTime);
-        RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, 50);
+        RelativeLayout.LayoutParams m_salseMan = new RelativeLayout.LayoutParams(MainActivity.mSreenWidth * 3 / 4 / 5, MainActivity.mSreenHeight/10);
 //        m_txtCardNo.setMargins(40,40,10,10);
         m_osalseman = new TextView(oContext);
         m_osalseman.setLayoutParams(m_salseMan);
@@ -398,7 +415,7 @@ public class GWareHouseMain {
     //建立页面头部
     private View onCreatePageHead(Context oContext) {
         RelativeLayout oSubHeader = new RelativeLayout(oContext);  //线性布局方式
-        oSubHeader.setLayoutParams(new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 100));
+        oSubHeader.setLayoutParams(new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, MainActivity.mSreenHeight/10));
         oSubHeader.setBackgroundColor(MainActivity.m_oHeadStoreColor);
         //=============================================================================
 
@@ -724,17 +741,53 @@ public class GWareHouseMain {
                                 String m_ogoodsCaption = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsCaption");
                                 String m_ogoodsNumber = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsNumber");
                                 String m_ogoodsUnitName = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsUnitName");
-                                if (m_ogoodsCaption.length() == 2) {
+                                if (m_ogoodsCaption.getBytes("GBK").length == 1) {
+                                    list.add(("      "+m_ogoodsCaption + "           ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                } else if (m_ogoodsCaption.getBytes("GBK").length == 2) {
                                     list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
-                                    list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
-                                } else if(m_ogoodsCaption.length() == 4) {
-                                    list.add(("    "+m_ogoodsCaption + "       ").getBytes("gbk"));
-                                    list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
+                                }else if (m_ogoodsCaption.getBytes("GBK").length == 3) {
+                                    list.add(("      "+m_ogoodsCaption + "         ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
-                                } else {
-                                    list.add(("    "+m_ogoodsCaption +" ").getBytes("gbk"));
-                                    list.add((m_ogoodsNumber + "    ").getBytes("gbk"));
+                                } else if(m_ogoodsCaption.getBytes("GBK").length == 4) {
+                                    list.add(("      "+m_ogoodsCaption + "        ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                } else if(m_ogoodsCaption.getBytes("GBK").length== 5) {
+                                    list.add(("      "+m_ogoodsCaption + "       ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                }else if(m_ogoodsCaption.getBytes("GBK").length == 6) {
+                                    list.add(("      "+m_ogoodsCaption + "      ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                }else if(m_ogoodsCaption.getBytes("GBK").length== 7) {
+                                    list.add(("      "+m_ogoodsCaption + "     ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                }else if(m_ogoodsCaption.getBytes("GBK").length == 8) {
+                                    list.add(("    "+m_ogoodsCaption + "      ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                } else if(m_ogoodsCaption.getBytes("GBK").length == 9) {
+                                    list.add(("    "+m_ogoodsCaption + "     ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                }else if(m_ogoodsCaption.getBytes("GBK").length == 10) {
+                                    list.add(("   "+m_ogoodsCaption + "     ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                }else if(m_ogoodsCaption.getBytes("GBK").length == 11) {
+                                    list.add(("    "+m_ogoodsCaption + "    ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                }else if(m_ogoodsCaption.getBytes("GBK").length == 12) {
+                                    list.add(("  "+m_ogoodsCaption + "     ").getBytes("gbk"));
+                                    list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                     list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
                                 }
                             }

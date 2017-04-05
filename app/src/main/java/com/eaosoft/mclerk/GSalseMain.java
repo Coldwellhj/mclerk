@@ -214,27 +214,27 @@ public class GSalseMain
 		oSubShortBtn.addView(oBtnConsume);
 		
 		//==========================================================================
-		//新卡销售
-		Button	oBtnCardCreate = new Button(m_oContext); 
-		oBtnCardCreate.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 210) );
-		oBtnCardCreate.setBackgroundResource(R.drawable.btn_card_create);
-		oBtnCardCreate.setOnClickListener(new View.OnClickListener() {
-	        public void onClick(View v) {
-	        	if(MainActivity.m_bDebugCardNo)
-	        	{
-	        		if(m_oFragmentOne !=null)
-	        			m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo,MainActivity.SCAN_CODE_CAED_CREATE);
-	        	}
-	        	else
-	        	{
-	        	Intent intent = new Intent(MainActivity.m_oMainActivity, CaptureActivity.class);
-	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_CREATE);
-	        	}
-	     }});
-		oMainWin.addView(oBtnCardCreate);
+//		//新卡销售
+//		Button	oBtnCardCreate = new Button(m_oContext);
+//		oBtnCardCreate.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 210) );
+//		oBtnCardCreate.setBackgroundResource(R.drawable.btn_card_create);
+//		oBtnCardCreate.setOnClickListener(new View.OnClickListener() {
+//	        public void onClick(View v) {
+//	        	if(MainActivity.m_bDebugCardNo)
+//	        	{
+//	        		if(m_oFragmentOne !=null)
+//	        			m_oFragmentOne.onScannerResult(MainActivity.m_strDebugCardNo,MainActivity.SCAN_CODE_CAED_CREATE);
+//	        	}
+//	        	else
+//	        	{
+//	        	Intent intent = new Intent(MainActivity.m_oMainActivity, CaptureActivity.class);
+//	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_CREATE);
+//	        	}
+//	     }});
+//		oMainWin.addView(oBtnCardCreate);
 		
 		Button	oBtnCardOrderList = new Button(m_oContext); 
-		oBtnCardOrderList.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, 180) );
+		oBtnCardOrderList.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/8) );
 		//oBtnCardOrderList.setText("下单记录");
 		oBtnCardOrderList.setBackgroundResource(R.drawable.btn_order_history);
 		oBtnCardOrderList.setId(1000);

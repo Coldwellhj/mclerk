@@ -69,17 +69,18 @@ public class GActCardCreate extends  Activity
   	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
 	{
 		super.onActivityResult(requestCode, resultCode, data);
-		if (resultCode != RESULT_OK) 
+		if (resultCode != 1001)
 			return;
 		if(requestCode == 1001  && data != null)
 		{
 			m_strBKColor = data.getStringExtra("bkColor");
 			int nBKColor = Color.RED;
-			try{nBKColor=Color.parseColor(m_strBKColor);}catch(IllegalArgumentException ex){nBKColor = Color.RED;};
+			try{nBKColor=Color.RED;}
+            catch(IllegalArgumentException ex){nBKColor = Color.RED;};
 			m_oCouponsView.setBackgroundColor(nBKColor);
 			m_oImgCardLogo.onSetHttpImage(data.getStringExtra("imgLogo"), GOperaterInfo.m_strImagePath);
 			m_oCaption.setText(data.getStringExtra("caption"));
-			//m_oSerialNo.setText("卡　　号："+data.getStringExtra("serialNo"));
+			m_oSerialNo.setText("卡　　号："+m_strCardNo);
 			m_oTotalMoney.setText("总计金额："+data.getStringExtra("totalMoney"));
 			m_oDateEnd.setText("截止日期："+data.getStringExtra("dateEnd"));
 			m_strCardKindUID=data.getStringExtra("uID");			

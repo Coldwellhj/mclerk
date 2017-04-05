@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.eaosoft.adapter.GHttpDAO;
@@ -309,7 +308,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 	//建立页面头部
 	private View onCreatePageHead(Context oContext) {
 		RelativeLayout oSubHeader = new RelativeLayout(oContext);  //线性布局方式               
-		oSubHeader.setLayoutParams(new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 100));
+		oSubHeader.setLayoutParams(new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, MainActivity.mSreenHeight/10));
 		oSubHeader.setBackgroundColor(MainActivity.m_oHeadStoreColor);
 		//=============================================================================
 

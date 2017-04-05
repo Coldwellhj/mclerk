@@ -402,7 +402,7 @@ public class GActCardKindList extends  Activity
 			}
 			else
 			{
-				setResult(RESULT_OK, intent);
+				setResult(1001, intent);
 				overridePendingTransition(R.anim.left, R.anim.right);
 				GActCardKindList.this.finish();
 			}
