@@ -64,6 +64,7 @@ public class GWareHouseMain {
     public TextView view1 = null;
     public TextView view2 = null;
     public TextView view3 = null;
+    public TextView view4 = null;
     public TextView oTextBle = null;
     public TextView m_osalseman = null;
     public TextView m_oCurrentTime = null;
@@ -84,6 +85,7 @@ public class GWareHouseMain {
     private ArrayList<String> deviceList_found = new ArrayList<String>();
     private Handler handler = new Handler();
     private Runnable runnable;
+    private Runnable runnable1;
     public static Handler mHandler;
 
     static boolean  isConnect;//用来标识连接状态的一个boolean值
@@ -112,7 +114,13 @@ public class GWareHouseMain {
                 //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
             }
         };
-
+        runnable1 = new Runnable() {
+            public void run() {
+                m_oCurrentTime.setText(MainActivity.getStringDate());
+                handler.postDelayed(this,1000);
+                //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
+            }
+        };
         mHandler=new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -282,7 +290,13 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oConnect);
-
+        RelativeLayout.LayoutParams view_four = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 20);
+        view4 = new TextView(m_oContext);
+        view4.setLayoutParams(view_four);
+        view4.setBackgroundResource(R.color.lightgray);
+        view4.setText("");
+        view4.setTextColor(view4.getResources().getColor(android.R.color.white));
+        oMainWin_left.addView(view4);
         Button oRefresh = new Button(m_oContext);
         oRefresh.setLayoutParams(m_oConnect);
         oRefresh.setBackgroundResource(R.color.printbutton);
@@ -296,7 +310,7 @@ public class GWareHouseMain {
                 m_oWareHouseDetailListDAO.getWareHouseDetail();
             }
         });
-        oMainWin_left.addView(oConnect);
+        oMainWin_left.addView(oRefresh);
 //        RelativeLayout.LayoutParams m_oPrint = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 //        m_oPrint.setMargins(40, 40, 40, 10);
 //        Button oPrint = new Button(m_oContext);
@@ -428,6 +442,8 @@ public class GWareHouseMain {
         m_oCurrentTime.setLayoutParams(pCurrentTime);
         m_oCurrentTime.setTextSize(16);
         m_oCurrentTime.setText(MainActivity.getStringDate());
+        handler.postDelayed(runnable1, 1000); // 开始Timer
+
         m_oCurrentTime.setTextColor(Color.BLACK);
 
         oSubHeader.addView(m_oCurrentTime);

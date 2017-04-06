@@ -45,6 +45,7 @@ public class GSalseMain
 	public ViewPager					m_oImgBanner=null;
 	public TextView 					m_oShopCaption=null;
 	public TextView 					m_oUserCaption=null;
+    public Button oBtnCardOrderCreate;
 	//=======================================
 	// 广告数组
 	
@@ -90,7 +91,7 @@ public class GSalseMain
         m_oImgHead.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
 	        	Intent intent = new Intent(MainActivity.m_oMainActivity, GActUserInfo.class);
-	        	MainActivity.m_oMainActivity.startActivity(intent); }});
+                MainActivity.m_oMainActivity.startActivity(intent); }});
         if(GUtilSDCard.isFileExist(GOperaterInfo.m_strLocalDiskImage ))
         {
   		  Bitmap photo = BitmapFactory.decodeFile(GOperaterInfo.m_strLocalDiskImage);
@@ -146,18 +147,23 @@ public class GSalseMain
 		onCreateBannerImageList();		
         //==========================================================================
         //快捷按钮区
-		LinearLayout oSubShortBtn = new LinearLayout(m_oContext);  //线性布局方式  
-		oSubShortBtn.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为横向排列  HORIZONTAL
-		oSubShortBtn.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/8) );
+        RelativeLayout oSubShortBtn = new RelativeLayout(m_oContext);  //线性布局方式
+//		oSubShortBtn.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为横向排列  HORIZONTAL
+		oSubShortBtn.setLayoutParams( new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,  MainActivity.mSreenHeight/2) );
 		oMainWin.addView(oSubShortBtn);
-		
-		LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT) ;
+
+
+		RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams( MainActivity.mSreenWidth/2,  MainActivity.mSreenHeight/4) ;
 		p.setMargins(10,10,10,10);
-		p.weight=1.0f;
-		Button	oBtnCardOrderCreate = new Button(m_oContext); 
-		oBtnCardOrderCreate.setLayoutParams( p);
-		//oBtnCardOrderCreate.setText("下单");
-		oBtnCardOrderCreate.setBackgroundResource(R.drawable.btn_order_create);
+
+		oBtnCardOrderCreate = new Button(m_oContext);
+        oBtnCardOrderCreate.setId(1);
+		oBtnCardOrderCreate.setLayoutParams(p);
+		oBtnCardOrderCreate.setText("立即下单");
+		oBtnCardOrderCreate.setPadding(120,0,0,0);
+		oBtnCardOrderCreate.setTextSize(20);
+		oBtnCardOrderCreate.setTextColor(oBtnCardOrderCreate.getResources().getColor(R.color.encode_view));
+		oBtnCardOrderCreate.setBackgroundResource(R.drawable.btn_order_create1);
 		oBtnCardOrderCreate.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
 	        	if(MainActivity.m_bDebugCardNo)
@@ -171,12 +177,19 @@ public class GSalseMain
 	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_ORDER_CREATE);
 	        	}
 	        	        }});
-		oSubShortBtn.addView(oBtnCardOrderCreate);
-		
-		Button	oBtnCardSearch = new Button(m_oContext); 
-		oBtnCardSearch.setLayoutParams( p);
-		//oBtnCardSearch.setText("查卡");
-		oBtnCardSearch.setBackgroundResource(R.drawable.btn_card_search);
+        oSubShortBtn.addView(oBtnCardOrderCreate,p);
+
+        RelativeLayout.LayoutParams p1 = new RelativeLayout.LayoutParams( MainActivity.mSreenWidth/2,  MainActivity.mSreenHeight/6) ;
+        p1.setMargins(10,10,10,10);
+        p1.addRule(RelativeLayout.RIGHT_OF, 1);
+        Button	oBtnCardSearch = new Button(m_oContext);
+		oBtnCardSearch.setLayoutParams( p1);
+        oBtnCardSearch.setId(2);
+		oBtnCardSearch.setText("查询酒品");
+        oBtnCardSearch.setPadding(140,0,0,0);
+        oBtnCardSearch.setTextSize(20);
+        oBtnCardSearch.setTextColor(oBtnCardOrderCreate.getResources().getColor(R.color.encode_view));
+		oBtnCardSearch.setBackgroundResource(R.drawable.btn_card_search1);
 		//oSubShortBtn.addView(oHLineView);
 		oBtnCardSearch.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
@@ -191,12 +204,20 @@ public class GSalseMain
 	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_INFO);
 	        	}
 	        	        }});
-		oSubShortBtn.addView(oBtnCardSearch);
+        oSubShortBtn.addView(oBtnCardSearch,p1);
+        RelativeLayout.LayoutParams p2 = new RelativeLayout.LayoutParams( MainActivity.mSreenWidth/2,  MainActivity.mSreenHeight/4) ;
+        p2.setMargins(10,10,10,10);
+        p2.addRule(RelativeLayout.BELOW, 1);
+//        oSubShortBtn.addView(oSubShortBtn_three,p2);
 
-		Button	oBtnConsume = new Button(m_oContext); 
-		oBtnConsume.setLayoutParams( p);
-		//oBtnConsume.setText("消费记录");
-		oBtnConsume.setBackgroundResource(R.drawable.btn_consume_history);
+		Button	oBtnConsume = new Button(m_oContext);
+		oBtnConsume.setLayoutParams( p2);
+        oBtnConsume.setId(3);
+		oBtnConsume.setText("消费记录");
+        oBtnConsume.setPadding(120,0,0,0);
+        oBtnConsume.setTextSize(20);
+        oBtnConsume.setTextColor(oBtnCardOrderCreate.getResources().getColor(R.color.encode_view));
+		oBtnConsume.setBackgroundResource(R.drawable.btn_consume_history1);
 		//oSubShortBtn.addView(oHLineView);
 		oBtnConsume.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
@@ -211,8 +232,22 @@ public class GSalseMain
 	        	MainActivity.m_oMainActivity.startActivityForResult(intent, MainActivity.SCAN_CODE_CAED_CONSUME);
 	        	}
 	        	        }});
-		oSubShortBtn.addView(oBtnConsume);
-		
+        oSubShortBtn.addView(oBtnConsume,p2);
+
+        RelativeLayout.LayoutParams p3 = new RelativeLayout.LayoutParams( MainActivity.mSreenWidth/2,  MainActivity.mSreenHeight/3) ;
+        p3.setMargins(10,10,10,10);
+        p3.addRule(RelativeLayout.RIGHT_OF, 3);
+        p3.addRule(RelativeLayout.BELOW,2);
+        Button	oBtnCardOrderList = new Button(m_oContext);
+        oBtnCardOrderList.setText("下单记录");
+        oBtnCardOrderList.setPadding(140,0,0,0);
+        oBtnCardOrderList.setTextSize(20);
+        oBtnCardOrderList.setTextColor(oBtnCardOrderCreate.getResources().getColor(R.color.encode_view));
+        oBtnCardOrderList.setLayoutParams( p3);
+        oBtnCardOrderList.setBackgroundResource(R.drawable.btn_order_history1);
+        oBtnCardOrderList.setId(1000);
+        oBtnCardOrderList.setOnClickListener(vp_click_listener);
+        oSubShortBtn.addView(oBtnCardOrderList,p3);
 		//==========================================================================
 //		//新卡销售
 //		Button	oBtnCardCreate = new Button(m_oContext);
@@ -233,13 +268,13 @@ public class GSalseMain
 //	     }});
 //		oMainWin.addView(oBtnCardCreate);
 		
-		Button	oBtnCardOrderList = new Button(m_oContext); 
-		oBtnCardOrderList.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/8) );
-		//oBtnCardOrderList.setText("下单记录");
-		oBtnCardOrderList.setBackgroundResource(R.drawable.btn_order_history);
-		oBtnCardOrderList.setId(1000);
-		oBtnCardOrderList.setOnClickListener(vp_click_listener);
-		oMainWin.addView(oBtnCardOrderList);
+//		Button	oBtnCardOrderList = new Button(m_oContext);
+//		oBtnCardOrderList.setLayoutParams( new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/8) );
+//		//oBtnCardOrderList.setText("下单记录");
+//		oBtnCardOrderList.setBackgroundResource(R.drawable.btn_order_history);
+//		oBtnCardOrderList.setId(1000);
+//		oBtnCardOrderList.setOnClickListener(vp_click_listener);
+//		oMainWin.addView(oBtnCardOrderList);
 		
 		return m_oUserView;
 	}

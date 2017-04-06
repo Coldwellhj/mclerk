@@ -8,6 +8,10 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\greport_search_btn_background.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_consume_history1.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_consume_history1.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_order_create.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\mgr_order_create.png"
     },
@@ -76,16 +80,16 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\textview_border.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_spinner_ab_holo_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_image.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_image.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\greport_top_background.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\greport_top_background.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_image.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_image.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_spinner_ab_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear.xml",
@@ -100,16 +104,20 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\mgr_card_search.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_card_create_state.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\mgr_card_create_state.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_line_bg.9.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_line_bg.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_card_search1.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_card_search1.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_order_consume_state.png",
@@ -192,20 +200,28 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\editback.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spborde.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\spborde.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_search_dropdown_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\login.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_search_dropdown_dark.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_consume_history.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\mgr_consume_history.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_order_create1.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_order_create1.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\img_search_n.png",
@@ -214,6 +230,10 @@
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item_depts_logo.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\item_depts_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_order_history1.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_order_history1.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_bg.jpg",

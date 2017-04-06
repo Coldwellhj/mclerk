@@ -9,13 +9,13 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +54,8 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
     private GHttpDAO m_oWareHouseDetailListDAO = null;
     private String dayTime;
     private List ar =null;
-
+    private Handler handler = new Handler();
+    private Runnable runnable1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,13 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
         setContentView(R.layout.activity_gware_house_statistics);
         initView();
         initData();
+        runnable1 = new Runnable() {
+            public void run() {
+                currentTime.setText(MainActivity.getStringDate());
+                handler.postDelayed(this,1000);
+                //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
+            }
+        };
     }
     @Override
     protected void onResume() {
@@ -73,6 +81,7 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
     }
     private void initData() {
         currentTime.setText(MainActivity.getStringDate());
+        handler.postDelayed(runnable1, 1000); // 开始Timer
         store.setText(GOperaterInfo.m_strGroupName);
         personal.setImageResource(R.drawable.ic_launcher);
         if(GUtilSDCard.isFileExist(GOperaterInfo.m_strLocalDiskImage ))

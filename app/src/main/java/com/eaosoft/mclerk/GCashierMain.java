@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.InputType;
@@ -63,6 +64,8 @@ public class GCashierMain {
     private String strURL;
     private GProgressWebView 		m_oWebViewStock;
     private GProgressWebView 		m_oWebViewStatistics;
+    private Handler handler = new Handler();
+    private Runnable runnable1;
     //=====================================================
     public GCashierMain(Context oContext) {
         m_oContext = oContext;
@@ -73,7 +76,13 @@ public class GCashierMain {
         m_oUserView.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
         m_oUserView.setFillViewport(true);
         m_oUserView.setBackgroundResource(R.color.lightgray);
-
+        runnable1 = new Runnable() {
+            public void run() {
+                m_oCurrentTime.setText(MainActivity.getStringDate());
+                handler.postDelayed(this,1000);
+                //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
+            }
+        };
         //============================================================================
         //主背景
         LinearLayout oMainWin = new LinearLayout(m_oContext);  //线性布局方式
@@ -719,6 +728,7 @@ public class GCashierMain {
         m_oCurrentTime.setLayoutParams(pCurrentTime);
         m_oCurrentTime.setTextSize(16);
         m_oCurrentTime.setText(MainActivity.getStringDate());
+        handler.postDelayed(runnable1, 1000); // 开始Timer
         m_oCurrentTime.setTextColor(Color.BLACK);
         oSubHeader.addView(m_oCurrentTime);
         //头像

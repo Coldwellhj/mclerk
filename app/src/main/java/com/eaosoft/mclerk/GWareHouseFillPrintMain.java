@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Handler;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -56,6 +57,8 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 	public String orderTime;
 	public Integer page = 1;
 	public Integer totalpage;
+    private Handler handler = new Handler();
+    private Runnable runnable1;
 	private GWareHouseAdapter m_oWareHouseDetailListAdapter = null;
 
 	private GHttpDAO m_oWareHouseDetailListDAO = null;
@@ -69,7 +72,13 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		m_oUserView = new RelativeLayout(m_oContext);
 		m_oUserView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 
-
+        runnable1 = new Runnable() {
+            public void run() {
+                m_oCurrentTime.setText(MainActivity.getStringDate());
+                handler.postDelayed(this,1000);
+                //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
+            }
+        };
 		//============================================================================
 		//主背景
 		LinearLayout oMainWin = new LinearLayout(m_oContext);  //线性布局方式
@@ -321,6 +330,7 @@ public class GWareHouseFillPrintMain implements View.OnTouchListener {
 		m_oCurrentTime.setLayoutParams(pCurrentTime);
 		m_oCurrentTime.setTextSize(16);
 		m_oCurrentTime.setText(MainActivity.getStringDate());
+        handler.postDelayed(runnable1, 1000); // 开始Timer
 		m_oCurrentTime.setTextColor(Color.BLACK);
 
 		oSubHeader.addView(m_oCurrentTime);

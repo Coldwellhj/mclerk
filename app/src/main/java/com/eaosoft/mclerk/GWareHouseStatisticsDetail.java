@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.view.View;
 import android.view.Window;
@@ -50,7 +51,8 @@ public class GWareHouseStatisticsDetail extends Activity implements View.OnClick
     private String dayTime;
     public Integer page = 1;
     private List ar =null;
-
+    private Handler handler = new Handler();
+    private Runnable runnable1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,13 @@ public class GWareHouseStatisticsDetail extends Activity implements View.OnClick
         initView();
         initData();
         bindEvents();
+        runnable1 = new Runnable() {
+            public void run() {
+                currentTime.setText(MainActivity.getStringDate());
+                handler.postDelayed(this,1000);
+                //postDelayed(this,18000)方法安排一个Runnable对象到主线程队列中
+            }
+        };
     }
     @Override
     protected void onResume() {
@@ -69,6 +78,7 @@ public class GWareHouseStatisticsDetail extends Activity implements View.OnClick
     }
     private void initData() {
         currentTime.setText(MainActivity.getStringDate());
+        handler.postDelayed(runnable1, 1000); // 开始Timer
         store.setText(GOperaterInfo.m_strGroupName);
         personal.setImageResource(R.drawable.ic_launcher);
         if (GUtilSDCard.isFileExist(GOperaterInfo.m_strLocalDiskImage)) {

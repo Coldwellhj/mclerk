@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-mdpi\\abc_spinner_ab_disabled_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_ic_commit_search_api_holo_dark.png",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-mdpi\\abc_ic_commit_search_api_holo_dark.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_tab_unselected_pressed_holo.9.png",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-mdpi\\abc_tab_unselected_pressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_ic_commit_search_api_holo_dark.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable-mdpi\\abc_ic_commit_search_api_holo_dark.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_spinner_ab_pressed_holo_light.9.png",

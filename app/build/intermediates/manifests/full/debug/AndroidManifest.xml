@@ -300,6 +300,8 @@
         </activity>
         <activity android:name="com.eaosoft.mclerk.DifferentStoreSales" >
         </activity>
+        <activity android:name="com.eaosoft.mclerk.ConfirmOrder" >
+        </activity>
     </application>
 
 </manifest>

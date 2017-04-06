@@ -1,24 +1,5 @@
 package com.eaosoft.mclerk;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.eaosoft.adapter.GSpinnerAdapter;
-import com.eaosoft.adapter.GSpinnerDeptsAdapter;
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilHttp;
-import com.eaosoft.view.GCouponsView;
-import com.eaosoft.view.GRoundImageView;
-import com.google.zxing.client.android.CaptureActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -26,18 +7,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
+
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilHttp;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GActCardCreateOrder extends  Activity 
 {
@@ -90,64 +80,15 @@ public class GActCardCreateOrder extends  Activity
 	{
 		if(!onCheckGoodsList())
 			return;
-		GSvrChannel svr= 	new GSvrChannel()
-    	{
-    		public void onNetFailure(int statusCode,String strInfo)
-    		{
-    			MainActivity.MessageBox("定单提交","statusCode:"+statusCode+",Info:"+strInfo);
-    			MainActivity.onUserMessageBox("定单提交", "定单提交失败，请检查网络是否畅通或者联系管理员！");
-    		}
-    		public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
-    		{
-    			if(nCode < 0)
-    			{
-    				MainActivity.MessageBox("定单提交",strInfo);    				
-    				MainActivity.onUserMessageBox("定单提交",strInfo);
-    				return;
-    			}
-    			
-    			MainActivity.onUserMessageBox("定单提交",strInfo);
-    			finish();
-    		}
-    	};
-    	 try 
-         {
-	    	JSONObject   requestDatas = new JSONObject();
-	    	JSONArray	 oGoodsList = new JSONArray();
-            requestDatas.put("cardUID", m_strCardNo); 
-            requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
-            requestDatas.put("roomUID", GOperaterInfo.m_strDefaultDeptUID);
-            Map map = null;
-            int i,nUserNum=0;
-            for(i=0;i<m_oCardGoodsList.size();i++)
-    		{
-    			map = (Map)m_oCardGoodsList.get(i);
-    			nUserNum = Integer.parseInt(map.get("numUser").toString());
-    			if(nUserNum < 1)
-    				continue;
-    			JSONObject   oGoods = new JSONObject();
-    			//=========================================
-    			
-    			oGoods.put("toGoodsUID", map.get("uID").toString());
-    			oGoods.put("toGoodsNum", map.get("numUser").toString());
-    			if(map.get("oID").toString().length()>0)//原
-    			{
-        			oGoods.put("fromGoodsUID", map.get("oID").toString());
-        			oGoods.put("fromGoodsNum", map.get("numUseGoods").toString());    				
-    			}
-    			//=========================================
-    			oGoodsList.put(oGoods);
-    		}
-            requestDatas.put("goodsList", oGoodsList);
-            svr.m_oCurrentActivity = this;
-	    	svr.onPost("api/mobile/opOrderCreate.do", requestDatas);
-         }
-    	 catch (JSONException e) 
-         {
-             e.printStackTrace();
-             MainActivity.MessageBox("定单提交",e.getMessage());
-             MainActivity.onUserMessageBox("定单提交","定单提交失败，请检查网络是否畅通或者联系管理员！");
-         } 	
+        Intent intent = new Intent(GActCardCreateOrder.this,ConfirmOrder.class);
+        Bundle bundle =new Bundle();
+        bundle.putString("cardUID", m_strCardNo);
+        bundle.putString("groupUID", GOperaterInfo.m_strGroupUID);
+        bundle.putString("roomUID", GOperaterInfo.m_strDefaultDeptUID);
+        bundle.putStringArrayList("goodsList", (ArrayList<String>) m_oCardGoodsList);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
 	}
   	@Override
   	protected void onActivityResult(int requestCode, int resultCode, Intent data) 

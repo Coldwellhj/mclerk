@@ -156,6 +156,10 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\share.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_confirm_order.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\activity_confirm_order.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cashier_sales_report.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\layout\\cashier_sales_report.xml"
     },
