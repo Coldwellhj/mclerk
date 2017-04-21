@@ -82,19 +82,20 @@ public class GActUserLogin extends  Activity
 		  if(m_oHeadImage == null)
 			  return;
 		  m_oEdtUname = (EditText) this.findViewById(R.id.et_uname);
-		  if(m_oEdtUname != null)
-			  m_oEdtUname.setText(preferences.getString("LoginUserName", ""));
+		  if(m_oEdtUname != null) {
+              m_oEdtUname.setText(preferences.getString("LoginUserName", ""));
+          }
 		  m_oEdtUpwd = (EditText) this.findViewById(R.id.et_upwd);
-		
 		  m_oCbShowPwd = (CheckBox) this.findViewById(R.id.cb_show_pwd);
 		  m_oBtnLogin = (Button) this.findViewById(R.id.btn_login);
 		  m_oBtnLogin.setTag(this);
 		  m_oBtnLogin.setOnClickListener(user_login_listener);
-		
-		  Bitmap photo = BitmapFactory.decodeFile(GOperaterInfo.m_strLocalDiskImage);
-		  if(photo !=null && m_oHeadImage!=null)
-			m_oHeadImage.setImageBitmap(photo);
-			
+          if("Y".equals(preferences.getString("IsLogout", ""))){
+          }else if("N".equals(preferences.getString("IsLogout", ""))){
+              Bitmap photo = BitmapFactory.decodeFile(GOperaterInfo.m_strLocalDiskImage);
+              if (photo != null && m_oHeadImage != null)
+                  m_oHeadImage.setImageBitmap(photo);
+          }
 		m_oCbShowPwd.setOnCheckedChangeListener(new OnCheckedChangeListener() 
 		  {
 			@Override

@@ -1,20 +1,11 @@
 package com.eaosoft.util;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.BinaryHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.ResponseHandlerInterface;
-
-import cz.msebera.android.httpclient.entity.ByteArrayEntity;
-import cz.msebera.android.httpclient.message.BasicHeader;
-import cz.msebera.android.httpclient.protocol.HTTP;
-import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.HeaderElement;
 
 public class XHttpClientUtil 
 {

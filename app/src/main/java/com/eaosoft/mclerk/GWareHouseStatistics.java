@@ -45,14 +45,16 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
     private TextView store;
     private RoundImageView personal;
     private TextView dateTime;
+    private TextView dateTime_end;
     private LinearLayout head;
     private LoadMoreListView lv_goodsStatistics;
     private Button statistics_search;
     private Button statistics_print;
-    private Button look_statistics_detail;
+//    private Button look_statistics_detail;
     private GWareHouseStatisticsGoodsAdapter m_oWareHouseStatisticsAdapter=null;
     private GHttpDAO m_oWareHouseDetailListDAO = null;
     private String dayTime;
+    private String dayTime1;
     private List ar =null;
     private Handler handler = new Handler();
     private Runnable runnable1;
@@ -91,11 +93,13 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                 personal.setImageBitmap(photo);
         }
         dayTime=currentTime.getText().toString().trim().split(" ")[0];
+        dayTime1=currentTime.getText().toString().trim().split(" ")[0];
         dateTime.setText(dayTime);
+        dateTime_end.setText(dayTime);
         m_oWareHouseStatisticsAdapter = new GWareHouseStatisticsGoodsAdapter(GWareHouseStatistics.this);
         m_oWareHouseDetailListDAO = new GHttpDAO(GWareHouseStatistics.this, m_oWareHouseStatisticsAdapter);
         lv_goodsStatistics.setAdapter(m_oWareHouseStatisticsAdapter);
-        m_oWareHouseDetailListDAO.getWareHouseGoodsStatistics_Search(dayTime);
+        m_oWareHouseDetailListDAO.getWareHouseGoodsStatistics_Search(dayTime,dayTime1);
 
     }
 
@@ -105,14 +109,16 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
         head = (LinearLayout) findViewById(R.id.head);
         personal = (RoundImageView) findViewById(R.id.personal);
         dateTime = (TextView) findViewById(R.id.dateTime);
+        dateTime_end = (TextView) findViewById(R.id.dateTime_end);
         lv_goodsStatistics = (LoadMoreListView)findViewById(R.id.lv_goodsStatistics);
         statistics_search = (Button) findViewById(R.id.statistics_search);
         statistics_print = (Button) findViewById(R.id.statistics_print);
-        look_statistics_detail = (Button) findViewById(R.id.look_statistics_detail);
+//        look_statistics_detail = (Button) findViewById(R.id.look_statistics_detail);
         statistics_search.setOnClickListener(this);
         statistics_print.setOnClickListener(this);
-        look_statistics_detail.setOnClickListener(this);
+//        look_statistics_detail.setOnClickListener(this);
         dateTime.setOnClickListener(this);
+        dateTime_end.setOnClickListener(this);
         personal.setOnClickListener(this);
     }
 
@@ -125,7 +131,17 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                 }else {
                     dayTime=dateTime.getText().toString().trim();
                 }
-                m_oWareHouseDetailListDAO.getWareHouseGoodsStatistics_Search(dayTime);
+                if(dateTime_end.getText().toString().trim().isEmpty()){
+                    dayTime1=currentTime.getText().toString().trim().split(" ")[0];
+                }else {
+                    dayTime1=dateTime_end.getText().toString().trim();
+                }
+                if(dayTime.compareTo(dayTime1)<=0){
+                    m_oWareHouseDetailListDAO.getWareHouseGoodsStatistics_Search(dayTime,dayTime1);
+                }else {
+                    Toast.makeText(GWareHouseStatistics.this,"开始日期必须小于结束日期",Toast.LENGTH_LONG);
+                }
+
                 break;
             case R.id.statistics_print:
                ar=m_oWareHouseStatisticsAdapter.getData();
@@ -303,9 +319,53 @@ public class GWareHouseStatistics extends Activity implements View.OnClickListen
                 Dialog dialog = builder.create();
                 dialog.show();
                 break;
-            case R.id.look_statistics_detail:
-                Intent intent = new Intent(GWareHouseStatistics.this, GWareHouseStatisticsDetail.class);
-                startActivity(intent);
+            case R.id.dateTime_end:
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(GWareHouseStatistics.this);
+                View view1 = View.inflate(GWareHouseStatistics.this, R.layout.date_time_dialog, null);
+                final DatePicker datePicker1 = (DatePicker) view1.findViewById(R.id.date_picker);
+//			final TimePicker timePicker = (TimePicker) view.findViewById(R.id.time_picker);
+                builder1.setView(view1);
+                Calendar cal1 = Calendar.getInstance();
+                cal1.setTimeInMillis(System.currentTimeMillis());
+                datePicker1.init(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), null);
+//			timePicker.setIs24HourView(true);
+//			timePicker.setCurrentHour(cal.get(Calendar.HOUR_OF_DAY));
+//			timePicker.setCurrentMinute(Calendar.MINUTE);
+
+
+                final int inType1 = dateTime.getInputType();
+                dateTime_end.setInputType(InputType.TYPE_NULL);
+
+                dateTime_end.setInputType(inType1);
+                //etStartTime.setSelection(etStartTime.getText().length());
+
+                builder1.setTitle("请确定查询日期");
+                builder1.setPositiveButton("确  定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        StringBuffer sb = new StringBuffer();
+                        sb.append(String.format("%d-%02d-%02d",
+                                datePicker1.getYear(),
+                                datePicker1.getMonth() + 1,
+                                datePicker1.getDayOfMonth()
+                        ));
+//					sb.append(timePicker.getCurrentHour())
+//							.append(":").append(timePicker.getCurrentMinute());
+                        dateTime_end.setText(sb);
+                        dialog.cancel();
+                    }
+                });
+                builder1.setNegativeButton("取  消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dateTime_end.setText("");
+                        dialog.cancel();
+                    }
+                });
+
+
+                Dialog dialog1 = builder1.create();
+                dialog1.show();
                 break;
             case R.id.personal:
                 Intent intent_personal = new Intent(GWareHouseStatistics.this, GActUserInfo.class);

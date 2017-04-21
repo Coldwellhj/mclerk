@@ -40,7 +40,7 @@ public class GOperaterInfo
 	public static String		m_strGroupName="";
 	public static String		m_strGroupUID="";
 	public static String		m_strGroupSerialNo="";
-	public static String		m_strRoleID="RSale";
+	public static String		m_strRoleID="";
 	public static List			m_oGroupDepts=new ArrayList();
 	public static String		m_strDefaultDeptSerialNo="";
 	public static String		m_strDefaultDeptUID="";
@@ -134,12 +134,21 @@ public class GOperaterInfo
 	public  void onUserLogout()
 	{
 		SharedPreferences preferences = MainActivity.m_oMainActivity.getSharedPreferences(MainActivity.m_szMainConfigString,0);
-		
-		preferences.edit().putString("LoginUserName", "").commit();
+        preferences.edit().putString("IsLogout", "Y").commit();
+		preferences.edit().putString("LoginUserName", m_strPhone).commit();
 		preferences.edit().putString("LoginUserPhone", "" ).commit();
 		preferences.edit().putString("LoginUserPass", "" ).commit();
 		preferences.edit().putString("LoginUserGUID","" ).commit();
 	}
+    public  void onUserBack()
+    {
+        SharedPreferences preferences = MainActivity.m_oMainActivity.getSharedPreferences(MainActivity.m_szMainConfigString,0);
+        preferences.edit().putString("IsLogout", "N").commit();
+        preferences.edit().putString("LoginUserName", m_strPhone).commit();
+        preferences.edit().putString("LoginUserPhone", "" ).commit();
+        preferences.edit().putString("LoginUserPass", "" ).commit();
+        preferences.edit().putString("LoginUserGUID","" ).commit();
+    }
 	public static boolean onCheckLogin()
 	{
 		if(m_strLoginName.length()<1 || m_strToken.length()<1)

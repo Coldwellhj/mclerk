@@ -125,7 +125,8 @@
             android:background="@drawable/spborde"
             android:textColor="@color/encode_view"
             android:layout_weight="1"
-            android:text="修改"/>
+            android:textSize="18dp"
+            android:text="重新点单"/>
         <Button
             android:id="@+id/order"
             android:layout_width="match_parent"
@@ -134,6 +135,7 @@
             android:layout_marginLeft="10dp"
             android:textColor="@color/encode_view"
             android:layout_weight="1"
+            android:textSize="18dp"
             android:text="立即下单"/>
     </LinearLayout>
     <ListView

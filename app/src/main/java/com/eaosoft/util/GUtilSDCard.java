@@ -1,6 +1,15 @@
 package com.eaosoft.util;
 
 
+import android.content.Context;
+import android.os.Environment;
+import android.os.StatFs;
+import android.text.format.DateFormat;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.eaosoft.mclerk.MainActivity;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,20 +22,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
 import java.util.Locale;
-
-
-
-import com.eaosoft.mclerk.MainActivity;
-
-
-
-
-import android.content.Context;
-import android.os.Environment;
-import android.os.StatFs;
-import android.text.format.DateFormat;
-import android.util.Log;
-import android.widget.Toast;
 /*
 <!-- 往SDCard写入数据权限 -->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

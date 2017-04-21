@@ -32,9 +32,11 @@ import cz.msebera.android.httpclient.protocol.HTTP;
 public class GSvrChannel
 {
 //	private static final String BASE_URL = "http://120.26.96.179/mclerk/";
-    private static final String BASE_URL = "http://192.168.10.210/web_jetleex/mclerk/";
+//  private static final String BASE_URL = "http://192.168.10.210/web_jetleex/mclerk/";//本地
+    private static final String BASE_URL = "http://101.37.69.238/mclerk_20170421/";//云服务器
 	public static String			m_strSystemToken="";
 	//private static final String BASE_URL = "http://222.92.3.40:16000/htchina/";
+
 	public static final String CALLER_NAME="Android";
 	private static final int      NET_CONNECT_TIMEOUT	=60000;//设置链接超时
 	private static final int      NET_RESPONSE_TIMEOUT	=60000;//设置应答超时
@@ -58,7 +60,6 @@ public class GSvrChannel
 	public  Activity m_oCurrentActivity=null;
 	public GSvrChannel()
 	{
-		
 		m_oCurrentActivity = null;
 		m_strSystemToken = GOperaterInfo.m_strToken;
 	}
@@ -66,7 +67,7 @@ public class GSvrChannel
 	{		
 		m_oCurrentActivity = oActivity;
 		if(oActivity == null)
-			m_oCurrentActivity = MainActivity.m_oMainActivity;
+		m_oCurrentActivity = MainActivity.m_oMainActivity;
 		onPost(strURL,requestDatas);
 	}
 	public void onPost(String strURL,JSONObject requestDatas)

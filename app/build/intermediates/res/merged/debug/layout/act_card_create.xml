@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
         android:layout_centerInParent="true"
-        android:orientation="vertical"
         android:background="@android:color/black">
-        
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
         <com.eaosoft.view.GCouponsView
             android:id="@+id/cv_card"
             android:orientation="horizontal"
@@ -20,7 +22,7 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_launcher"
-                android:onClick="onChangeCardKind"
+
                 android:scaleType="centerCrop"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,6 +91,10 @@
 	        android:textSize="14dp"
 	        android:singleLine="true"	        
 	        />
+        <Spinner android:id="@+id/Spinner01"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="20dp"></Spinner>
     </LinearLayout>        
     <LinearLayout
         android:layout_width="fill_parent"
@@ -120,5 +126,6 @@
                 android:text="更换套餐"
                 android:textSize="16sp" />
 	</LinearLayout>
-</LinearLayout>
+      </LinearLayout>
+</ScrollView>
 

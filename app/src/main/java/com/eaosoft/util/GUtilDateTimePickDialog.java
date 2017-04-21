@@ -1,17 +1,17 @@
 package com.eaosoft.util;
-import java.text.SimpleDateFormat;  
-import java.util.Calendar;  
-  
-import android.app.Activity;  
-import android.app.AlertDialog;  
-import android.content.DialogInterface;  
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.DatePicker;  
-import android.widget.DatePicker.OnDateChangedListener;  
-import android.widget.EditText;  
-import android.widget.LinearLayout;  
-import android.widget.TimePicker;  
-import android.widget.TimePicker.OnTimeChangedListener;  
+import android.widget.DatePicker;
+import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TimePicker;
+import android.widget.TimePicker.OnTimeChangedListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 /** 
  * 日期时间选择控件 使用方法： private EditText inputDate;//需要设置的日期时间文本编辑框 private String 
  * initDateTime="2012年9月3日 14:44",//初始日期时间值 在点击事件中使用： 

@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="60px"
         android:orientation="horizontal">
 
         <TextView
@@ -38,8 +38,8 @@
 
     <com.eaosoft.view.RoundImageView
         android:id="@+id/personal"
-        android:layout_width="80px"
-        android:layout_height="80px"
+        android:layout_width="40px"
+        android:layout_height="40px"
         android:layout_alignParentRight="true"
         android:src="@drawable/user_icon" />
     <LinearLayout
@@ -88,7 +88,7 @@
                 android:gravity="center"
                 android:textColor="@color/encode_view"
                 android:hint="套餐名称"
-                android:textColorHint="@color/encode_view"
+                android:textColorHint="@color/viewfinder_laser"
                 android:singleLine="true"/>
             <TextView
                 android:id="@+id/tv_package_all_price"

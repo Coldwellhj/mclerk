@@ -1,6 +1,7 @@
 package com.eaosoft.mclerk;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +41,7 @@ public class ConfirmOrder extends Activity implements View.OnClickListener {
     private List m_oCardGoodsList=new ArrayList();
     private List GoodsList=new ArrayList();
     private GWareHouseGoodsAdapter adapter;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +123,6 @@ public class ConfirmOrder extends Activity implements View.OnClickListener {
                             MainActivity.onUserMessageBox("定单提交",strInfo);
                             return;
                         }
-
                         MainActivity.onUserMessageBox("定单提交",strInfo);
                         finish();
 

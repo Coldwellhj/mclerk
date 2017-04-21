@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.eaosoft.mclerk.GCashier_Search.mHandler_GCashier;
-import static com.eaosoft.mclerk.GWareHouseMain.mHandler;
+import static com.eaosoft.mclerk.GWareHouseMainActivity.mHandler;
 
 public class GHttpDAO
 {
@@ -218,7 +218,7 @@ public class GHttpDAO
 			MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
 		}
 	}
-    public void getCardKindPage(String strSearchText,int nPageIndex,int nPageSize)
+    public void getCardKindPage(String strSearchText,int nPageIndex,int nPageSize,String kindMoney)
     {
         GSvrChannel svr= 	new GSvrChannel()
         {
@@ -293,8 +293,82 @@ public class GHttpDAO
             requestDatas.put("pageSize", nPageSize);
             requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
             requestDatas.put("searchText", strSearchText);
+            requestDatas.put("kindMoney", kindMoney);
             svr.m_oCurrentActivity = m_oActivity;
             svr.onPost("api/mobile/opHRGroupCardKindPage.do", requestDatas);
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            MainActivity.MessageBox("读取卡套餐",e.getMessage());
+            MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+        }
+    }
+    public void getCardKindMoneyPage()
+    {
+        GSvrChannel svr= 	new GSvrChannel()
+        {
+            public void onNetFailure(int statusCode,String strInfo)
+            {
+                MainActivity.MessageBox("读取卡套餐","statusCode:"+statusCode+",Info:"+strInfo);
+                MainActivity.onUserMessageBox("读取卡套餐", "读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+            }
+            public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
+            {
+                if(nCode < 0)
+                {
+                    MainActivity.MessageBox("读取卡套餐",strInfo);
+                    MainActivity.onUserMessageBox("读取卡套餐",strInfo);
+                    return;
+                }
+
+                try
+                {
+                    JSONArray xContent=null;
+                    JSONObject oData = oJsonData.getJSONObject("data");
+                    if(oData == null)
+                    {
+                        MainActivity.MessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+                        MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+                        return;
+                    }
+                    try{xContent = oData.getJSONArray("content");}catch(JSONException e){xContent=null;}
+                    if(xContent==null)
+                        return;
+                    List ar = new ArrayList();
+                    for(int i=0;i<xContent.length();i++)
+                    {
+                        JSONObject o = xContent.getJSONObject(i);
+                        Map map = new HashMap();
+                        map.put("kindMoney", GUtilHttp.getJSONObjectValue("kindMoney",o));
+
+                        ar.add(map);
+
+
+                    }
+
+                    //####################################################
+                    m_oAdapter.setData(ar);
+                    m_oAdapter.notifyDataSetChanged();
+
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                    MainActivity.MessageBox("读取卡套餐",e.getMessage());
+                    MainActivity.onUserMessageBox("读取卡套餐","读取卡套餐失败，请检查网络是否畅通或者联系管理员！");
+                    return;
+                }
+            }
+        };
+        try
+        {
+            JSONObject   requestDatas = new JSONObject();
+
+            requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
+
+            svr.m_oCurrentActivity = m_oActivity;
+            svr.onPost("api/mobile/opHRGroupCardKindMoneyList.do", requestDatas);
         }
         catch (JSONException e)
         {
@@ -356,7 +430,7 @@ public class GHttpDAO
 							map.put("roomSerialNo", GUtilHttp.getJSONObjectValue("roomSerialNo",o) );
 							map.put("cardUID", GUtilHttp.getJSONObjectValue("cardUID",o) );
 							map.put("orderTime",GUtilHttp.getJSONObjectValue("orderTime",o) );
-							map.put("userCaption", GUtilHttp.getJSONObjectValue("userCaption",o) );
+							map.put("userCaption", GUtilHttp.getJSONObjectValue("userName",o) );
 							content = o.getJSONArray("content");
 							List<Map> ar1 = new ArrayList<Map>();
 							for(int j=0;j<content.length();j++) {
@@ -475,7 +549,7 @@ public class GHttpDAO
 							map.put("roomSerialNo", GUtilHttp.getJSONObjectValue("roomSerialNo",o) );
 							map.put("cardUID", GUtilHttp.getJSONObjectValue("cardUID",o) );
 							map.put("orderTime",GUtilHttp.getJSONObjectValue("orderTime",o) );
-							map.put("userCaption", GUtilHttp.getJSONObjectValue("userCaption",o) );
+							map.put("userCaption", GUtilHttp.getJSONObjectValue("userName",o) );
 							content = o.getJSONArray("content");
 							List<Map> ar1 = new ArrayList<Map>();
 							for(int j=0;j<content.length();j++) {
@@ -537,7 +611,7 @@ public class GHttpDAO
 			e.printStackTrace();
 		}
 	}
-	public void getWareHouseGoodsStatistics_Search(String dateTime)
+	public void getWareHouseGoodsStatistics_Search(String dateTime,String dateTiem1)
 	{
 
 		GSvrChannel svr= 	new GSvrChannel()
@@ -615,7 +689,8 @@ public class GHttpDAO
 		{
 			JSONObject   requestDatas = new JSONObject();
 			requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
-			requestDatas.put("dayTime", dateTime);
+			requestDatas.put("dayTime0", dateTime);
+			requestDatas.put("dayTime1", dateTiem1);
 			svr.m_oCurrentActivity = m_oActivity;
 			svr.onPost("api/mobile/opGoodsStatisticsPage.do", requestDatas);
 		}
@@ -629,7 +704,7 @@ public class GHttpDAO
 			e.printStackTrace();
 		}
 	}
-    public void getCashierSalesReport_Search(String dateTime)
+    public void getCashierSalesReport_Search(String dateTime,String dateTiem1)
     {
 
         GSvrChannel svr= 	new GSvrChannel()
@@ -710,7 +785,8 @@ public class GHttpDAO
         {
             JSONObject   requestDatas = new JSONObject();
             requestDatas.put("groupUID", GOperaterInfo.m_strGroupUID);
-            requestDatas.put("dayTime", dateTime);
+            requestDatas.put("dayTime0", dateTime);
+            requestDatas.put("dayTime1", dateTiem1);
             svr.m_oCurrentActivity = m_oActivity;
             svr.onPost("api/mobile/opSalesReport.do", requestDatas);
         }
@@ -829,69 +905,71 @@ public class GHttpDAO
         }
     }
 	public void opPrnTaskComplete(String taskUID)
-	{
-		GSvrChannel svr= 	new GSvrChannel()
-		{
-			public void onNetFailure(int statusCode,String strInfo)
-			{
-				MainActivity.MessageBox("打印任务","statusCode:"+statusCode+",Info:"+strInfo);
-				MainActivity.onUserMessageBox("打印任务", "打印任务失败，请检查网络是否畅通或者联系管理员！");
-			}
-			public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
-			{
-				if(nCode < 0)
-				{
-					MainActivity.MessageBox("打印任务",strInfo);
-					MainActivity.onUserMessageBox("打印任务",strInfo);
-					return;
-				}
+{
+    GSvrChannel svr= 	new GSvrChannel()
+    {
+        public void onNetFailure(int statusCode,String strInfo)
+        {
+            MainActivity.MessageBox("打印任务","statusCode:"+statusCode+",Info:"+strInfo);
+            MainActivity.onUserMessageBox("打印任务", "打印任务失败，请检查网络是否畅通或者联系管理员！");
+        }
+        public void onNetSuccess(int nCode,String strInfo,JSONObject oJsonData)
+        {
+            if(nCode < 0)
+            {
+                MainActivity.MessageBox("打印任务",strInfo);
+                MainActivity.onUserMessageBox("打印任务",strInfo);
+                return;
+            }
 
-				try
-				{
-					JSONObject oData = oJsonData.getJSONObject("data");
-					if(oData == null)
-					{
-						MainActivity.MessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
-						MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
-						return;
-					}
+            try
+            {
+                JSONObject oData = oJsonData.getJSONObject("data");
+                if(oData == null)
+                {
+                    MainActivity.MessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+                    MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+                    return;
+                }
 //						if(GUtilHttp.getJSONObjectValue("taskUID",oData)!=null){
 //							m_oAdapter.deletePrintTaskItem(GUtilHttp.getJSONObjectValue("taskUID",oData));
 //							//m_oAdapter.notifyDataSetChanged();
 //							MainActivity.m_oMsgHandler.sendEmptyMessage(MainActivity.USER_REFRESH_MAINFACE);
 //						}
-					m_oAdapter.deletePrintTaskItem(GUtilHttp.getJSONObjectValue("taskUID",oData));
-					m_oAdapter.notifyDataSetChanged();
+                m_oAdapter.deletePrintTaskItem(GUtilHttp.getJSONObjectValue("taskUID",oData));
+                m_oAdapter.notifyDataSetChanged();
 
-					Message msg =Message.obtain();
-					msg.what= 1;
-					mHandler.sendMessage(msg);
 
-				}
-				catch (JSONException e)
-				{
-					e.printStackTrace();
-					MainActivity.MessageBox("打印任务",e.getMessage());
-					MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
-					return;
-				}
-			}
-		};
-		try
-		{
-			JSONObject   requestDatas = new JSONObject();
+                Message msg =Message.obtain();
+                msg.what= 1;
+                mHandler.sendMessage(msg);
 
-			requestDatas.put("taskUID", taskUID);
-			svr.m_oCurrentActivity = MainActivity.m_oMainActivity;
-			svr.onPost("api/mobile/opPrnTaskComplete.do", requestDatas);
-		}
-		catch (JSONException e)
-		{
-			e.printStackTrace();
-			MainActivity.MessageBox("打印任务",e.getMessage());
-			MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
-		}
-	}
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+                MainActivity.MessageBox("打印任务",e.getMessage());
+                MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+                return;
+            }
+        }
+    };
+    try
+    {
+        JSONObject   requestDatas = new JSONObject();
+
+        requestDatas.put("taskUID", taskUID);
+        svr.m_oCurrentActivity = MainActivity.m_oMainActivity;
+        svr.onPost("api/mobile/opPrnTaskComplete.do", requestDatas);
+    }
+    catch (JSONException e)
+    {
+        e.printStackTrace();
+        MainActivity.MessageBox("打印任务",e.getMessage());
+        MainActivity.onUserMessageBox("打印任务","打印任务失败，请检查网络是否畅通或者联系管理员！");
+    }
+}
+
 	public void opPrnTaskCompleteAgain(String taskUID)
 	{
 		GSvrChannel svr= 	new GSvrChannel()

@@ -2,8 +2,6 @@ package com.eaosoft.view;
 
 
 
-import com.eaosoft.mclerk.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -18,6 +16,9 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.eaosoft.mclerk.R;
+import com.eaosoft.util.GUtilImage;
 
 /**
  * 圆形ImageView，可设置最多两个宽度不同且颜色不同的圆形边框。
@@ -73,7 +74,8 @@ public class RoundImageView extends ImageView
 		this.measure(0, 0);
 		if (drawable.getClass() == NinePatchDrawable.class) return;
 		Bitmap b = ((BitmapDrawable) drawable).getBitmap();
-		Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888, true);
+		Bitmap bitmap =  GUtilImage.zoomBitmap( b,80,80).copy(Bitmap.Config.ARGB_8888, true);
+
 		if (defaultWidth == 0)
 		{
 			defaultWidth = getWidth();
@@ -159,7 +161,8 @@ public class RoundImageView extends ImageView
 			squareWidth = squareHeight = bmpHeight;
 			x = (bmpWidth - bmpHeight) / 2;
 			y = 0;
-			squareBitmap = Bitmap.createBitmap(bmp, x, y, squareWidth,
+
+			squareBitmap = Bitmap.createBitmap( bmp, x, y, squareWidth,
 					squareHeight);
 		}
 		else

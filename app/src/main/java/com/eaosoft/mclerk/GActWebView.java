@@ -1,28 +1,23 @@
 package com.eaosoft.mclerk;
 
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.view.GProgressWebView;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.webkit.DownloadListener;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
+
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.view.GProgressWebView;
 
 public class GActWebView extends Activity 
 {

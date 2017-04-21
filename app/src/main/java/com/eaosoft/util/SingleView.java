@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.eaosoft.mclerk.MainActivity;
 import com.eaosoft.mclerk.R;
 
 import java.util.ArrayList;
@@ -109,9 +110,9 @@ public class SingleView extends View {
         super.onLayout(changed, left, top, right, bottom);
         mWidth = getWidth();
         mHeight = getHeight();
-        mStartWidth = getWidth() / 13;
-        mSize = mWidth / 25;
-        mChartWidth = getWidth() / 13 - mSize / 2;
+        mStartWidth = getWidth() / 12;
+        mSize = mWidth / 23;
+        mChartWidth = getWidth() / 12 - mSize / 2;
     }
 
     private void init() {
@@ -134,9 +135,9 @@ public class SingleView extends View {
     protected void onWindowVisibilityChanged(int visibility) {
         super.onWindowVisibilityChanged(visibility);
         if (visibility == VISIBLE) {
-            mSize = getWidth() / 25;
-            mStartWidth = getWidth() / 13;
-            mChartWidth = getWidth() / 13 - mSize / 2;
+            mSize = getWidth() / 23;
+            mStartWidth = getWidth() / 12;
+            mChartWidth = getWidth() / 12 - mSize / 2;
         }
     }
 
@@ -145,13 +146,13 @@ public class SingleView extends View {
         super.onDraw(canvas);
         mPaint.setColor(lineColor);
         for (int i = 0; i < list.size(); i++) {
-            //»­Êý×Ö
-            mPaint.setTextSize(30);
+           //»­Êý×Ö
+            mPaint.setTextSize(MainActivity.mSreenWidth/30);
             mPaint.setTextAlign(Paint.Align.CENTER);
             mPaint.getTextBounds(String.valueOf(i + 1) + "", 0, String.valueOf(i).length(), mBound);
             canvas.drawText(shopName[i], mStartWidth - mBound.width() * 1 / 2,
                 mHeight - 60 + mBound.height() * 1 / 2, mPaint);
-            mStartWidth += getWidth() / 13;
+            mStartWidth += getWidth() / 12;
         }
 
         for (int i = 0; i < list.size(); i++) {
@@ -174,7 +175,7 @@ public class SingleView extends View {
                 rectF.bottom = mHeight - 100;
                 rectF.top = mHeight - 100 - list.get(i) * size;
                 canvas.drawRoundRect(rectF, 20, 20, mChartPaint);
-                mChartWidth += getWidth() / 13;
+                mChartWidth += getWidth() / 12;
             }
         }
     }
@@ -190,7 +191,7 @@ public class SingleView extends View {
         int bottom = mHeight - 100;
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                for (int i = 0; i < 11; i++) {
+                for (int i = 0; i < list.size(); i++) {
                     Rect rect = new Rect(left, top, right, bottom);
                     left += mWidth / 11;
                     right += mWidth / 11;

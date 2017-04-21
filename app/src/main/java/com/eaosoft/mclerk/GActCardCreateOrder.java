@@ -78,17 +78,21 @@ public class GActCardCreateOrder extends  Activity
   	}
 	public void onCardCreateOrderConfirm(View v)
 	{
-		if(!onCheckGoodsList())
-			return;
-        Intent intent = new Intent(GActCardCreateOrder.this,ConfirmOrder.class);
-        Bundle bundle =new Bundle();
-        bundle.putString("cardUID", m_strCardNo);
-        bundle.putString("groupUID", GOperaterInfo.m_strGroupUID);
-        bundle.putString("roomUID", GOperaterInfo.m_strDefaultDeptUID);
-        bundle.putStringArrayList("goodsList", (ArrayList<String>) m_oCardGoodsList);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        finish();
+        if(m_txtGroupRoomCaption.getText().equals("")){
+            MainActivity.onUserMessageBox("定单检查", "包房编号不能为空");
+        }else {
+            if (!onCheckGoodsList())
+                return;
+            Intent intent = new Intent(GActCardCreateOrder.this, ConfirmOrder.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("cardUID", m_strCardNo);
+            bundle.putString("groupUID", GOperaterInfo.m_strGroupUID);
+            bundle.putString("roomUID", GOperaterInfo.m_strDefaultDeptUID);
+            bundle.putStringArrayList("goodsList", (ArrayList<String>) m_oCardGoodsList);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            finish();
+        }
 	}
   	@Override
   	protected void onActivityResult(int requestCode, int resultCode, Intent data) 
@@ -353,7 +357,7 @@ public class GActCardCreateOrder extends  Activity
 		m_txtGroupCaption.setText(GOperaterInfo.m_strGroupName);
 		if(GOperaterInfo.m_strGroupName.length()<1)
 			m_txtGroupCaption.setText(GOperaterInfo.m_strGroupSerialNo);
-		m_txtGroupRoomCaption.setText(GOperaterInfo.m_strDefaultDeptSerialNo);
+		m_txtGroupRoomCaption.setText("");
 		
 		OnCreateCardOrderGoodsList(m_oCardOrderGoodsList);
 		onReadCardGoodsList(m_strCardNo);

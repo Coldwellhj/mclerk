@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -76,12 +77,13 @@ public class GShareholderMgr
         //===========================================================================
         //头
         RelativeLayout oSubHeader = new RelativeLayout(m_oContext);  //线性布局方式
-        oSubHeader.setLayoutParams( new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, 80) );
+        oSubHeader.setLayoutParams( new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, 100 ) );
         oSubHeader.setBackgroundColor(MainActivity.m_oHeadColor);
         oMainWin.addView(oSubHeader);
         //头像
         RelativeLayout.LayoutParams pImgHead = new RelativeLayout.LayoutParams(80,80) ;
         pImgHead.addRule(RelativeLayout.ALIGN_LEFT);
+        pImgHead.setMargins(10,10,10,10);
         m_oImgHead = new RoundImageView(m_oContext);
         m_oImgHead.setLayoutParams( pImgHead );
         m_oImgHead.setImageResource(R.drawable.ic_launcher);
@@ -150,7 +152,7 @@ public class GShareholderMgr
 		oMainWin.addView(oSubShortBtn);
 
 		LayoutParams p = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT) ;
-		p.setMargins(10,10,10,10);
+		p.setMargins(10,20,10,20);
 		p.weight=1.0f;
 		Button	oBtnCardOrderCreate = new Button(m_oContext);
 		oBtnCardOrderCreate.setLayoutParams( p);
@@ -187,7 +189,7 @@ public class GShareholderMgr
 		//==========================================================================
 		//业绩排行
 		Button	oBtnPerformanceRanking = new Button(m_oContext);
-        oBtnPerformanceRanking.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+        oBtnPerformanceRanking.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT) );
         oBtnPerformanceRanking.setBackgroundResource(R.drawable.performance_ranking);
         oBtnPerformanceRanking.setOnClickListener(new OnClickListener() {
 	        public void onClick(View v) {
@@ -201,7 +203,7 @@ public class GShareholderMgr
         oMainWin.addView(textView_one);
 
 		Button	oBtnSalsePersonal = new Button(m_oContext);
-        oBtnSalsePersonal.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+        oBtnSalsePersonal.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT,  LayoutParams.WRAP_CONTENT) );
         oBtnSalsePersonal.setBackgroundResource(R.drawable.salse_personal);
         oBtnSalsePersonal.setId(1000);
         oBtnSalsePersonal.setOnClickListener(vp_click_listener);
@@ -213,7 +215,7 @@ public class GShareholderMgr
         oMainWin.addView(textView_two);
         //异店消费汇总
         Button	oBtnDifferentStoreSales = new Button(m_oContext);
-        oBtnDifferentStoreSales.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, MainActivity.mSreenHeight/6) );
+        oBtnDifferentStoreSales.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT,  LayoutParams.WRAP_CONTENT) );
         oBtnDifferentStoreSales.setBackgroundResource(R.drawable.different_store_sales);
         oBtnDifferentStoreSales.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {

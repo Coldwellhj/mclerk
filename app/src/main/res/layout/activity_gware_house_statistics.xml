@@ -50,8 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/head"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_below="@+id/personal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="日期"
+                        android:text="开始日期"
                         android:textSize="18sp" />
 
                     <TextView
@@ -131,7 +133,26 @@
                         android:layout_marginRight="10dp"
                         android:background="@drawable/tvborde" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="结束日期"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/dateTime_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/tvborde" />
+                </LinearLayout>
                 <Button
                     android:id="@+id/statistics_search"
                     android:layout_width="match_parent"
@@ -157,18 +178,18 @@
                     android:text="打印报表"
                     android:textColor="@color/encode_view"
                     android:textSize="18sp" />
-                <Button
-                    android:id="@+id/look_statistics_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="1"
-                    android:background="@color/printbutton"
-                    android:text="查看详情"
-                    android:textColor="@color/encode_view"
-                    android:textSize="18sp" />
+                <!--<Button-->
+                    <!--android:id="@+id/look_statistics_detail"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@color/printbutton"-->
+                    <!--android:text="查看详情"-->
+                    <!--android:textColor="@color/encode_view"-->
+                    <!--android:textSize="18sp" />-->
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -1,6 +1,7 @@
 package com.eaosoft.mclerk;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -10,13 +11,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -135,25 +139,25 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
        ActivityCollector.addActivity(this);
-        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
-            m_nOperaterUI = UI_OP_ROLE_CASHIER;
-        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
-            m_nOperaterUI = UI_OP_ROLE_STORE;
-        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
-            m_nOperaterUI = UI_OP_ROLE_SALSE;
-        }else if(GOperaterInfo.m_strRoleID.equals("manager")){
-            m_nOperaterUI = UI_OP_ROLE_MANAGER;
-        }
+
         m_oMainActivity = this;
         onInitApp(this);
         m_oFrmManager = getSupportFragmentManager();
+
         //=============================
         if (GOperaterInfo.m_strUID.length() < 1) {
             Intent intent = new Intent(this, GActUserLogin.class);
             startActivityForResult(intent, USER_NETWORK_LOGIN);
         } else {
+            if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+                Intent intent=new Intent(MainActivity.this,GWareHouseMainActivity.class);
+                startActivity(intent);
+                finish();
+            }else {
                 initView();
                 getFragment(1);
+            }
+
         }
 
         //获取屏幕宽度
@@ -167,13 +171,15 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onResume() {
+        //获取权限
+        boolOpenCarmer();
         if(GOperaterInfo.m_strRoleID.equals("RCashier")){
             m_nOperaterUI = UI_OP_ROLE_CASHIER;
         }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
             m_nOperaterUI = UI_OP_ROLE_STORE;
         }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
             m_nOperaterUI = UI_OP_ROLE_SALSE;
-        }else if(GOperaterInfo.m_strRoleID.equals("manager")){
+        }else if(GOperaterInfo.m_strRoleID.equals("RAdmin")){
             m_nOperaterUI = UI_OP_ROLE_MANAGER;
         }
         /**
@@ -188,6 +194,7 @@ public class MainActivity extends FragmentActivity {
         }
 
         super.onResume();
+
     }
 
     public static void onInitApp(Activity oActivity) {
@@ -206,7 +213,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public static void onUserMessageBox(String strTitle, String strText) {
-        Toast.makeText(MainActivity.m_oMainActivity, strText, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.m_oMainActivity, strText, Toast.LENGTH_LONG).show();
     }
 
     public static Handler m_oMsgHandler = new Handler() {
@@ -292,8 +299,9 @@ public class MainActivity extends FragmentActivity {
             {
                 final TextView inputServer = new TextView(this);
                 inputServer.setFocusable(true);
-                inputServer.setTextColor(inputServer.getResources().getColor(R.color.encode_view));
+                inputServer.setTextColor(inputServer.getResources().getColor(R.color.viewfinder_laser));
                 inputServer.setText(strScannerCode);
+                inputServer.setTextSize(22);
                 inputServer.setTag(requestCode);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -302,15 +310,20 @@ public class MainActivity extends FragmentActivity {
                 builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         String inputName = inputServer.getText().toString();
-                        int nRequestCode = 0;
-                        try {
-                            nRequestCode = Integer.parseInt(inputServer.getTag().toString());
-                        } catch (Exception ex) {
-                            return;
-                        }
-                        ;
-                        if (m_oFragmentOne != null)
-                            m_oFragmentOne.onScannerResult(inputName, nRequestCode);
+                       if(inputName.length()==13){
+                           int nRequestCode = 0;
+                           try {
+                               nRequestCode = Integer.parseInt(inputServer.getTag().toString());
+                           } catch (Exception ex) {
+                               return;
+                           }
+                           ;
+                           if (m_oFragmentOne != null)
+                               m_oFragmentOne.onScannerResult(inputName, nRequestCode);
+                       }else {
+                           MainActivity.onUserMessageBox("定单检查", "扫描不正确！");
+                       }
+
                     }
                 });
                 builder.show();
@@ -368,7 +381,7 @@ public class MainActivity extends FragmentActivity {
         //===============================================
         //本期系统中只有２个Frament
         if (m_oMainActivity != null) {
-            if (MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_STORE) {
+            if (MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_STORE||MainActivity.m_nOperaterUI == MainActivity.UI_OP_ROLE_CASHIER) {
                 m_oLayOne.setVisibility(View.GONE);
                 m_oLayTwo.setVisibility(View.GONE);
                 m_oLayThree.setVisibility(View.GONE);
@@ -538,6 +551,8 @@ public class MainActivity extends FragmentActivity {
                 Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
+               MainActivity.m_oOperaterInfo.onUserBack();
+                MainActivity.m_oMsgHandler.sendEmptyMessage(MainActivity.FINISH_APP);
                 finish();
                 System.exit(0);
             }
@@ -559,4 +574,17 @@ public class MainActivity extends FragmentActivity {
     }
 
     public static Context getContext(){return context ;}
+
+    private void boolOpenCarmer(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)  //打开相机权限
+                != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)   //可读
+                        != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)  //可写
+                        != PackageManager.PERMISSION_GRANTED) {
+            //申请WRITE_EXTERNAL_STORAGE权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE
+                            ,Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    1);}
+    }
 }

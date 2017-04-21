@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -69,7 +70,7 @@ public class GActUserInfo extends  Activity
 		/**
 		 * 设置为横屏
 		 */
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE||MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_CASHIER) {
+		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE||MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_CASHIER||GOperaterInfo.m_strRoleID.equals("RStocker")) {
 			if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
 				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			}
@@ -132,6 +133,7 @@ public class GActUserInfo extends  Activity
 			                    public void onClick(DialogInterface dialog, int which) 
 			                    {
 			                        dialog.dismiss();
+
 			                        MainActivity.m_oOperaterInfo.onUserLogout();
 			    					MainActivity.m_oMsgHandler.sendEmptyMessage(MainActivity.FINISH_APP);			                        
 			                    }
@@ -364,7 +366,15 @@ public class GActUserInfo extends  Activity
 		}
 	}
 	//以下是关键，原本uri返回的是file:///...来着的，android4.4返回的是content:///...  
-  
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            Intent intent=new Intent(GActUserInfo.this,MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
   @SuppressLint("NewApi")
   public static String getPath(final Context context, final Uri uri) 
   {  

@@ -1,29 +1,20 @@
 package com.eaosoft.adapter;
 
-import java.util.Map;
-
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.eaosoft.mclerk.MainActivity;
 import com.eaosoft.mclerk.R;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GBaseAdapter;
-import com.eaosoft.util.GUtilFile;
-import com.eaosoft.util.GUtilSDCard;
-import com.eaosoft.util.XImageDownLoader;
-import com.eaosoft.util.XImageDownLoader.DownLoaderListener;
 import com.eaosoft.view.GRoundImageView;
-import com.eaosoft.view.RoundImageView;
+
+import java.util.Map;
 
 public class GCardKindAdapter extends GBaseAdapter
 {

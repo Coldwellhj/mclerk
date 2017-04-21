@@ -55,9 +55,9 @@
                 android:background="@drawable/login_edit_normal"
                 android:drawableLeft="@drawable/user_icon"
                 android:drawablePadding="8dp"
-                android:hint="手机号"
+                android:hint="请输入账号"
                 android:singleLine="true"
-                android:numeric="integer"
+
                 android:textSize="14sp" />
         </LinearLayout>
 

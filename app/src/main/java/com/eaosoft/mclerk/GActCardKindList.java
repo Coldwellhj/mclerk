@@ -16,9 +16,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.eaosoft.adapter.GCardKindAdapter;
+import com.eaosoft.adapter.GCardKindMoneyAdapter;
 import com.eaosoft.adapter.GHttpDAO;
 import com.eaosoft.util.ActivityCollector;
 import com.eaosoft.util.GSvrChannel;
@@ -39,6 +41,8 @@ import java.util.Map;
 public class GActCardKindList extends  Activity 
 {
 	private GCardKindAdapter			m_oCardKindListAdapter=null;
+    private GCardKindMoneyAdapter			m_oCardKindMoneyListAdapter=null;
+    private GHttpDAO						m_oCardKindMoneyListDAO=null;
 	private GHttpDAO						m_oCardKindListDAO=null;
     private ImageView 						m_ivDeleteText;
 	private EditText 							m_etSearch;
@@ -46,9 +50,13 @@ public class GActCardKindList extends  Activity
 	private Button								m_oCreate=null;
 	private String								m_szUserText="";
 	private String								m_szUserMgr="";	
+	private String								kindMoney="";
 	private	 Map								m_oCurrentOPMap=null;
 	private Button								m_oCurrentOPBtn=null;
-	protected void onCreate(Bundle savedInstanceState) 
+    private LinearLayout detail;
+    private LinearLayout moneyDetail;
+
+    protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -56,8 +64,9 @@ public class GActCardKindList extends  Activity
 		setContentView(R.layout.act_card_kind_list);
 		ActivityCollector.addActivity(this);		
 		OnCreateSearchBox();
-		OnCreateReportBody();
-		setResult(RESULT_OK, null);
+
+        OnCreateMoneyReportBody();
+//		setResult(RESULT_OK, null);
 		
     }
 
@@ -68,8 +77,9 @@ public class GActCardKindList extends  Activity
            if(bundle == null)
            	return;
            if(bundle.getString("UserMgr")!=null)
-        	   m_szUserMgr = bundle.getString("UserMgr");                
-       }
+        	   m_szUserMgr = bundle.getString("UserMgr");
+
+    }
     @Override
     protected void onResume() {
         /**
@@ -270,12 +280,14 @@ public class GActCardKindList extends  Activity
 			m_oCardKindListDAO = new GHttpDAO(this,m_oCardKindListAdapter);
 		if(m_oCardKindListAdapter.ar!=null)
 			m_oCardKindListAdapter.ar.clear();
-		m_oCardKindListDAO.getCardKindPage(strText, 1,200); 
+		m_oCardKindListDAO.getCardKindPage(strText, 1,200,kindMoney);
+
+
   	}
   	private View OnCreateReportBody()
 	{
+        detail=(LinearLayout)findViewById(R.id.detail);
 		ListView oListView = (ListView)findViewById(R.id.lv_card_kind_list);
-		
 		OnSearchItem("");
 		if(oListView == null)
 			return null;
@@ -285,8 +297,33 @@ public class GActCardKindList extends  Activity
 		oListView.setOnItemClickListener(lv_listener);
 		//===========================================================================
 		return oListView;
-	}	
-	private void OnCreateSearchBox()
+	}
+    private View OnCreateMoneyReportBody()
+    {
+        ListView oListView = (ListView)findViewById(R.id.lv_card_kind_money_list);
+        moneyDetail=(LinearLayout)findViewById(R.id.moneyDetail);
+        OnSearchMoneyItem();
+        if(oListView == null)
+            return null;
+        //===========================================================================
+        oListView.setAdapter(m_oCardKindMoneyListAdapter);
+        //条目点击事件
+        oListView.setOnItemClickListener(lv_money_listener);
+        //===========================================================================
+        return oListView;
+    }
+
+    private void OnSearchMoneyItem() {
+        if(m_oCardKindMoneyListAdapter==null)
+            m_oCardKindMoneyListAdapter = new GCardKindMoneyAdapter(this);
+        if(m_oCardKindMoneyListDAO == null)
+            m_oCardKindMoneyListDAO = new GHttpDAO(this,m_oCardKindMoneyListAdapter);
+        if(m_oCardKindMoneyListAdapter.ar!=null)
+            m_oCardKindMoneyListAdapter.ar.clear();
+        m_oCardKindMoneyListDAO.getCardKindMoneyPage();
+    }
+
+    private void OnCreateSearchBox()
 	{
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//建立搜素框
@@ -383,8 +420,8 @@ public class GActCardKindList extends  Activity
 				intent = new Intent(GActCardKindList.this, GActCardKindDetail.class);
 			else
 				intent = new Intent(GActCardKindList.this, GActCardCreate.class);
-			
-			Bundle bundle=new Bundle();		    			
+
+			Bundle bundle=new Bundle();
 			bundle.putString("uID", map.get("uID").toString());
 			bundle.putString("serialNo", map.get("serialNo").toString());
 			bundle.putString("caption", map.get("caption").toString());
@@ -395,7 +432,7 @@ public class GActCardKindList extends  Activity
 			bundle.putString("imgLogo", map.get("imgLogo").toString());
 			bundle.putString("bkColor", map.get("bkColor").toString());
 			bundle.putString("enabled", map.get("enabled").toString());
-			intent.putExtras(bundle);		    			
+			intent.putExtras(bundle);
 			if(m_szUserMgr.equalsIgnoreCase("UserMgr"))//进入明细
 			{
 				startActivity(intent);
@@ -405,6 +442,7 @@ public class GActCardKindList extends  Activity
 				setResult(1001, intent);
 				overridePendingTransition(R.anim.left, R.anim.right);
 				GActCardKindList.this.finish();
+
 			}
 			/*
 			Intent intent = new Intent(ActProjectInfo.this, ActImageArchiveInfo.class);
@@ -420,4 +458,32 @@ public class GActCardKindList extends  Activity
 			*/
 		}
 	};
+    OnItemClickListener lv_money_listener = new OnItemClickListener()
+    {
+        @Override
+        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,	long arg3)
+        {
+            if(m_oCardKindMoneyListAdapter.ar==null)
+                return;
+            Map map = (Map) m_oCardKindMoneyListAdapter.ar.get(arg2);
+            if(map == null)
+                return;
+            kindMoney=(String)map.get("kindMoney");
+            OnCreateReportBody();
+            moneyDetail.setVisibility(View.GONE);
+            detail.setVisibility(View.VISIBLE);
+			/*
+			Intent intent = new Intent(ActProjectInfo.this, ActImageArchiveInfo.class);
+
+			intent.putExtra("uID", map.get("uID").toString());
+			intent.putExtra("serialNo", map.get("serialNo").toString());
+			intent.putExtra("caption", map.get("caption").toString());
+			intent.putExtra("briefing", map.get("briefing").toString());
+			intent.putExtra("ioaThumbnail", map.get("ioaThumbnail").toString());
+			intent.putExtra("ioaMainImage", map.get("ioaMainImage").toString());
+
+			startActivity(intent);
+			*/
+        }
+    };
   }

@@ -23,9 +23,13 @@ import com.eaosoft.mclerk.MainActivity;
 import com.eaosoft.userinfo.GOperaterInfo;
 import com.eaosoft.util.GSvrChannel;
 
+import static com.eaosoft.mclerk.MainActivity.UI_OP_ROLE_CASHIER;
+import static com.eaosoft.mclerk.MainActivity.UI_OP_ROLE_MANAGER;
+import static com.eaosoft.mclerk.MainActivity.UI_OP_ROLE_SALSE;
+import static com.eaosoft.mclerk.MainActivity.UI_OP_ROLE_STORE;
 
 
-public class GFragmentOne extends Fragment 
+public class GFragmentOne extends Fragment
 {
 	private GSalseMain 				m_oSalseMain=null;
 	private GCashierMain			m_oCashierMain=null;
@@ -39,25 +43,36 @@ public class GFragmentOne extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) 
 	{
 		m_oContext = inflater.getContext();
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_SALSE)//这个是销售员
+        if(GOperaterInfo.m_strRoleID.equals("RCashier")){
+            MainActivity.m_nOperaterUI = UI_OP_ROLE_CASHIER;
+        }else if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+            MainActivity.m_nOperaterUI = UI_OP_ROLE_STORE;
+        }else if(GOperaterInfo.m_strRoleID.equals("RSale")){
+            MainActivity.m_nOperaterUI = UI_OP_ROLE_SALSE;
+        }else if(GOperaterInfo.m_strRoleID.equals("RAdmin")){
+            MainActivity.m_nOperaterUI = UI_OP_ROLE_MANAGER;
+        }
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_SALSE)//这个是销售员
 		{
 			m_oSalseMain = new GSalseMain(m_oContext);
 			m_oSalseMain.m_oFragmentOne = this;
 			return m_oSalseMain.OnCreateView();
 		}
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_CASHIER)//这个是收银员
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_CASHIER)//这个是收银员
 		{
 			m_oCashierMain = new GCashierMain(m_oContext);
 			m_oCashierMain.m_oFragmentOne = this;
 			return m_oCashierMain.OnCreateView();
 		}
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE)//这个是仓管员
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_STORE)//这个是仓管员
 		{
 			m_oWareHouseMain = new GWareHouseMain(m_oContext);
 			m_oWareHouseMain.m_oFragmentOne = this;
 			return m_oWareHouseMain.OnCreateView();
+
+
 		}
-        if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_MANAGER)//这个是股东
+        if(MainActivity.m_nOperaterUI== UI_OP_ROLE_MANAGER)//这个是股东
         {
             m_oShareholderMain = new GShareholderMain(m_oContext);
             m_oShareholderMain.m_oFragmentOne = this;
@@ -79,7 +94,7 @@ public class GFragmentOne extends Fragment
 	}
 	public void OnRefresh()
 	{
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE)//这个是仓管员
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_STORE)//这个是仓管员
 		{
 			if(m_oWareHouseMain!=null)
 				m_oWareHouseMain.OnRefresh();
@@ -92,6 +107,7 @@ public class GFragmentOne extends Fragment
 			case MainActivity.SCAN_CODE_ORDER_CREATE://	  	= 0x01;//扫码下单
 			{				
 				Intent intent = new Intent(MainActivity.m_oMainActivity, GActCardCreateOrder.class);
+
 				intent.putExtra("cardNo", strCardNo);
 	        	MainActivity.m_oMainActivity.startActivity(intent);	
 			}break;
@@ -121,12 +137,14 @@ public class GFragmentOne extends Fragment
 			}break;
 			
 		}//end of switch
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_SALSE && m_oSalseMain!=null)//这个是销售员
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_SALSE && m_oSalseMain!=null)//这个是销售员
 			m_oSalseMain.onScannerResult(strCardNo, requestCode);
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_CASHIER && m_oCashierMain!=null)//这个是收银员
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_CASHIER && m_oCashierMain!=null)//这个是收银员
 			m_oCashierMain.onScannerResult(strCardNo, requestCode);
-		if(MainActivity.m_nOperaterUI==MainActivity.UI_OP_ROLE_STORE && m_oWareHouseMain!=null)//这个是仓管员
+		if(MainActivity.m_nOperaterUI== UI_OP_ROLE_STORE && m_oWareHouseMain!=null)//这个是仓管员
 			m_oWareHouseMain.onScannerResult(strCardNo, requestCode);
+        if(MainActivity.m_nOperaterUI== UI_OP_ROLE_MANAGER && m_oShareholderMain!=null)//这个是股东
+            m_oShareholderMain.onScannerResult(strCardNo, requestCode);
 	}
 	public void printLogin(String strCardNo,int requestCode){
 	}

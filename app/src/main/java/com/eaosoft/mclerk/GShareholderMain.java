@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -22,7 +21,6 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.eaosoft.fragment.GFragmentOne;
 import com.eaosoft.fragment.GuidePageAdapter;
@@ -41,11 +39,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static java.lang.Boolean.FALSE;
 
 public class GShareholderMain
 {
@@ -112,11 +109,12 @@ public class GShareholderMain
         //===========================================================================
         //头
         RelativeLayout oSubHeader = new RelativeLayout(m_oContext);  //线性布局方式
-        oSubHeader.setLayoutParams( new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, 80) );
+        oSubHeader.setLayoutParams( new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, 100 ));
         oSubHeader.setBackgroundResource(R.color.shareholder_background);
         oMainWin.addView(oSubHeader);
         //头像
         RelativeLayout.LayoutParams pImgHead = new RelativeLayout.LayoutParams(80,80) ;
+        pImgHead.setMargins(10,10,10,10);
         pImgHead.addRule(RelativeLayout.ALIGN_LEFT);
         m_oImgHead = new RoundImageView(m_oContext);
         m_oImgHead.setLayoutParams( pImgHead );
@@ -182,7 +180,7 @@ public class GShareholderMain
         //快捷按钮区
 		LinearLayout oSubShortBtn = new LinearLayout(m_oContext);  //线性布局方式
 		oSubShortBtn.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为横向排列  HORIZONTAL
-		oSubShortBtn.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, 300) );
+		oSubShortBtn.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/5) );
 		oMainWin.addView(oSubShortBtn);
 
 		LayoutParams p = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT) ;
@@ -212,7 +210,7 @@ public class GShareholderMain
 
         LinearLayout oSubShortBtn1 = new LinearLayout(m_oContext);  //线性布局方式
         oSubShortBtn1.setOrientation( LinearLayout.HORIZONTAL ); //控件对其方式为横向排列  HORIZONTAL
-        oSubShortBtn1.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT, 300) );
+        oSubShortBtn1.setLayoutParams( new LayoutParams(LayoutParams.FILL_PARENT,  MainActivity.mSreenHeight/5) );
         oMainWin.addView(oSubShortBtn1);
         LayoutParams p1 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT) ;
         p1.setMargins(10,10,10,10);
@@ -260,19 +258,19 @@ public class GShareholderMain
 //		oMainWin.addView(oBtnCardOrderList);
 
             rl_single = new RelativeLayout(m_oContext);
-            rl_single.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 500));
+            rl_single.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,  MainActivity.mSreenHeight/3));
 
             oMainWin.addView(rl_single);
             llSingle = (LinearLayout) LayoutInflater.from(MainActivity.m_oMainActivity).inflate(R.layout.layout_pro_expense, null);
 //        SingleView my_single_chart_view =new SingleView(m_oContext);
             my_single_chart_view = (SingleView) llSingle.findViewById(R.id.my_single_chart_view);
-            my_single_chart_view.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT, 450) );
+            my_single_chart_view.setLayoutParams( new LayoutParams(LayoutParams.MATCH_PARENT,  MainActivity.mSreenHeight/3) );
             singlelist = new ArrayList<Float>();
-//        Random random = new Random();
-//        while (singlelist.size() < 12) {
-//            int randomInt = random.nextInt(100);
-//            singlelist.add((float) randomInt);
-//        }
+//            Random random = new Random();
+//            while (singlelist.size() < 11) {
+//                int randomInt = random.nextInt(100);
+//                singlelist.add((float) randomInt);
+//            }
 
             my_single_chart_view.setList(singlelist);
             rl_single.removeView(llSingle);
@@ -283,7 +281,9 @@ public class GShareholderMain
                     rl_single.removeView(llSingle);
 //                llSingle = (LinearLayout) LayoutInflater.from(MainActivity.m_oMainActivity).inflate(R.layout.layout_pro_expense, null);
                     TextView tvMoney = (TextView) llSingle.findViewById(R.id.tv_shouru_pro);
-                    tvMoney.setText( (singlelist.get(number)+"元"));
+                    if(number<singlelist.size()) {
+                        tvMoney.setText("收入"+(singlelist.get(number) + "万元"));
+                    }
                     llSingle.measure(0, 0);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                             RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -478,7 +478,7 @@ public class GShareholderMain
 //                            map.put("caption",GUtilHttp.getJSONObjectValue("caption",o) );
 //                            map.put("money", GUtilHttp.getJSONObjectValue("money",o) );
 //                            ar.add(map);
-                            singlelist.add(Float.parseFloat( GUtilHttp.getJSONObjectValue("money",o)));
+                            singlelist.add(Float.parseFloat( GUtilHttp.getJSONObjectValue("money",o))/10000);
                         }
                         Message msg = m_handler.obtainMessage();
                         msg.arg1 = 0;

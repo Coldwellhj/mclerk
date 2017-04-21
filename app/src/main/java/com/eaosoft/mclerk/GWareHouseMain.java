@@ -86,7 +86,7 @@ public class GWareHouseMain {
     private Handler handler = new Handler();
     private Runnable runnable;
     private Runnable runnable1;
-    public static Handler mHandler;
+   public static Handler mHandler;
 
     static boolean  isConnect;//用来标识连接状态的一个boolean值
     boolean isPrinted=true;
@@ -186,6 +186,8 @@ public class GWareHouseMain {
         oMainWin_left.setOrientation(LinearLayout.VERTICAL); //控件对其方式为竖直排列
         oMainWin_left.setLayoutParams(new LayoutParams(MainActivity.mSreenWidth / 4, LayoutParams.MATCH_PARENT));
         oMainWin_left.setBackgroundResource(R.color.lightgray);
+        oMainWin_left.setGravity(Gravity.CENTER_HORIZONTAL);
+        oMainWin_left.setPadding(20,10,20,10);
         //======================================================================================
 //        RelativeLayout.LayoutParams view_one = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 5);
 //        view1 = new TextView(m_oContext);
@@ -205,41 +207,42 @@ public class GWareHouseMain {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.m_oMainActivity, GWareHouseFillPrint.class);
                 MainActivity.m_oMainActivity.startActivity(intent);
+
             }
         });
         oMainWin_left.addView(oBtnPrintOrder);
-        RelativeLayout.LayoutParams view_two = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 20);
-        view2 = new TextView(m_oContext);
-        view2.setLayoutParams(view_two);
-        view2.setBackgroundResource(R.color.lightgray);
-        view2.setText("");
-        view2.setTextColor(view2.getResources().getColor(android.R.color.white));
-        oMainWin_left.addView(view2);
-
-        RelativeLayout.LayoutParams m_oBtnFillPrint = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, MainActivity.mSreenHeight/10);
-        m_oBtnFillPrint.setMargins(40, 40, 40, 10);
-        Button oBtnFillPrint = new Button(m_oContext);
-        oBtnFillPrint.setLayoutParams(m_oBtnFillPrint);
-        oBtnFillPrint.setBackgroundResource(R.color.printbutton);
-        oBtnFillPrint.setText("暂停打印");
-        oBtnFillPrint.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
-        oBtnFillPrint.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-               if(isPrinted==true){
-                   isPrinted=false;
-               }else {
-                   isPrinted=true;
-                   if(wh_listview.getChildAt(0) != null){
-                       for(int i=0;i<wh_listview.getCount();i++) {
-                           if (isPrinted == true) {
-                               printall();
-                           }
-                       }
-                   }
-               }
-            }
-        });
-        oMainWin_left.addView(oBtnFillPrint);
+//        RelativeLayout.LayoutParams view_two = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 20);
+//        view2 = new TextView(m_oContext);
+//        view2.setLayoutParams(view_two);
+//        view2.setBackgroundResource(R.color.lightgray);
+//        view2.setText("");
+//        view2.setTextColor(view2.getResources().getColor(android.R.color.white));
+//        oMainWin_left.addView(view2);
+//
+//        RelativeLayout.LayoutParams m_oBtnFillPrint = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, MainActivity.mSreenHeight/10);
+//        m_oBtnFillPrint.setMargins(40, 40, 40, 10);
+//        Button oBtnFillPrint = new Button(m_oContext);
+//        oBtnFillPrint.setLayoutParams(m_oBtnFillPrint);
+//        oBtnFillPrint.setBackgroundResource(R.color.printbutton);
+//        oBtnFillPrint.setText("暂停打印");
+//        oBtnFillPrint.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
+//        oBtnFillPrint.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//               if(isPrinted==true){
+//                   isPrinted=false;
+//               }else {
+//                   isPrinted=true;
+//                   if(wh_listview.getChildAt(0) != null){
+//                       for(int i=0;i<wh_listview.getCount();i++) {
+//                           if (isPrinted == true) {
+//                               printall();
+//                           }
+//                       }
+//                   }
+//               }
+//            }
+//        });
+//        oMainWin_left.addView(oBtnFillPrint);
         RelativeLayout.LayoutParams view_three = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, 20);
         view3 = new TextView(m_oContext);
         view3.setLayoutParams(view_three);
@@ -261,6 +264,12 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oBtnViewReport);
+        view3 = new TextView(m_oContext);
+        view3.setLayoutParams(view_three);
+        view3.setBackgroundResource(R.color.lightgray);
+        view3.setText("");
+        view3.setTextColor(view3.getResources().getColor(android.R.color.white));
+        oMainWin_left.addView(view3);
         RelativeLayout.LayoutParams m_oEdtBle = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,MainActivity.mSreenHeight/10);
         m_oEdtBle.setMargins(40, 40, 40, 10);
         oTextBle = new TextView(m_oContext);
@@ -277,13 +286,19 @@ public class GWareHouseMain {
             }
         });
         oMainWin_left.addView(oTextBle);
+        view3 = new TextView(m_oContext);
+        view3.setLayoutParams(view_three);
+        view3.setBackgroundResource(R.color.lightgray);
+        view3.setText("");
+        view3.setTextColor(view3.getResources().getColor(android.R.color.white));
+        oMainWin_left.addView(view3);
         RelativeLayout.LayoutParams m_oConnect = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,MainActivity.mSreenHeight/10);
         m_oConnect.setMargins(40, 40, 40, 10);
         Button oConnect = new Button(m_oContext);
         oConnect.setLayoutParams(m_oConnect);
         oConnect.setBackgroundResource(R.color.printbutton);
         oConnect.setText("连接");
-        oConnect.setTextColor(oBtnPrintOrder.getResources().getColor(android.R.color.white));
+        oConnect.setTextColor(oConnect.getResources().getColor(android.R.color.white));
         oConnect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sendble();
@@ -692,8 +707,6 @@ public class GWareHouseMain {
     }
     public void printall(){
         if (isConnect) {
-
-
             // TODO Auto-generated method stub
             //向打印机发生打印指令和打印数据，调用此方法
             //第一个参数，还是UiExecute接口的实现，分别是发生数据成功和失败后在ui线程的处理

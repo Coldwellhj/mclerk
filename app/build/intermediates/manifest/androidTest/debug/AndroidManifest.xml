@@ -3,11 +3,11 @@
     package="com.eaosoft.mclerk.test" >
 
     <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="25" />
 
     <instrumentation
-        android:name="android.test.InstrumentationTestRunner"
+        android:name="com.android.test.runner.MultiDexTestRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
         android:label="Tests for com.eaosoft.mclerk"

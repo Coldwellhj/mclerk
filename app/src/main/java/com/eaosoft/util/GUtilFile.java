@@ -1,13 +1,11 @@
 package com.eaosoft.util;
 
 
-import java.io.File;
-import java.io.IOException;
-
-import com.eaosoft.util.AsynImageLoader;
-
 import android.os.Environment;
 import android.util.Log;
+
+import java.io.File;
+import java.io.IOException;
 
 public class GUtilFile 
 {  

@@ -4,6 +4,10 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\web_view_progress_bar.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\greport_search_btn_background.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\greport_search_btn_background.png"
     },
@@ -24,8 +28,20 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_consume_history.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_icon.png",
@@ -36,8 +52,16 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\shopper_icon.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\preference_last_item.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\preference_last_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\img_search_p.png",
@@ -45,63 +69,83 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_textfield_searchview_holo_light.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_ab_holo.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_tab_indicator_ab_holo.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item_goods_logo.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\item_goods_logo.png"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_info.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_info.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item_goods_logo.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\item_goods_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\zxing_code_bg.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\libzxing\\build\\intermediates\\bundles\\default\\res\\drawable\\zxing_code_bg.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_card_search.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_card_search.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\zxing_line.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\libzxing\\build\\intermediates\\bundles\\default\\res\\drawable\\zxing_line.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\textview_border.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\textview_border.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_image.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_image.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\greport_top_background.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\greport_top_background.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_spinner_ab_holo_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_image.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_image.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_ic_clear.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_more.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\ic_more.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\flashlight1.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\libzxing\\build\\intermediates\\bundles\\default\\res\\drawable\\flashlight1.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_card_search.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\mgr_card_search.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_card_create_state.png",
@@ -109,7 +153,7 @@
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_line_bg.9.png",
@@ -118,6 +162,10 @@
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_card_search1.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_card_search1.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_order_consume_state.png",
@@ -132,6 +180,10 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\greport_delete.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_camera.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_camera.png"
     },
@@ -144,8 +196,16 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\myback.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_card_create.png",
@@ -156,8 +216,20 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\greport_search_frame.9.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_order_history.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_order_history.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\line.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\libzxing\\build\\intermediates\\bundles\\default\\res\\drawable\\line.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\share_via_barcode.png",
@@ -172,24 +244,36 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_order_create.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_spinner_ab_holo_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_holo_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_ic_clear_holo_light.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\preference_first_item.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\preference_first_item.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_search_dropdown_light.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\picture_cashier.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\picture_cashier.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spborde_history.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\spborde_history.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\xiugai_32.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\xiugai_32.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shadow.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\libzxing\\build\\intermediates\\bundles\\default\\res\\drawable\\shadow.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tvborde.xml",
@@ -200,24 +284,48 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\editback.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spborde.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\spborde.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spborde_light.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\spborde_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\login.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_search_dropdown_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mgr_consume_history.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\mgr_consume_history.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_order_create1.png",
@@ -228,31 +336,43 @@
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\img_search_n.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item_depts_logo.png",
-        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\item_depts_logo.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_order_history1.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\btn_order_history1.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item_depts_logo.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\item_depts_logo.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_bg.jpg",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\user_bg.jpg"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\printbutton.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\printbutton.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_vector_test.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pwd_icon.png",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\pwd_icon.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\checkbox_bg.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\src\\main\\res\\drawable\\checkbox_bg.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\7458d02e2b68f09d299ab964977520b36144c789\\output\\res\\drawable\\abc_textfield_searchview_right_holo_dark.xml"
+        "merged": "C:\\Users\\Administrator\\Desktop\\mclerk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     }
 ]

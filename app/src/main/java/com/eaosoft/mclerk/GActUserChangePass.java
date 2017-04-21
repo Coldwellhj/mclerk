@@ -86,8 +86,9 @@ public class GActUserChangePass extends Activity
     	 try 
          {
     		JSONObject   requestDatas = new JSONObject();
-	    	requestDatas.put("oldPassword",  GOperaterInfo.m_strPassword);
-	    	requestDatas.put("password", m_strUserNewPassword);
+	    	requestDatas.put("oldPassword", GOperaterInfo.OnMakePassword( GOperaterInfo.m_strPassword ));
+
+             requestDatas.put("password", m_strUserNewPassword  );
 	    	
 	    	svr.m_oCurrentActivity = this;
 	    	svr.onPost("api/mobile/opChangePassword.do", requestDatas);
