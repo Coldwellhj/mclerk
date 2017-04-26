@@ -126,7 +126,7 @@ public class MainActivity extends FragmentActivity {
     public static final int USER_GROUP_CHANGE = 0x10;//¸ü»»ÃÅµê
     //==============================================
     public static String m_strDebugCardNo = "6921734953017";
-    public static boolean m_bDebugCardNo;
+    public static boolean m_bDebugCardNo=true;
     public static int mSreenWidth;
     public static int mSreenHeight;
 

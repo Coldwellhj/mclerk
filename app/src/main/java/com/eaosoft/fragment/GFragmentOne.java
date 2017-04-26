@@ -108,7 +108,7 @@ public class GFragmentOne extends Fragment
 			{				
 				Intent intent = new Intent(MainActivity.m_oMainActivity, GActCardCreateOrder.class);
 
-				intent.putExtra("cardNo", strCardNo);
+				intent.putExtra("cardNo", "6921734953002");
 	        	MainActivity.m_oMainActivity.startActivity(intent);	
 			}break;
 			case MainActivity.SCAN_CODE_CAED_INFO://	  		= 0x02;//É¨Âë²éÑ¯

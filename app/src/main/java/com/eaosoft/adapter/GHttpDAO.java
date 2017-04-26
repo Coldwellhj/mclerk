@@ -441,6 +441,7 @@ public class GHttpDAO
 									map1.put("goodsCaption", GUtilHttp.getJSONObjectValue("goodsCaption", oo));
 									map1.put("goodsNumber", GUtilHttp.getJSONObjectValue("goodsNumber", oo));
 									map1.put("goodsUnitName", GUtilHttp.getJSONObjectValue("goodsUnitName", oo));
+									map1.put("tasteuids", GUtilHttp.getJSONObjectValue("tasteuids", oo));
 									ar1.add(map1);
 								}
 							}
@@ -664,6 +665,7 @@ public class GHttpDAO
 							map.put("goodsCaption", GUtilHttp.getJSONObjectValue("goodsCaption", o));
 							map.put("goodsNumber", GUtilHttp.getJSONObjectValue("goodsNumber", o));
 							map.put("goodsUnitName", GUtilHttp.getJSONObjectValue("goodsUnitName", o));
+							map.put("tasteuids", GUtilHttp.getJSONObjectValue("tasteuids", o));
 							ar.add(map);
 						}
 					}

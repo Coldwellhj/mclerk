@@ -160,6 +160,7 @@ public class GActCardCreateOrder extends  Activity
   		TextView txtName;
   		TextView txtUnit;
   		TextView txtNumR;
+  		TextView txtTaste;
   		TextView txtNumX;
   		TextView txtChange;
   		
@@ -174,6 +175,7 @@ public class GActCardCreateOrder extends  Activity
   			txtName.setText("名称");
   		else
   			txtName.setText(map.get("caption").toString());
+        txtName.setGravity(Gravity.CENTER);
   		txtName.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
   		oHead.addView(txtName);
   		
@@ -185,6 +187,7 @@ public class GActCardCreateOrder extends  Activity
   			txtNumR = new TextView(oContext);
   			txtNumR.setLayoutParams(pCell);  			
   			txtNumR.setText("数量");
+            txtNumR.setGravity(Gravity.CENTER);
   			txtNumR.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
   	  		oHead.addView(txtNumR);
   		}
@@ -214,7 +217,9 @@ public class GActCardCreateOrder extends  Activity
 	  	  		oHead.addView(txtNumR);
   			}
   		}
-  		
+
+
+
   		
   		
   		txtUnit 	= new TextView(oContext);
@@ -224,11 +229,49 @@ public class GActCardCreateOrder extends  Activity
   			txtUnit.setText("单位");
   		else
   			txtUnit.setText(map.get("unitName").toString());
+        txtUnit.setGravity(Gravity.CENTER);
   		txtUnit.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
   		oHead.addView(txtUnit);
-  		
+
+        if(map==null)
+        {
+            txtTaste = new TextView(oContext);
+            txtTaste.setLayoutParams(pCell);
+            txtTaste.setText("口味");
+            txtTaste.setGravity(Gravity.CENTER);
+            txtTaste.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
+            oHead.addView(txtTaste);
+        }
+        else
+        {
+
+            if(map.get("oID").toString().length()<1)
+            {
+                txtTaste = new TextView(oContext);
+                txtTaste.setLayoutParams(pCell);
+                txtTaste.setText(map.get("numUser").toString());
+                txtTaste.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
+                txtTaste.setId(5000+nLineNum);
+                txtTaste.setClickable(true);
+                txtTaste.setOnClickListener(m_oGoodsNumberChange);
+                txtTaste.setTag(map);
+                txtTaste.setBackgroundColor(Color.YELLOW);
+                txtTaste.setGravity(Gravity.CENTER);
+                oHead.addView(txtTaste);
+            }
+            else
+            {
+                txtTaste = new TextView(oContext);
+                txtTaste.setLayoutParams(pCell);
+                txtTaste.setText(map.get("goodsNum").toString());
+                txtTaste.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
+                oHead.addView(txtTaste);
+            }
+        }
+
   		txtNumX = new TextView(oContext);  		
   		txtNumX.setLayoutParams(xCell);
+        txtNumX.setGravity(Gravity.CENTER);
   		if(map==null)
   			txtNumX.setText("余量");
   		else
@@ -248,6 +291,7 @@ public class GActCardCreateOrder extends  Activity
   	  		txtChange = new TextView(oContext);
   	  		txtChange.setLayoutParams(xCell);
   			txtChange.setText("操作");
+            txtChange.setGravity(Gravity.CENTER);
   	  		txtChange.setTextSize(m_nFontSize*MainActivity.m_nPixelsFromDP);
   	  		oHead.addView(txtChange);
   		}
@@ -495,6 +539,46 @@ public class GActCardCreateOrder extends  Activity
   	        builder.show();
          }
   	};
+    View.OnClickListener m_oGoodsTasteChange = new View.OnClickListener()
+    {
+        public void onClick(View v)
+        {
+            int nLineNum = v.getId()-5001;
+            if(nLineNum<0 || nLineNum >= m_oCardGoodsList.size())
+                return;
+            Map map = (Map)v.getTag();
+            if(map == null)
+                return;
+            int nMaxNum = Integer.parseInt(map.get("goodsNum").toString());
+            int nUserNum = Integer.parseInt(map.get("numUser").toString());
+            int nUsedNum = onGetGoodsNumUsed(map.get("uID").toString());
+            if(nUsedNum > nMaxNum)
+                return;
+            final TextView txtGoodsTaste = (TextView)v;
+            String strItems[] = new String[nMaxNum-nUsedNum+1+nUserNum];
+            for(int i=0;i<(nMaxNum-nUsedNum+1+nUserNum);i++)
+                strItems[i] = i+map.get("unitName").toString();
+            //=====================================================================
+            AlertDialog.Builder builder = new AlertDialog.Builder(GActCardCreateOrder.this);
+            builder.setIcon(R.drawable.ic_launcher);
+            builder.setTitle("选择"+map.get("caption").toString()+"口味");
+            builder.setItems(strItems, new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick(DialogInterface dialog, int which)
+                {
+                    String strTasteUser = ""+which;
+                    txtGoodsTaste.setText(strTasteUser);
+                    Map map = (Map)txtGoodsTaste.getTag();
+                    if(map == null)
+                        return;
+                    map.put("TasteUser",strTasteUser);
+
+                }
+            });
+            builder.show();
+        }
+    };
   	View.OnClickListener m_oButtonDelete = new View.OnClickListener()
   	{
   		 public void onClick(View v) 

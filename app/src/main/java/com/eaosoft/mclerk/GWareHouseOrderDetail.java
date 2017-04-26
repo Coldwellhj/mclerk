@@ -25,7 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.eaosoft.mclerk.GWareHouseMain.isConnect;
+
+import static com.eaosoft.mclerk.GWareHouseMainActivity.isConnect;
 import static com.eaosoft.mclerk.MainActivity.binder;
 
 public class GWareHouseOrderDetail extends Activity implements View.OnClickListener{
@@ -159,61 +160,105 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                         list.add(("单号：" + orderUID + "\n").getBytes("gbk"));
                                         list.add(("房号：" + roomSerialNo + "\n").getBytes("gbk"));
                                         list.add(("卡号：" + cardUID + "\n").getBytes("gbk"));
-                                        list.add(("----------------------------"+ "\n").getBytes("gbk"));
-                                        list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
-                                        list.add(("----------------------------"+ "\n").getBytes("gbk"));
+
+                                        list.add(("--------------------------------" + "\n").getBytes("gbk"));
+                                        list.add(("      名称      " + "数量  " + "单位  " + "口味  " + "\n").getBytes("gbk"));
+                                        list.add(("--------------------------------"+ "\n").getBytes("gbk"));
                                         for (int i = 0; i <ar1.size(); i++) {
                                             String m_ogoodsCaption = (String) ar1.get(i).get("goodsCaption");
                                             String m_ogoodsNumber = (String) ar1.get(i).get("goodsNumber");
                                             String m_ogoodsUnitName = (String) ar1.get(i).get("goodsUnitName");
+                                            String m_otasteuids = (String)  ar1.get(i).get("tasteuids");
                                             if (m_ogoodsCaption.getBytes("GBK").length == 1) {
                                                 list.add(("      "+m_ogoodsCaption + "           ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             } else if (m_ogoodsCaption.getBytes("GBK").length == 2) {
                                                 list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if (m_ogoodsCaption.getBytes("GBK").length == 3) {
                                                 list.add(("      "+m_ogoodsCaption + "         ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             } else if(m_ogoodsCaption.getBytes("GBK").length == 4) {
                                                 list.add(("      "+m_ogoodsCaption + "        ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             } else if(m_ogoodsCaption.getBytes("GBK").length== 5) {
                                                 list.add(("      "+m_ogoodsCaption + "       ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if(m_ogoodsCaption.getBytes("GBK").length == 6) {
                                                 list.add(("      "+m_ogoodsCaption + "      ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if(m_ogoodsCaption.getBytes("GBK").length== 7) {
                                                 list.add(("      "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if(m_ogoodsCaption.getBytes("GBK").length == 8) {
                                                 list.add(("    "+m_ogoodsCaption + "      ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             } else if(m_ogoodsCaption.getBytes("GBK").length == 9) {
                                                 list.add(("    "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if(m_ogoodsCaption.getBytes("GBK").length == 10) {
                                                 list.add(("   "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if(m_ogoodsCaption.getBytes("GBK").length == 11) {
                                                 list.add(("    "+m_ogoodsCaption + "    ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }else if(m_ogoodsCaption.getBytes("GBK").length == 12) {
                                                 list.add(("  "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                                list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 13) {
+                                                list.add(("  "+m_ogoodsCaption + "    ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 14) {
+                                                list.add((" "+m_ogoodsCaption + "    ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 15) {
+                                                list.add((" "+m_ogoodsCaption + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 16) {
+                                                list.add((""+m_ogoodsCaption + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 17) {
+                                                list.add((""+m_ogoodsCaption + "  ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 18) {
+                                                list.add((""+m_ogoodsCaption + " ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }
                                         }
 
@@ -289,13 +334,14 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                         list.add(("单号：" + orderUID + "\n").getBytes("gbk"));
                                         list.add(("房号：" + roomSerialNo + "\n").getBytes("gbk"));
                                         list.add(("卡号：" + cardUID + "\n").getBytes("gbk"));
-                                        list.add(("----------------------------"+ "\n").getBytes("gbk"));
-                                        list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
-                                        list.add(("----------------------------"+ "\n").getBytes("gbk"));
+                                        list.add(("--------------------------------" + "\n").getBytes("gbk"));
+                                        list.add(("      名称      " + "数量  " + "单位  " + "口味  " + "\n").getBytes("gbk"));
+                                        list.add(("--------------------------------"+ "\n").getBytes("gbk"));
                                         for (int i = 0; i <ar1.size(); i++) {
                                             String m_ogoodsCaption = (String) ar1.get(i).get("goodsCaption");
                                             String m_ogoodsNumber = (String) ar1.get(i).get("goodsNumber");
                                             String m_ogoodsUnitName = (String) ar1.get(i).get("goodsUnitName");
+                                            String m_otasteuids = (String)  ar1.get(i).get("tasteuids");
                                             if (m_ogoodsCaption.getBytes("GBK").length == 1) {
                                                 list.add(("      "+m_ogoodsCaption + "           ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
@@ -344,6 +390,36 @@ public class GWareHouseOrderDetail extends Activity implements View.OnClickListe
                                                 list.add(("  "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                                 list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
                                                 list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 13) {
+                                                list.add(("  "+m_ogoodsCaption + "    ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 14) {
+                                                list.add((" "+m_ogoodsCaption + "    ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 15) {
+                                                list.add((" "+m_ogoodsCaption + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 16) {
+                                                list.add((""+m_ogoodsCaption + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 17) {
+                                                list.add((""+m_ogoodsCaption + "  ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
+                                            }else if(m_ogoodsCaption.getBytes("GBK").length == 18) {
+                                                list.add((""+m_ogoodsCaption + " ").getBytes("gbk"));
+                                                list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
+                                                list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                                list.add((m_otasteuids + "\n").getBytes("gbk"));
                                             }
                                         }
 
