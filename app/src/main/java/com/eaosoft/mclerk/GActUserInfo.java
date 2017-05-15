@@ -133,9 +133,15 @@ public class GActUserInfo extends  Activity
 			                    public void onClick(DialogInterface dialog, int which) 
 			                    {
 			                        dialog.dismiss();
+                                    MainActivity.m_oOperaterInfo.onUserLogout();
+                                    if(GOperaterInfo.m_strRoleID.equals("RStocker")){
+                                        finish();
+                                        GWareHouseMainActivity.mActivity.finish();
+                                    }else {
 
-			                        MainActivity.m_oOperaterInfo.onUserLogout();
-			    					MainActivity.m_oMsgHandler.sendEmptyMessage(MainActivity.FINISH_APP);			                        
+                                        MainActivity.m_oMsgHandler.sendEmptyMessage(MainActivity.FINISH_APP);
+                                    }
+
 			                    }
 			                });
 			       

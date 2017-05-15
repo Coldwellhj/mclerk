@@ -18,7 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.eaosoft.mclerk.GCashier_Search.mHandler_GCashier;
+//import static com.eaosoft.mclerk.GCashier_Search.mHandler_GCashier;
+import static com.eaosoft.mclerk.GCashier_Salse_Report.mHandler_GCashier;
 import static com.eaosoft.mclerk.GWareHouseMainActivity.mHandler;
 
 public class GHttpDAO
@@ -163,6 +164,8 @@ public class GHttpDAO
 							map.put("dateEnd", GUtilHttp.getJSONObjectValue("dateEnd",o) );
 							map.put("bkColor", GUtilHttp.getJSONObjectValue("bkColor",o) );
 							map.put("enabled", GUtilHttp.getJSONObjectValue("enabled",o) );
+							map.put("operaterName", GUtilHttp.getJSONObjectValue("operaterName",o) );
+							map.put("orderNo", GUtilHttp.getJSONObjectValue("orderNo",o) );
                             goodsList = o.getJSONArray("goodsList");
                             List<Map> ar1 = new ArrayList<Map>();
                             for(int j=0;j<goodsList.length();j++) {

@@ -125,7 +125,7 @@ public class MainActivity extends FragmentActivity {
     public static final int SCAN_CODE_CAED_CREATE = 0x04;//扫码建新卡
     public static final int USER_GROUP_CHANGE = 0x10;//更换门店
     //==============================================
-    public static String m_strDebugCardNo = "6921734953017";
+    public static String m_strDebugCardNo;
     public static boolean m_bDebugCardNo;
     public static int mSreenWidth;
     public static int mSreenHeight;

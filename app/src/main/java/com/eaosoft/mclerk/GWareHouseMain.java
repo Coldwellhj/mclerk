@@ -756,6 +756,7 @@ public class GWareHouseMain {
                             String m_oorderTime = (String) map.get("orderTime");
                             String m_osalseman = (String) map.get("userCaption");
 
+
                             list.add(("            "+GOperaterInfo.m_strGroupName + "\n").getBytes("gbk"));
                             list.add(("单号：" + orderNumber + "\n").getBytes("gbk"));
                             list.add(("房号：" + m_otxtRoomNo + "\n").getBytes("gbk"));
@@ -764,60 +765,73 @@ public class GWareHouseMain {
 //                            DataForSendToPrinterTSC.sizeBymm(60, 60);
 //                            DataForSendToPrinterTSC.bar(20, 40, 200, 3);
                             list.add(("----------------------------"+ "\n").getBytes("gbk"));
-                            list.add(("      名称      " + "数量  " + "单位  " + "\n").getBytes("gbk"));
+                            list.add(("      名称      " + "数量  " + "单位  " + "口味  " + "\n").getBytes("gbk"));
                             list.add(("----------------------------"+ "\n").getBytes("gbk"));
                             for (int i = 0; i <((List<Map>) map.get("ar1")).size(); i++) {
                                 String m_ogoodsCaption = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsCaption");
                                 String m_ogoodsNumber = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsNumber");
                                 String m_ogoodsUnitName = (String) ((List<Map>) map.get("ar1")).get(i).get("goodsUnitName");
+                                String m_otasteuids = (String) map.get("tasteuids");
                                 if (m_ogoodsCaption.getBytes("GBK").length == 1) {
                                     list.add(("      "+m_ogoodsCaption + "           ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 } else if (m_ogoodsCaption.getBytes("GBK").length == 2) {
                                     list.add(("      "+m_ogoodsCaption + "          ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if (m_ogoodsCaption.getBytes("GBK").length == 3) {
                                     list.add(("      "+m_ogoodsCaption + "         ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 } else if(m_ogoodsCaption.getBytes("GBK").length == 4) {
                                     list.add(("      "+m_ogoodsCaption + "        ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 } else if(m_ogoodsCaption.getBytes("GBK").length== 5) {
                                     list.add(("      "+m_ogoodsCaption + "       ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if(m_ogoodsCaption.getBytes("GBK").length == 6) {
                                     list.add(("      "+m_ogoodsCaption + "      ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if(m_ogoodsCaption.getBytes("GBK").length== 7) {
                                     list.add(("      "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if(m_ogoodsCaption.getBytes("GBK").length == 8) {
                                     list.add(("    "+m_ogoodsCaption + "      ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 } else if(m_ogoodsCaption.getBytes("GBK").length == 9) {
                                     list.add(("    "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if(m_ogoodsCaption.getBytes("GBK").length == 10) {
                                     list.add(("   "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if(m_ogoodsCaption.getBytes("GBK").length == 11) {
                                     list.add(("    "+m_ogoodsCaption + "    ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }else if(m_ogoodsCaption.getBytes("GBK").length == 12) {
                                     list.add(("  "+m_ogoodsCaption + "     ").getBytes("gbk"));
                                     list.add((m_ogoodsNumber + "   ").getBytes("gbk"));
-                                    list.add((m_ogoodsUnitName + "\n").getBytes("gbk"));
+                                    list.add((m_ogoodsUnitName + "   ").getBytes("gbk"));
+                                    list.add((m_otasteuids + "\n").getBytes("gbk"));
                                 }
                             }
                             list.add(("----------------------------"+ "\n").getBytes("gbk"));

@@ -15,6 +15,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/DifferentStoreSales.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardCreate.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardCreateOrder.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardGoodsChange.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardKindDetail.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActCardKindList.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GActGroupList.java" charset="GBK" />
@@ -25,6 +26,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GCashierMain.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GCashier_Package.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GCashier_Package_New.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GCashier_Salse_Report.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GCashier_Search.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GSalseMain.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/eaosoft/mclerk/GSalseMgr.java" charset="GBK" />

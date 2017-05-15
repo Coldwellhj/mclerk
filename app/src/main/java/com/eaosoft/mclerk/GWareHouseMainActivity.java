@@ -75,7 +75,7 @@ public class GWareHouseMainActivity extends Activity implements View.OnClickList
     private GHttpDAO m_oWareHouseDetailHistoryListDAO = null;
     public static Handler mHandler;
     private boolean Print_two_times=true;
-
+    public static Activity mActivity;
 
     private Runnable runnable = new Runnable() {
         public void run() {
@@ -114,6 +114,7 @@ public class GWareHouseMainActivity extends Activity implements View.OnClickList
         setContentView(R.layout.activity_gware_house_main);
         initView();
         initData();
+        mActivity = this;
         mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {

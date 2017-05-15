@@ -19,7 +19,6 @@ ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xm
 		ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
 ADDED from C:\Users\Administrator\Desktop\mclerk\app\src\main\AndroidManifest.xml:8:5-10:40
-MERGED from [com.android.support:multidex:1.0.1] C:\Users\Administrator\.android\build-cache\a16e29dfc26831a984fa0fe99e7f5831b895c44a\output\AndroidManifest.xml:18:5-42
 MERGED from [mclerk:libzxing:unspecified] C:\Users\Administrator\Desktop\mclerk\libzxing\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Administrator\.android\build-cache\1b4eb1a277adcb29afc94785ef71eac2ad94f0eb\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Administrator\.android\build-cache\c22c3b1331de59fd8f148d60c1c1b274bf6135e6\output\AndroidManifest.xml:21:5-23:54

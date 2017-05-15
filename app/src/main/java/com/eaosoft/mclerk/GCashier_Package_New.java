@@ -357,7 +357,7 @@ public class GCashier_Package_New extends Activity implements ListItemClickHelp{
         personal = (RoundImageView) findViewById(R.id.personal);
         lv_card_kind_goods = (ListView) findViewById(R.id.lv_card_kind_goods);
         tv_package_name = (EditText) findViewById(R.id.tv_package_name);
-        tv_package_operate = (TextView) findViewById(R.id.tv_package_operate);
+
         lv_card_kind_goods_detail = (ListView) findViewById(R.id.lv_card_kind_goods_detail);
         tv_package_all_price = (TextView) findViewById(R.id.tv_package_all_price);
         tv_package_time = (TextView) findViewById(R.id.tv_package_time);

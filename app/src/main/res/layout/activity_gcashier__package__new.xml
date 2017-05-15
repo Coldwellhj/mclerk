@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/lightgray"
+            android:layout_margin="10dp"
             android:layout_weight="3"
             android:orientation="vertical">
             <TextView
@@ -72,49 +73,106 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:orientation="vertical"
             android:layout_weight="1">
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/printbutton"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/tv_package_name"
-                android:layout_width="match_parent"
-                android:background="@color/printbutton"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/encode_view"
-                android:hint="套餐名称"
-                android:textColorHint="@color/viewfinder_laser"
-                android:singleLine="true"/>
-            <TextView
-                android:id="@+id/tv_package_all_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/encode_view"
-                android:text="金额"/>
-            <TextView
-                android:id="@+id/tv_package_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/encode_view"
-                android:gravity="center"
-                android:text="2030-12-31"/>
-            <TextView
-                android:id="@+id/tv_package_operate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/encode_view"
-                android:text="操作"/>
-        </LinearLayout>
+
+                android:orientation="horizontal">
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/printbutton"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/encode_view"
+                    android:text="套餐名称"/>
+                <EditText
+                    android:id="@+id/tv_package_name"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/tvborde"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:singleLine="true"/>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/printbutton"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/encode_view"
+                    android:text="金额"/>
+                <EditText
+                    android:id="@+id/tv_package_all_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tvborde"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:singleLine="true"
+
+                    />
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/printbutton"
+                    android:textColor="@color/encode_view"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:padding="5dp"
+                    android:text="有效期"/>
+                <EditText
+                    android:id="@+id/tv_package_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tvborde"
+                    android:layout_weight="1"
+
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="2030-12-31"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/printbutton"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/encode_view"
+                    android:text="编辑人"/>
+                <EditText
+                    android:id="@+id/tv_package_editor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tvborde"
+                    android:layout_weight="1"
+
+                    android:gravity="center"
+                    android:singleLine="true"
+                  />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

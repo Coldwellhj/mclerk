@@ -1,20 +1,5 @@
 package com.eaosoft.mclerk;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.eaosoft.adapter.GSpinnerAdapter;
-import com.eaosoft.userinfo.GOperaterInfo;
-import com.eaosoft.util.ActivityCollector;
-import com.eaosoft.util.GSvrChannel;
-import com.eaosoft.util.GUtilHttp;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -22,17 +7,30 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.LinearLayout.LayoutParams;
+
+import com.eaosoft.adapter.GSpinnerAdapter;
+import com.eaosoft.userinfo.GOperaterInfo;
+import com.eaosoft.util.ActivityCollector;
+import com.eaosoft.util.GSvrChannel;
+import com.eaosoft.util.GUtilHttp;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GActCardGoodsChange extends  Activity 
 {
@@ -46,6 +44,7 @@ public class GActCardGoodsChange extends  Activity
 	private String			m_strGoodsUnitName="";
 	private int				m_nGoodsTotalNum=1;
 	private int				m_nGoodsUserNum=0;
+	private int				m_nfromNum0=0;
 	private int				m_nFontSize=12;
 	//====================================================
 	private TextView 			m_txtHeaderCaption=null;
@@ -103,7 +102,7 @@ public class GActCardGoodsChange extends  Activity
 			strKey = "G"+m+"minImage";bundle.putString(strKey, map.get("minImage").toString());
 			strKey = "G"+m+"numStep";bundle.putInt(strKey, nStepNum);
 			strKey = "G"+m+"numTotal";bundle.putInt(strKey, nUserNum*nStepNum);
-			strKey = "G"+m+"numUser";bundle.putInt(strKey, nUserNum);
+			strKey = "G"+m+"numUser";bundle.putInt(strKey, nUserNum*Integer.parseInt(map.get("fromNum").toString()));
 			m++;
 		}
 		bundle.putInt("GoodsCount",m);
@@ -316,7 +315,7 @@ public class GActCardGoodsChange extends  Activity
   	    				 return;
   	            	int nStepNum = Integer.parseInt(map.get("numStep").toString());
   	            	String strUserNum = ""+(which*nStepNum);
-  	            	m_nGoodsUserNum += which;
+  	            	m_nGoodsUserNum += which*Integer.parseInt(map.get("fromNum").toString());
   	            	txtGoodsNum.setText(strUserNum);  	            	
   	            	map.put("numUser",""+which);
   	            	
@@ -401,6 +400,7 @@ public class GActCardGoodsChange extends  Activity
 							map.put("numTotal", GUtilHttp.getJSONObjectValue("numTotal",o) );
 							map.put("norImage", GUtilHttp.getJSONObjectValue("norImage",o) );
 							map.put("minImage", GUtilHttp.getJSONObjectValue("minImage",o) );
+							map.put("fromNum", GUtilHttp.getJSONObjectValue("fromNum",o) );
 							map.put("numUser", "0");//µ±Ç°¶Ò»»Á¿
 							m_oCardGoodsList.add(map);
 						}

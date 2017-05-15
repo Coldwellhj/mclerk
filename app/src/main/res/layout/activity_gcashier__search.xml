@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100px"
         android:orientation="horizontal">
 
         <TextView
@@ -40,61 +40,18 @@
 
     <com.eaosoft.view.RoundImageView
         android:id="@+id/personal"
-        android:layout_width="40px"
-        android:layout_height="40px"
+        android:layout_width="80px"
+        android:layout_height="80px"
         android:layout_alignParentRight="true"
         android:src="@drawable/user_icon"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/head"
-        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/card_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/printbutton_light"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="单卡查询"
-                android:textColor="@color/encode_view"
-                android:textSize="20sp"/>
 
-            <Button
-                android:id="@+id/sales_report"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/printbutton"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="销售报表"
-                android:textColor="@color/encode_view"
-                android:textSize="20sp"/>
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/encode_view">
 
             <RelativeLayout
                 android:id="@+id/rl_card_search"
+                android:layout_below="@+id/head"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
@@ -190,230 +147,7 @@
                 </WebView>
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/rl_sales_report"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="48dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/printbutton"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="卡号"
-                                    android:textColor="@color/encode_view"
-                                    android:textSize="18sp"/>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="时间"
-                                    android:textColor="@color/encode_view"
-                                    android:textSize="18sp"/>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="销售员"
-                                    android:textColor="@color/encode_view"
-                                    android:textSize="18sp"/>
 
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="金额"
-                                    android:textColor="@color/encode_view"
-                                    android:textSize="18sp"/>
 
-                            </LinearLayout>
-
-                            <ListView
-                                android:id="@+id/lv_sales"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                            </ListView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="4">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="开始日期"
-                                        android:textSize="18sp"/>
-
-                                    <TextView
-                                        android:id="@+id/dateTime"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:background="@drawable/tvborde"/>
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="结束日期"
-                                        android:textSize="18sp" />
-
-                                    <TextView
-                                        android:id="@+id/dateTime_end"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_marginRight="10dp"
-                                        android:background="@drawable/tvborde" />
-                                </LinearLayout>
-                                <Button
-                                    android:id="@+id/statistics_search"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="1"
-                                    android:background="@color/printbutton"
-                                    android:text="查找订单"
-                                    android:textColor="@color/encode_view"
-                                    android:textSize="18sp"/>
-                                <!--<Button-->
-                                    <!--android:id="@+id/connectBlueTooth"-->
-                                    <!--android:layout_width="match_parent"-->
-                                    <!--android:layout_height="30dp"-->
-                                    <!--android:layout_marginLeft="10dp"-->
-                                    <!--android:layout_marginRight="10dp"-->
-                                    <!--android:layout_marginTop="20dp"-->
-                                    <!--android:layout_weight="1"-->
-                                    <!--android:background="@color/xyColor"-->
-                                    <!--android:text="点击连接蓝牙"-->
-                                    <!--android:textColor="@color/encode_view"-->
-                                    <!--android:textSize="18sp"/>-->
-                                <!--<Button-->
-                                    <!--android:id="@+id/Connect"-->
-                                    <!--android:layout_width="match_parent"-->
-                                    <!--android:layout_height="30dp"-->
-                                    <!--android:layout_marginLeft="10dp"-->
-                                    <!--android:layout_marginRight="10dp"-->
-                                    <!--android:layout_marginTop="20dp"-->
-                                    <!--android:layout_weight="1"-->
-                                    <!--android:background="@color/printbutton"-->
-                                    <!--android:text="连接"-->
-                                    <!--android:textColor="@color/encode_view"-->
-                                    <!--android:textSize="18sp"/>-->
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:layout_alignParentBottom="true">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_weight="1"
-                        android:text="合计:"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:text="数量"/>
-                    <TextView
-                        android:id="@+id/number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:text=""/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:text="总金额"/>
-                    <TextView
-                        android:id="@+id/allPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:text=""/>
-                    <Button
-                        android:id="@+id/print_sales"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:background="@color/printbutton"
-                        android:textColor="@color/encode_view"
-                        android:textSize="20sp"
-                        android:text="打印"/>
-                </LinearLayout>
-            </RelativeLayout>
-        </FrameLayout>
-    </LinearLayout>
 </RelativeLayout>

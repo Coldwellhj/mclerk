@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:text="序号"/>
         <TextView
             android:id="@+id/packageName"
@@ -23,34 +24,29 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:text="套餐名称"/>
-        <TextView
-            android:id="@+id/drinksName"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="酒水名称"/>
-        <TextView
-            android:id="@+id/unit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="单位"/>
-        <TextView
-            android:id="@+id/number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="数量"/>
+            android:layout_weight="0.8"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lv_card_kind_goods_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ListView>
+        </LinearLayout>
+
         <TextView
             android:id="@+id/money"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:text="金额"/>
         <TextView
             android:id="@+id/editor"
@@ -58,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:text="编辑人"/>
         <Button
             android:id="@+id/btn_kind_enable"
@@ -67,9 +64,9 @@
             android:layout_weight="1"
             android:text="禁用"
             android:textColor="@color/encode_view"
-            android:onClick="onEnableCardKind1"
+
             android:focusable="false"
-            android:background="@drawable/printbutton"
+            android:background="@drawable/spborde"
             />
         <Button
             android:id="@+id/btn_kind_modify"
@@ -81,7 +78,7 @@
             android:textColor="@color/encode_view"
 
             android:focusable="false"
-            android:background="@drawable/printbutton"
+            android:background="@drawable/spborde"
             />
         <Button
             android:id="@+id/btn_kind_delete"
@@ -91,8 +88,8 @@
             android:textColor="@color/encode_view"
             android:layout_weight="1"
             android:text="删除"
-            android:background="@drawable/printbutton"
-            android:onClick="onDeleteCardKind1"
+            android:background="@drawable/spborde"
+
             android:focusable="false"
             />
     </LinearLayout>

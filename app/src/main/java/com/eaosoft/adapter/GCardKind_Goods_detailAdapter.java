@@ -82,7 +82,7 @@ public class GCardKind_Goods_detailAdapter extends GBaseAdapter
 
                         holder.tv_goodsNum.setText(""+nNum);
                         map.put("num", ""+nNum);
-                        callback.onReadTotalMoney();
+//                        callback.onReadTotalMoney();
                     }
                 });
                 builder.show();
